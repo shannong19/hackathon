@@ -11,16 +11,8 @@ vars <- c(
 )
 
 
-shinyUI(navbarPage("SPEW View", id="nav",
+shinyUI(navbarPage("Superzip", id="nav",
 
-  tabPanel("Menu",
-           h1("Welcome to SPEW View!", style="color: #ad1d28")
-           ),
-
-  tabPanel("Modelling",
-           h1("Let's fit a model.")
-           ),
-                   
   tabPanel("Interactive map",
     div(class="outer",
 
@@ -86,4 +78,3 @@ shinyUI(navbarPage("SPEW View", id="nav",
 
   conditionalPanel("false", icon("crosshair"))
 ))
-
