@@ -1,3 +1,24 @@
+@import url('//fonts.googleapis.com/css?family=Tangerine:bold,bolditalic|Inconsolata:italic|Droid+Sans')
+
+body{
+    font-family: 'Helvetica Neue', Helvetica;
+  font-weight: bold;
+  font-size: 24px;
+}
+
+.main-header .logo {
+    font-family: 'Tangerine', serif;
+  font-weight: bold;
+  font-size: 24px;
+}
+
+/* body { */
+/*      font-family: 'Helvetica', sans serif; */
+/*   font-weight: bold; */
+/*   font-size: 16; */
+/* } */
+
+
 input[type="number"] {
   max-width: 80%;
 }
