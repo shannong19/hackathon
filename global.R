@@ -5,6 +5,7 @@ library(leaflet)
 library(dplyr)
 library(maptools)
 library(ggplot2)
+library(reshape2)
 
 # Choices for drop down menu's 
 vars <- c(
@@ -44,6 +45,6 @@ center_df$region <- usa_shape$NAME_1
 mat <- data.matrix(center_df[,1:2])
 
 state_dist <- apply(mat, 1, function(x) {
-    apply(mat, 1, function(y) sqrt(sum(x-y)^2)))
+    apply(mat, 1, function(y) sqrt(sum(x-y)^2))
 })
     

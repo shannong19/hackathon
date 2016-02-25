@@ -45,13 +45,8 @@ server <- function(input, output) {
     paste0("You have selected Location: ", input$location, " Disease: ", input$disease, 
            " and Time Period ", input$time)
   })
-<<<<<<< HEAD
 
-
- 
-=======
->>>>>>> a5e465bf60d3a814a58a6e7ea3946717c919db5e
-  
+   
   output$disease_ts <- renderPlot({
     # Subset the disease and obtain the location and 
     # time indices 
@@ -69,17 +64,14 @@ server <- function(input, output) {
          main = title, xlab = "Time", ylab = "Count per 100,000", 
          xlim = c(start_time, end_time))
   })
-<<<<<<< HEAD
 
-
-
-    output$avail_locs <- renderUI({
-        disease_index <- which(names(x = diseases) == input$diseaseds)
-        current_disease <- diseases[[disease_index]]    
-        avail_locs <- as.list(colnames(current_disease))
-        selectInput("avail_locs", "Location 2", avail_locs)
-        disease_name <- names(diseases)[disease_index]
-      })  
+#   output$avail_locs <- renderUI({
+#       disease_index <- which(names(x = diseases) == input$diseaseds)
+#       current_disease <- diseases[[disease_index]]    
+#       avail_locs <- as.list(colnames(current_disease))
+#       selectInput("avail_locs", "Location 2", avail_locs)
+#       disease_name <- names(diseases)[disease_index]
+#     })  
 
     output$radiods <- renderUI({
         TRUE
@@ -102,7 +94,6 @@ server <- function(input, output) {
         melt_names <- nms[!(nms %in% c("YEAR", "WEEK", "date"))]
         mat <- data.matrix(df[, -c(1,2, ncol(df))])
         cormat <- cor(mat, use="pairwise.complete.obs", method="spearman")
-       # print(cormat)
         melted_cormat <- melt(cormat)
         
         g <- ggplot(data = melted_cormat, aes(x=Var1, y=Var2, fill=value)) + geom_tile(color="white") +
@@ -117,9 +108,4 @@ server <- function(input, output) {
             coord_fixed() + ggtitle(disease_name)
         print(g)
     })
-  
-  
-  
-=======
->>>>>>> a5e465bf60d3a814a58a6e7ea3946717c919db5e
 }
