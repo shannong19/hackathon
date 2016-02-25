@@ -92,18 +92,20 @@ dashboardPage(skin="yellow",
       ##############################################################3
       tabItem(tabName = "ds",
               fluidRow(
-    box(title = "Correlation Plot", 
-        plotOutput("plot1"), width=8
+    box(title = "Correlation",  width=9, status="warning", solidHeader=TRUE,
+        plotOutput("cor", height=800)
         ),
-    box(status = "warning", width=4,
-         selectInput("disease", label = h3("Disease"), 
-                              choices = disease_names),
-        uiOutput('avail_locs'), 
-        selectInput("location", label = h3("Location"), 
-                    choices = list("Choice 1" = 1, "Choice 2" = 2,
-                                   "Choice 3" = 3), selected = 1), 
-        sliderInput("time", label = h3("Time (Years)"),
-                    min = 0, max = 100, value = 50)
+    box(status = "primary", width=3,
+          radioButtons("radiods", label=h3("Choose primary view"),
+                    choices = list("States' Incidence" = 1, "Distance and Incidence" = 2)),
+         selectInput("diseaseds", label = h3("Disease"), 
+                              choices = disease_names, selected="MEASLES"),
+        uiOutput('avail_locs2'), 
+        dateRangeInput("timeds", label = h3("Time Range"),
+                       min="1866-01-01",
+                       max = "2011-12-31",
+                       start ="1920-01-01",
+                       end = "1930-12-31")
         )
   ),
 
