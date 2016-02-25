@@ -94,10 +94,7 @@ dashboardPage(skin="yellow",
                 box(
                   selectInput("disease", label = h3("Disease"), 
                               choices = disease_names),
-                  uiOutput('avail_locs'), 
-                  selectInput("location", label = h3("Location"), 
-                              choices = list("Choice 1" = 1, "Choice 2" = 2,
-                                             "Choice 3" = 3), selected = 1), 
+                  uiOutput("avail_locs"), 
                   sliderInput("time", label = h3("Time (Years)"),
                             min = 0, max = 100, value = 50), 
                   width = 3
