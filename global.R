@@ -40,6 +40,7 @@ disease_names <- as.list(names(diseases))
 center_df <- as.data.frame(coordinates(usa_shape))
 names(center_df) <- c("Longitude", "Latitude")
 center_df$region <- usa_shape$NAME_1
+center_df <- center_df[-2,] #there were two alaskas
 
 # combine lat/long with
 mat <- data.matrix(center_df[,1:2])
