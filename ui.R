@@ -1,16 +1,4 @@
-library(shiny)
-library(shinydashboard)
-library(leaflet)
-library(dplyr)
-
-# Choices for drop down menu's 
-vars <- c(
-  "Is SuperZIP?" = "superzip",
-  "Centile score" = "centile",
-  "College education" = "college",
-  "Median income" = "income",
-  "Population" = "adultpop"
-)
+source("global.R")
 
 # Title and Dashboard -------------------------------------
 

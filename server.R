@@ -1,4 +1,4 @@
-disease_list <- load("data/disease_list.Rda")
+source("global.R")
 
 server <- function(input, output) {
   
