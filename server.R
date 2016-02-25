@@ -56,7 +56,7 @@ server <- function(input, output) {
       })  
 
     output$radiods <- renderUI({
-
+        TRUE
     })
 
     
