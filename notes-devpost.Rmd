@@ -1,0 +1,30 @@
+---
+title: "hackathon_notes"
+author: "Lee Richardson"
+date: "02/24/2016"
+output: html_document
+---
+
+# Notes on Reading 
+Goals: Create novel + innovative applications which:  
+  1. Increase the use in public health response and awareness
+  2. Increase public health data access
+  3. Increase understanding of complex public health systems 
+
+- Small teams of developers will compete to create prototype mobile, web-based or stand-alone visualization applications
+
+The application must be visualization focused.  This may include, but not limited to, techniques such as:
+1. geographic spatial and temporal mapping
+2. network graph visualizations
+3. data information visualiz
+
+The application should be interactive, allowing users to manipulate toggles and input to dynamically explore the data.
+
+Judging criteria: 
+1. Innovation:  How novel is your visualization application or approach? Does it present the public health data in new ways?
+
+2. Quality: Does the application work as intended? Is the software easy to get up and running? How bug-free is the software? Given the short timeframe we do not expect well-polished software. Judging will be relative to other submissions
+
+3. Usability: How easy is it to use the application? How easy does the application make navigating the data? Is the presentation intuitive and understandable by a wide audience?
+
+4. Impact: What is the potential for this application to impact public health awareness, response, and practice?

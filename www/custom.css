@@ -12,13 +12,6 @@ body{
   font-size: 24px;
 }
 
-/* body { */
-/*      font-family: 'Helvetica', sans serif; */
-/*   font-weight: bold; */
-/*   font-size: 16; */
-/* } */
-
-
 input[type="number"] {
   max-width: 80%;
 }
