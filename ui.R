@@ -11,7 +11,7 @@ dashboardPage(skin="yellow",
     sidebarMenu(
       menuItem("Home", tabName = "home", icon = icon("dashboard")),
       menuItem("Explore Time Series", tabName = "timeseries", icon = icon("th")),
-      menuItem("Data Summary", tabName = "ds", icon = icon("th")),
+      menuItem("Summary Data", tabName = "ds", icon = icon("th")),
       menuItem("Map", tabName="map", icon=icon("map"))
     )
   ),
@@ -90,20 +90,20 @@ dashboardPage(skin="yellow",
 
       tabItem(tabName = "ds",
               fluidRow(
-    box(title = "Correlation",  width=9, status="warning", solidHeader=TRUE,
+    box(title = "Correlation Plots",  width=9, status="warning", solidHeader=TRUE,
         plotOutput("cor", height=800)
         ),
     box(status = "primary", width=3,
           radioButtons("radiods", label=h3("Choose primary view"),
                     choices = list("States' Incidence" = 1, "Distance and Incidence" = 2)),
          selectInput("diseaseds", label = h3("Disease"), 
-                              choices = disease_names, selected="MEASLES"),
+                              choices = disease_names, selected="POLIO"),
         uiOutput('avail_locs2'), 
         dateRangeInput("timeds", label = h3("Time Range"),
-                       min="1866-01-01",
-                       max = "2011-12-31",
-                       start ="1920-01-01",
-                       end = "1930-12-31")
+                       min="1860-01-01",
+                       max = "2015-12-31",
+                       start ="1860-01-01",
+                       end = "2015-12-31")
         )
   ),
 

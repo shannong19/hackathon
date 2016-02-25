@@ -45,12 +45,7 @@ server <- function(input, output) {
     paste0("You have selected Location: ", input$location, " Disease: ", input$disease, 
            " and Time Period ", input$time)
   })
-<<<<<<< HEAD
 
-
- 
-=======
->>>>>>> a5e465bf60d3a814a58a6e7ea3946717c919db5e
   
   output$disease_ts <- renderPlot({
     # Subset the disease and obtain the location and 
@@ -69,8 +64,17 @@ server <- function(input, output) {
          main = title, xlab = "Time", ylab = "Count per 100,000", 
          xlim = c(start_time, end_time))
   })
-<<<<<<< HEAD
 
+
+    output$timeds <- renderUI({
+    disease_index <- which(names(x = diseases) == input$disease)  
+    current_disease <- diseases[[disease_index]]    
+    dates <- current_disease$date     
+    dateRangeInput("timeds", 
+                   label = h3("Date Range"), 
+                   start = min(dates), 
+                   end = max(dates))    
+  })
 
 
     output$avail_locs <- renderUI({
@@ -81,9 +85,7 @@ server <- function(input, output) {
         disease_name <- names(diseases)[disease_index]
       })  
 
-    output$radiods <- renderUI({
-        TRUE
-    })
+
 
     
 
@@ -94,32 +96,50 @@ server <- function(input, output) {
         df <- diseases[[disease_name]]
         #subset df to proper time range
         print(input$timeds)
-        subset(df, df$date >= input$timeds[1] & df$date <= input$timeds[2])
+        df <- subset(df, df$date >= input$timeds[1] & df$date <= input$timeds[2])      
         print(head(df))
         print(tail(df))
-        
-        nms <- colnames(df)
-        melt_names <- nms[!(nms %in% c("YEAR", "WEEK", "date"))]
-        mat <- data.matrix(df[, -c(1,2, ncol(df))])
-        cormat <- cor(mat, use="pairwise.complete.obs", method="spearman")
+
+           
+            nms <- colnames(df)
+            mat <- data.matrix(df[, -c(1,2, ncol(df))])
+            cormat <- cor(mat, use="pairwise.complete.obs", method="spearman")
        # print(cormat)
-        melted_cormat <- melt(cormat)
+            melted_cormat <- melt(cormat)
+
+               #distance and incidence
+        if (input$radiods == 2){
+            if (input$diseaseds == "DIPHTHERIA"){
+                plot(1,1, main="Under Construction")
+            } else {
+                cors <- as.vector((cormat))
+                dist <- as.vector(t(state_dist))
+               # plot(dist, cors)
+               my_df <- data.frame(dist=dist, cors=cors)
+                p <- ggplot(my_df, aes(dist, cors)) + geom_point(colour="gold", size=2) +
+                    geom_smooth(level=.999, colour="blue", fill="blue")+ ggtitle(disease_name) +
+                     labs(x="Distance (Scaled)", y="Correlation") +
+                    theme_minimal()  
+                print(p)
+            }
+            
+
+        } else{
         
-        g <- ggplot(data = melted_cormat, aes(x=Var1, y=Var2, fill=value)) + geom_tile(color="white") +
-            scale_fill_gradient2(low = "blue", high = "red", mid = "white", 
+            g <- ggplot(data = melted_cormat, aes(x=Var1, y=Var2, fill=value)) + geom_tile(color="white") +
+                scale_fill_gradient2(low = "blue", high = "red", mid = "white", 
                                  midpoint = 0, limit = c(-1,1), space = "Lab", 
                                  name="Spearman\nCorrelation") +
-            theme_minimal()+ 
-            theme(axis.text.x = element_text(angle = 90, vjust = 1, 
-                                             size = 8, hjust = 1),
-                  axis.title.x=element_blank(),
-                  axis.title.y=element_blank())+
-            coord_fixed() + ggtitle(disease_name)
-        print(g)
+                theme_minimal()+ 
+                theme(axis.text.x = element_text(angle = 90, vjust = 1, 
+                                                 size = 8, hjust = 1),
+                      axis.title.x=element_blank(),
+                      axis.title.y=element_blank())+
+                coord_fixed() + ggtitle(disease_name)
+            print(g)
+        }
     })
   
   
   
-=======
->>>>>>> a5e465bf60d3a814a58a6e7ea3946717c919db5e
 }

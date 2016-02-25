@@ -5,6 +5,7 @@ library(leaflet)
 library(dplyr)
 library(maptools)
 library(ggplot2)
+library(reshape2)
 
 # Choices for drop down menu's 
 vars <- c(
@@ -39,11 +40,12 @@ disease_names <- as.list(names(diseases))
 center_df <- as.data.frame(coordinates(usa_shape))
 names(center_df) <- c("Longitude", "Latitude")
 center_df$region <- usa_shape$NAME_1
+center_df <- center_df[-2,] #there were two alaskas
 
 # combine lat/long with
 mat <- data.matrix(center_df[,1:2])
 
 state_dist <- apply(mat, 1, function(x) {
-    apply(mat, 1, function(y) sqrt(sum(x-y)^2)))
+    apply(mat, 1, function(y) sqrt(sum(x-y)^2))
 })
     
