@@ -39,7 +39,7 @@ dashboardPage(skin="yellow",
     tabItems(
     
     # Dashboard Tab 
-    tabItem(tabName = "dashboard",
+    tabItem(tabName = "Home",
             fluidRow(
               box(plotOutput("plot1", height = 250)),
               
@@ -49,12 +49,7 @@ dashboardPage(skin="yellow",
               )
             )
     ),
-    
-    # Widgets Tab 
-    tabItem(tabName = "widgets",
-      h2("Widgets tab content")
-    ),
-  
+      
     # Mapping tab  
     tabItem(tabName = "map",
         fluidRow(
@@ -108,8 +103,8 @@ dashboardPage(skin="yellow",
       tabItem(tabName = "timeseries",
               h1("Time Series Tab"), 
               fluidRow(
-                 textInput("state", label = h3("State"), 
-                          value = "Enter text..."), 
+                 textInput("state", label = h3("Location"), 
+                          value = ""), 
                  selectInput("disease", label = h3("Disease"), 
                              choices = list("Choice 1" = 1, "Choice 2" = 2,
                                             "Choice 3" = 3), selected = 1),
@@ -117,7 +112,10 @@ dashboardPage(skin="yellow",
                             min = 0, max = 100, value = 50)
                 ), 
               
-                textOutput("text1")
+              fluidRow(
+                textOutput("text1"), 
+                plotOutput("disease_ts")
+                )
               )
     )
   )

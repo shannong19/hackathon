@@ -1,3 +1,5 @@
+disease_list <- load("data/disease_list.Rda")
+
 server <- function(input, output) {
   
   # Histogram Output 
@@ -21,7 +23,7 @@ server <- function(input, output) {
   })  
 
   output$text1 <- renderText({
-    paste0("You have selected Disease", input$disease)
+    paste0("You have selected Disease: ", input$disease)
   })
-
+  
 }
