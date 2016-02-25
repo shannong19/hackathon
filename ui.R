@@ -14,7 +14,7 @@ vars <- c(
 
 # Title and Dashboard -------------------------------------
 
-# Theme and name of the Shiny app
+# Header for the SHiny App 
 dashboardPage(skin="yellow",
   dashboardHeader(title = "SPEW VIEW"),
 
@@ -36,20 +36,20 @@ dashboardPage(skin="yellow",
         tags$link(rel = "stylesheet", type="text/css", href = "custom.css")
         ),
     
-    tabItems(... = 
+    tabItems(
     
     # Dashboard Tab 
     tabItem(tabName = "dashboard",
-      fluidRow(
-        box(plotOutput("plot1", height = 250)),
-  
-        box(
-          title = "Controls",
-          sliderInput("slider", "Number of observations:", 1, 100, 50)
-        )
-      )
+            fluidRow(
+              box(plotOutput("plot1", height = 250)),
+              
+              box(
+                title = "Controls",
+                sliderInput("slider", "Number of observations:", 1, 100, 50)
+              )
+            )
     ),
-  
+    
     # Widgets Tab 
     tabItem(tabName = "widgets",
       h2("Widgets tab content")
@@ -106,8 +106,19 @@ dashboardPage(skin="yellow",
           
       # Time series explore content 
       tabItem(tabName = "timeseries",
-              h1("Time Series Tab")
-      )
+              h1("Time Series Tab"), 
+              fluidRow(
+                 textInput("state", label = h3("State"), 
+                          value = "Enter text..."), 
+                 selectInput("disease", label = h3("Disease"), 
+                             choices = list("Choice 1" = 1, "Choice 2" = 2,
+                                            "Choice 3" = 3), selected = 1),
+                 sliderInput("time", label = h3("Time (Years)"),
+                            min = 0, max = 100, value = 50)
+                ), 
+              
+                textOutput("text1")
+              )
     )
   )
 )

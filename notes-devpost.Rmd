@@ -28,3 +28,8 @@ Judging criteria:
 3. Usability: How easy is it to use the application? How easy does the application make navigating the data? Is the presentation intuitive and understandable by a wide audience?
 
 4. Impact: What is the potential for this application to impact public health awareness, response, and practice?
+
+# Project Tycho
+This is a project to advance the availability and use of pubic health data. Namely, by collecting and integrating weekly data across a variety of sources. Put on mainly by the epidimiology deprtment at UPitt!
+
+
