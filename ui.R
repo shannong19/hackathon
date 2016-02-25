@@ -13,7 +13,6 @@ dashboardPage(skin="yellow",
       menuItem("Explore Time Series", tabName = "timeseries", icon = icon("th")),
       menuItem("Data Summary", tabName = "ds", icon = icon("th")),
       menuItem("Map", tabName="map", icon=icon("map"))
- 
     )
   ),
   
@@ -89,7 +88,6 @@ dashboardPage(skin="yellow",
       ),
 
 
-      ##############################################################3
       tabItem(tabName = "ds",
               fluidRow(
     box(title = "Correlation",  width=9, status="warning", solidHeader=TRUE,
@@ -142,32 +140,26 @@ dashboardPage(skin="yellow",
       "A box with a solid maroon background"
     )
   )
-
-              ),
+  ),
     
-      ##################################################33    
-      # Time series explore content 
-      tabItem(tabName = "timeseries",
-              h1("Time Series Tab"), 
-              fluidRow(
-                box(
-                  selectInput("disease", label = h3("Disease"), 
-                              choices = disease_names),
-                  uiOutput('avail_locs'), 
-                  selectInput("location", label = h3("Location"), 
-                              choices = list("Choice 1" = 1, "Choice 2" = 2,
-                                             "Choice 3" = 3), selected = 1), 
-                  sliderInput("time", label = h3("Time (Years)"),
-                            min = 0, max = 100, value = 50), 
-                  width = 3
-                ), 
-                box(
-                  textOutput("text1"), 
-                  plotOutput("disease_ts"), 
-                  width = 8 
-                  )
+  # Time series Tab -----------------    
+  tabItem(tabName = "timeseries",
+          h1("Time Series Tab"), 
+          fluidRow(
+            box(
+              selectInput("disease", label = h3("Disease"), 
+                          choices = disease_names),
+              uiOutput("avail_locs"), 
+              uiOutput("avail_years"),  
+              width = 3
+            ), 
+            box(
+              textOutput("text1"), 
+              plotOutput("disease_ts", height = 650), 
+              width = 8 
               )
-            )
+          )
+        )
     )
   )
 )
