@@ -1,5 +1,6 @@
 source("global.R")
 
+
 server <- function(input, output) {
   
   # Histogram Output 
@@ -25,5 +26,14 @@ server <- function(input, output) {
   output$text1 <- renderText({
     paste0("You have selected Disease: ", input$disease)
   })
+
+
+    # Space time plot
+    disease_name <- "HEPATITIS"
+    df <- df[disease_list]
+
+    output$spacetime <- renderPlot({
+        hist(histdata)
+    })
   
 }
