@@ -41,7 +41,7 @@ server <- function(input, output) {
 
     output$cor<- renderPlot({
         plot(1,1)
-     ##       # correlation
+    ##       # correlation
     ## disease_name <- "HEPATITIS"
     ## df <- disease[disease_name]
     ## nms <- colnames(df)
