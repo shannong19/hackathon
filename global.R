@@ -18,3 +18,6 @@ vars <- c(
 load(file = "data/disease_list.Rda")
 city_lookup <- read.csv("data/city_table.csv", stringsAsFactors = FALSE)
 usa_shape <- readShapeSpatial(fn = "data/USA_adm_shp/USA_adm1.shp")
+    
+# Names for the lookup table 
+disease_names <- as.list(names(diseases))

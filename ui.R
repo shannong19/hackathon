@@ -91,20 +91,24 @@ dashboardPage(skin="yellow",
       tabItem(tabName = "timeseries",
               h1("Time Series Tab"), 
               fluidRow(
-                 textInput("state", label = h3("Location"), 
-                          value = ""), 
-                 selectInput("disease", label = h3("Disease"), 
-                             choices = list("Choice 1" = 1, "Choice 2" = 2,
-                                            "Choice 3" = 3), selected = 1),
-                 sliderInput("time", label = h3("Time (Years)"),
-                            min = 0, max = 100, value = 50)
+                box(
+                  selectInput("disease", label = h3("Disease"), 
+                              choices = disease_names),
+                  uiOutput('avail_locs'), 
+                  selectInput("location", label = h3("Location"), 
+                              choices = list("Choice 1" = 1, "Choice 2" = 2,
+                                             "Choice 3" = 3), selected = 1), 
+                  sliderInput("time", label = h3("Time (Years)"),
+                            min = 0, max = 100, value = 50), 
+                  width = 3
                 ), 
-              
-              fluidRow(
-                textOutput("text1"), 
-                plotOutput("disease_ts")
-                )
+                box(
+                  textOutput("text1"), 
+                  plotOutput("disease_ts"), 
+                  width = 8 
+                  )
               )
+            )
     )
   )
 )
