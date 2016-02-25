@@ -9,10 +9,11 @@ dashboardPage(skin="yellow",
   # Set up the side-bar for the Dashboard 
   dashboardSidebar(
     sidebarMenu(
-      menuItem("Dashboard", tabName = "dashboard", icon = icon("dashboard")),
-      menuItem("Widgets", tabName = "widgets", icon = icon("th")),
-      menuItem("Map", tabName="map", icon=icon("map")), 
-      menuItem("Explore Time Series", tabName = "timeseries", icon = icon("th"))
+      menuItem("Home", tabName = "home", icon = icon("dashboard")),
+      menuItem("Explore Time Series", tabName = "timeseries", icon = icon("th")),
+      menuItem("Data Summary", tabName = "ds", icon = icon("th")),
+      menuItem("Map", tabName="map", icon=icon("map"))
+ 
     )
   ),
   
@@ -85,8 +86,55 @@ dashboardPage(skin="yellow",
                      )
                   )           
         )
-      ), 
-          
+      ),
+
+
+      ##############################################################3
+      tabItem(tabName = "ds",
+              fluidRow(
+    box(title = "Data Over Time", "Box content",
+        plotOutput("spacetime", height=300)
+        ),
+    box(status = "warning", "Box content")
+  ),
+
+  fluidRow(
+    box(
+       width = 4, solidHeader = TRUE, status = "primary", title="Data View",
+         
+                                        # Copy the line below to make a set of radio buttons
+       radioButtons("radio", label="Choose primary view",
+                    choices = list("Location" = 1, "Disease" = 2), 
+                    selected = 1)
+    ),
+    box(
+      title = "Title 2", width = 4, solidHeader = TRUE,
+      "Box content"
+    ),
+    box(
+      title = "Title 1", width = 4, solidHeader = TRUE, status = "warning",
+      "Box content"
+    )
+  ),
+
+  fluidRow(
+    box(
+      width = 4, background = "black",
+      "A box with a solid black background"
+    ),
+    box(
+      title = "Title 5", width = 4, background = "light-blue",
+      "A box with a solid light-blue background"
+    ),
+    box(
+      title = "Title 6",width = 4, background = "maroon",
+      "A box with a solid maroon background"
+    )
+  )
+
+              ),
+    
+      ##################################################33    
       # Time series explore content 
       tabItem(tabName = "timeseries",
               h1("Time Series Tab"), 

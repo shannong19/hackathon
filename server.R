@@ -1,5 +1,6 @@
 source("global.R")
 
+
 server <- function(input, output) {
   
   # Histogram Output 
@@ -39,6 +40,15 @@ server <- function(input, output) {
     paste0("You have selected Location: ", input$location, " Disease: ", input$disease, 
            " and Time Period ", input$time)
   })
+
+
+    # Space time plot
+    disease_name <- "HEPATITIS"
+    df <- df[disease_list]
+
+    output$spacetime <- renderPlot({
+        hist(histdata)
+    })
   
   output$disease_ts <- renderPlot({
     disease_index <- which(names(x = diseases) == input$disease)
