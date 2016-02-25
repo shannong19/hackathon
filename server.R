@@ -1,6 +1,5 @@
 source("global.R")
 
-
 server <- function(input, output) {
   
   # Histogram Output 
@@ -26,13 +25,19 @@ server <- function(input, output) {
   output$avail_locs <- renderUI({
     disease_index <- which(names(x = diseases) == input$disease)
     current_disease <- diseases[[disease_index]]    
-    location_names <- colnames(current_disease)[3:ncol(current_disease)]
+    location_names <- colnames(current_disease)[3:(ncol(current_disease) - 1)]
     avail_locs <- as.list(location_names)
     selectInput("avail_locs", h3("Location"), avail_locs)
   })  
     
   output$avail_years <- renderUI({
-      
+    disease_index <- which(names(x = diseases) == input$disease)  
+    current_disease <- diseases[[disease_index]]    
+    dates <- current_disease$date     
+    dateRangeInput("avail_years", 
+                   label = h3("Date Range"), 
+                   start = dates[1], 
+                   end = dates[nrow(current_disease)])    
   })
   
   # Display the results of the selection 
@@ -40,20 +45,22 @@ server <- function(input, output) {
     paste0("You have selected Location: ", input$location, " Disease: ", input$disease, 
            " and Time Period ", input$time)
   })
-
-
-    # Space time plot
-    disease_name <- "HEPATITIS"
-    df <- df[disease_list]
-
-    output$spacetime <- renderPlot({
-        hist(histdata)
-    })
   
   output$disease_ts <- renderPlot({
+    # Subset the disease and obtain the location and 
+    # time indices 
     disease_index <- which(names(x = diseases) == input$disease)
     current_disease <- diseases[[disease_index]]
     location_index <- which(colnames(current_disease) == input$avail_locs)
-    plot(as.numeric(current_disease$YEAR), as.numeric(current_disease[, location_index]))
+    
+    # Plot the time series plot 
+    print(str(input$avail_years))
+    start_time <- input$avail_years[1] - 5
+    end_time <- input$avail_years[2] + 5
+    print(c(start_time, end_time))
+    title <- paste0(input$disease, " In ", input$avail_locs)
+    plot(current_disease$date, as.numeric(current_disease[, location_index]), 
+         main = title, xlab = "Time", ylab = "Count per 100,000", 
+         xlim = c(start_time, end_time))
   })
 }
