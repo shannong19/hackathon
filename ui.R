@@ -10,7 +10,7 @@ dashboardPage(skin="yellow",
   dashboardSidebar(
     sidebarMenu(
       menuItem("Home", tabName = "home", icon = icon("dashboard")),
-      menuItem("Explore Time Series", tabName = "timeseries", icon = icon("th")),
+      menuItem("Explore Time Series", tabName = "timeseries", icon = icon("th"), selected=TRUE),
       menuItem("Summary Data", tabName = "ds", icon = icon("th")),
       menuItem("Map", tabName="map", icon=icon("map")),
       menuItem("Animations", tabName = "chloropleth", icon = icon("th"))
@@ -27,17 +27,7 @@ dashboardPage(skin="yellow",
     
     tabItems(
     
-    # Dashboard Tab 
-    tabItem(tabName = "Home",
-            fluidRow(
-              box(plotOutput("plot1", height = 250)),
-              
-              box(
-                title = "Controls",
-                sliderInput("slider", "Number of observations:", 1, 100, 50)
-              )
-            )
-    ),
+
       
     # Mapping tab  
     tabItem(tabName = "map",
@@ -47,7 +37,7 @@ dashboardPage(skin="yellow",
                    leafletOutput("map", height = 450)),
                box(width = NULL,
                    sliderInput("maptime", label = h5("Time (%)"), min = 0, 
-        max = 100, value = 0)
+        max = 100, value = 0, animate = TRUE)
         )
                ),
               column(width = 3,
@@ -56,21 +46,8 @@ dashboardPage(skin="yellow",
                               choices = disease_names, selected="MUMPS")
                      ),
                      box(width = NULL, status = "warning",
-                       selectInput("interval", "Refresh interval",
-                                   choices = c(
-                                       "30 seconds" = 30,
-                                       "1 minute" = 60,
-                                       "2 minutes" = 120,
-                                       "5 minutes" = 300,
-                                       "10 minutes" = 600
-                                   ),
-                                   selected = "60"
-                                   ),
-                       uiOutput("timeSinceLastUpdate"),
-                       actionButton("refresh", "Refresh now"),
-                       p(class = "text-muted",
-                         br(),
-                         "Source data updates every 30 seconds.")    
+                      h3("Interactive Map"),
+                      p("In this map, the radius of the circle is proportional to the disease incidence.  Click on circle for the exact value.  You can scroll over to Hawaii and Alaska as well!  Click the play button at the bottom to see the diseases over time.")
                      )
                   )           
         )
@@ -80,7 +57,7 @@ dashboardPage(skin="yellow",
       tabItem(tabName = "ds",
               fluidRow(
     box(title = "Correlation Plots",  width=9, status="warning", solidHeader=TRUE,
-        plotOutput("cor", height=800)
+        plotOutput("cor", height=800, hover="hover_ds")
         ),
     box(status = "primary", width=3,
           radioButtons("radiods", label=h3("Choose primary view"),
@@ -93,6 +70,9 @@ dashboardPage(skin="yellow",
                        max = "2015-12-31",
                        start ="1860-01-01",
                        end = "2015-12-31")
+        ),
+    box(width=3,
+        uiOutput("x_value")
         )
   ),
 
@@ -137,7 +117,7 @@ dashboardPage(skin="yellow",
     fluidRow(
       box(
         selectInput("disease", label = h3("Disease"), 
-                    choices = disease_names),
+                    choices = disease_names, selected="SMALLPOX"),
         uiOutput("avail_locs"), 
         uiOutput("avail_years"),  
         width = 3
@@ -164,7 +144,34 @@ dashboardPage(skin="yellow",
               width = 8 
               )
             )
-          )
+          ),
+
+
+   tabItem(tabName="home",
+        box(status = "warning", solidHeader = TRUE,
+           title=h1("Welcome to SPEW VIEW."),
+           p("SPEW VIEW is a tool for visualizing historical diseases in the United States including"),
+           p("1. Diphtheria"),
+           p("2. Hepatitis A"),
+           p("3. Measles"),
+           p("4. Mumps"),
+           p("5. Pertusis"),
+           p("6. Polio"),
+           p("7. Rubella"),
+           p("8. Smallpox."),
+           p("All data is from", a("Project Tycho", href="https://www.tycho.pitt.edu/", target="_blank"), ".")
+           ),
+        box(status="warning", solidHeader=TRUE, title=h1("Features"),
+            h3("Time Series - Look at diseases over time"),
+            h3("Summary Data - Basic features of the data"),
+            h3("Interactive Map - Explore the US"),
+            h3("Animations - Smoothed data over time"),
+            h3("Table Viewer - Snapshot of the data")
+            
+            
+            )
+        
+        )
     )
   )
 )

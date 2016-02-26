@@ -9,7 +9,8 @@ library(maptools)
 library(ggplot2)
 library(reshape2)
 library(plyr)
-
+#library(Cairo)
+#options(shiny.usecairo=TRUE) 
 
 
 
