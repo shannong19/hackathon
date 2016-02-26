@@ -10,17 +10,18 @@ dashboardPage(skin="yellow",
   dashboardSidebar(
     sidebarMenu(
       menuItem("Home", tabName = "home", icon = icon("dashboard")),
-      menuItem("Explore Time Series", tabName = "timeseries", icon = icon("th"), selected=TRUE),
-      menuItem("Summary Data", tabName = "ds", icon = icon("th")),
-      menuItem("Map", tabName="map", icon=icon("map")),
-      menuItem("Animations", tabName = "chloropleth", icon = icon("th"))
+      menuItem("Data Snapshot", tabName="snapshot", icon=icon("bar-chart")),
+      menuItem("Time Series", tabName = "timeseries", icon = icon("calendar")),
+      menuItem("Correlations", tabName = "ds", icon = icon("line-chart")),
+      menuItem("Map", tabName="map", icon=icon("map"), selected=TRUE),
+      menuItem("Animations", tabName = "chloropleth", icon = icon("caret-square-o-right"))
     )
   ),
   
   # Body of User Interface -----------------------------------
   dashboardBody(
       
-    # Set up the stylesheet 
+    # Set up the style  sheet 
     tags$head(
         tags$link(rel = "stylesheet", type="text/css", href = "custom.css")
         ),
@@ -32,84 +33,53 @@ dashboardPage(skin="yellow",
     # Mapping tab  
     tabItem(tabName = "map",
         fluidRow(
-            column(width = 9,
+              column(width = 3,
+                 box(width = NULL, status = "warning", solidHeader = TRUE,
+                      selectInput("diseasemap", label = h3("Disease"), 
+                              choices = disease_names, selected="DIPHTHERIA")
+                     ),
+                     box(width = NULL, status = "warning",
+                      h3("Interactive Map"),
+                      p("In this map, the radius of the circle is proportional to the disease incidence",  strong("Click on a circle"), "for the exact value.  You can", strong("scroll"), "over to Hawaii and Alaska as well!",  strong("Click the play button"), "at the bottom to see the diseases over time.")
+                     )
+                  ),
+             column(width = 9,
                box(width = NULL, solidHeader = TRUE,
                    leafletOutput("map", height = 450)),
                box(width = NULL,
                    sliderInput("maptime", label = h5("Time (%)"), min = 0, 
         max = 100, value = 0, animate = TRUE)
         )
-               ),
-              column(width = 3,
-                 box(width = NULL, status = "success", solidHeader = TRUE,
-                      selectInput("diseasemap", label = h3("Disease"), 
-                              choices = disease_names, selected="MUMPS")
-                     ),
-                     box(width = NULL, status = "warning",
-                      h3("Interactive Map"),
-                      p("In this map, the radius of the circle is proportional to the disease incidence.  Click on circle for the exact value.  You can scroll over to Hawaii and Alaska as well!  Click the play button at the bottom to see the diseases over time.")
-                     )
-                  )           
+        )
         )
       ),
 
 
       tabItem(tabName = "ds",
               fluidRow(
-    box(title = "Correlation Plots",  width=9, status="warning", solidHeader=TRUE,
-        plotOutput("cor", height=800, hover="hover_ds")
-        ),
-    box(status = "primary", width=3,
-          radioButtons("radiods", label=h3("Choose primary view"),
-                    choices = list("States' Incidence" = 1, "Distance and Incidence" = 2)),
-         selectInput("diseaseds", label = h3("Disease"), 
-                              choices = disease_names, selected="POLIO"),
-        uiOutput('avail_locs2'), 
-        dateRangeInput("timeds", label = h3("Time Range"),
-                       min="1860-01-01",
-                       max = "2015-12-31",
-                       start ="1860-01-01",
-                       end = "2015-12-31")
-        ),
-    box(width=3,
-        uiOutput("x_value")
-        )
-  ),
+                    
+                  box(status = "primary", width=3, title= "Toggles",
+                      uiOutput("x_value"),
+                      radioButtons("radiods", label=h3("Choose primary view"),
+                                   choices = list("States' Incidence" = 1, "Distance and Incidence" = 2)),
+                      selectInput("diseaseds", label = h3("Disease"), 
+                                  choices = disease_names, selected="POLIO"),
+                      dateRangeInput("timeds", label = h3("Time Range"),
+                                     min="1860-01-01",
+                                     max = "2015-12-31",
+                                     start ="1860-01-01",
+                                     end = "2015-12-31"),
 
-  fluidRow(
-    box(
-       width = 4, solidHeader = TRUE, status = "primary", title="Data View",
-         
-                                        # Copy the line below to make a set of radio buttons
-       radioButtons("radio", label="Choose primary view",
-                    choices = list("Location" = 1, "Disease" = 2), 
-                    selected = 1)
-    ),
-    box(
-      title = "Title 2", width = 4, solidHeader = TRUE,
-      "Box content"
-    ),
-    box(
-      title = "Title 1", width = 4, solidHeader = TRUE, status = "warning",
-      "Box content"
-    )
-  ),
+                      uiOutput("cor_locs")
+                      ),
+    
+      
+                  box(title = "Correlation Plots",  width=9, status="warning", solidHeader=TRUE,
+                      plotOutput("cor", height=800, hover="hover_ds")
+                      )
+              )
 
-  fluidRow(
-    box(
-      width = 4, background = "black",
-      "A box with a solid black background"
     ),
-    box(
-      title = "Title 5", width = 4, background = "light-blue",
-      "A box with a solid light-blue background"
-    ),
-    box(
-      title = "Title 6",width = 4, background = "maroon",
-      "A box with a solid maroon background"
-    )
-  )
-  ),
     
   # Time series Tab -----------------    
   tabItem(tabName = "timeseries",
@@ -170,7 +140,38 @@ dashboardPage(skin="yellow",
             h3("Animations - Smoothed data over time"),
             h3("Table Viewer - Snapshot of the data")
             )
-        )
+        )        
+        ),
+
+  tabItem(tabName = "snapshot", title= h3("Snapshot"),
+          fluidPage(
+
+                                        # Create a new Row in the UI for selectInputs
+              fluidRow( box(width=12, title="Snapshot", solidHeader=TRUE, status="warning",
+                            p("Look at the data in row format.  Pick the disease, location, and date range."),
+                  column(3,
+                         selectInput("disease_snap",
+                                     "Disease", choices = disease_names, selected="POLIO")
+                         ),
+                  
+                  column(3,
+                          uiOutput("snap_locs")
+                         ),
+                  column(3,
+                          uiOutput("snap_years")
+                         ),
+                  column(3,
+                         downloadButton("downloadData", "Download (.csv)")
+                         )
+              )           
+              ),
+ 
+                                        # Create a new row for the table.
+              fluidRow(
+                  DT::dataTableOutput("table")
+              )
+          )
+
+          )
     )
   )
-)
