@@ -56,8 +56,8 @@ This is a project to advance the availability and use of pubic health data. Name
   - Plot using ggmap 
   - Work into animate 
 
-- Do fortify OFFLINE
-- Map 
+- Do fortify OFFLINE (Done) 
+- Map (DONE)
 - Map w/ Count data 
 - Map w/ count data by disease
 - Map w/ time 
