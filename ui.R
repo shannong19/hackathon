@@ -131,7 +131,8 @@ dashboardPage(skin="yellow",
            p("6. Polio"),
            p("7. Rubella"),
            p("8. Smallpox."),
-           p("All data is from", a("Project Tycho", href="https://www.tycho.pitt.edu/", target="_blank"), ".")
+           p("All data is from", a("Project Tycho", href="https://www.tycho.pitt.edu/", target="_blank"), 
+             ".")
            ),
         box(status="warning", solidHeader=TRUE, title=h1("Features"),
             h3("Time Series - Look at diseases over time"),
@@ -140,9 +141,8 @@ dashboardPage(skin="yellow",
             h3("Animations - Smoothed data over time"),
             h3("Table Viewer - Snapshot of the data")
             )
-        )        
         ),
-
+  
   tabItem(tabName = "snapshot", title= h3("Snapshot"),
           fluidPage(
 
@@ -170,8 +170,8 @@ dashboardPage(skin="yellow",
               fluidRow(
                   DT::dataTableOutput("table")
               )
-          )
-
+            )
           )
     )
   )
+)

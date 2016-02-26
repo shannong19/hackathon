@@ -81,7 +81,6 @@ server <- function(input, output) {
         out
     })
     
-  
   # Adaptive user choices ---------------------------------
   output$avail_locs <- renderUI({
     disease_index <- which(names(x = diseases) == input$disease)
