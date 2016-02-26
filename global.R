@@ -2,17 +2,17 @@
 library(shiny)
 library(shinydashboard)
 library(leaflet)
+library(plyr)
 library(dplyr)
 #library(rgdal)
 #library(rgeos)
 library(maptools)
 library(ggplot2)
 library(reshape2)
-library(plyr)
+library(animation)
+library(RColorBrewer)
 #library(Cairo)
 #options(shiny.usecairo=TRUE) 
-
-
 
 # Choices for drop down menu's 
 vars <- c(

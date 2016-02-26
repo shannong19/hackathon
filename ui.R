@@ -137,6 +137,8 @@ dashboardPage(skin="yellow",
             box(selectInput("disease_chlor", label = h3("Disease"), 
                   choices = disease_names_nodip), 
                 uiOutput("avail_years_chlor"), 
+                h3("Download Animation Below"),
+                downloadButton("testgif"), 
                 width = 3
               ), 
             box(
@@ -167,10 +169,7 @@ dashboardPage(skin="yellow",
             h3("Interactive Map - Explore the US"),
             h3("Animations - Smoothed data over time"),
             h3("Table Viewer - Snapshot of the data")
-            
-            
             )
-        
         )
     )
   )
