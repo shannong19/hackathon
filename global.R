@@ -62,3 +62,55 @@ city_mat <- data.matrix(city_lookup[,1:2])
 city_dist <- apply(city_mat, 1, function(x) {
     apply(city_mat, 1, function(y) sqrt(sum(x-y)^2))
 })
+
+
+#clustering
+
+clust_df <- read.csv("data/clust_decades.csv")
+
+## set.seed(42)
+## n <- 1000
+## cluster_df <- read.csv("data/cluster.csv", stringsAsFactors=FALSE)
+## cluster_df$name <- cluster_df$NAME_1
+## cluster_df <- cluster_df[, c(-3)]
+## #inds <- sample(1:nrow(cluster_df), size=n)
+## #clust <- cluster_df[inds,]
+## clust <- cluster_df
+## clust$date <- as.Date(clust$date, "%Y-%m-%d")
+## clust$year <- format(clust$date, "%Y")
+## clust$decade <- floor(as.integer(clust$year) / 10) * 10
+## clust_df <- clust[, -c(1, (ncol(clust) - 2):ncol(clust))]
+## my_clust <- data.frame(name=clust$name, decade=clust$decade, clust_df)
+
+## dd_clust <- ddply(.data=my_clust, .variables=c("name", "decade"), .fun=function(df){
+##     sub <- colMeans(df[, -c(1:2)], na.rm=TRUE)
+##     sub <- ifelse( is.nan(sub), 0, sub)
+##     return(sub)
+## })
+
+## center_df$name <- center_df$region
+## centers <- center_df[, c(1,2,4)]
+## my_df <- join(dd_clust, centers, by="name")
+## write.csv(my_df, "data/clust_decades.csv")
+
+
+#hc <- hclust(dist(
+
+## cluster_list <- lapply(names(diseases)[-1], function(nm){
+##     df <- diseases[[nm]]
+##     mega_df <-  do.call('rbind', lapply(3:(ncol(df)-1), function(i) {
+##           subdf <- df[,c( ncol(df), i)] #date then incidence
+##           subdf$NAME_1<- colnames(subdf)[2] #make a state id
+##           colnames(subdf)[1:2] <- c("date", nm)
+##           return(subdf)
+##           }))
+##     mega_df[nm] <- as.numeric(mega_df[, nm])
+##     return(mega_df)
+## })
+
+## cluster_df <- cluster_list[[1]]
+## for (i in 2:length(cluster_list)){
+##     cluster_df <- join(cluster_df, cluster_list[[i]], by=c("date", "NAME_1"), type="full")
+## }
+
+## write.csv(cluster_df, "data/cluster.csv", row.names=FALSE)
