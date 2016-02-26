@@ -1,5 +1,13 @@
 source("global.R")
 
+## # Update the US Shapefile to work with ggplot2 
+## us_fortify <- fortify(usa_shape, region = "NAME_1")
+## alaska_hawaii_df <- which(center_df$region %in% c("Alaska", "Hawaii"))
+## alaska_hawaii_shape <- which(us_fortify$id %in% c("Alaska", "Hawaii"))
+## us_fortify <- us_fortify[-alaska_hawaii_shape, ]    
+## center_df <- center_df[-alaska_hawaii_df, ]
+## center_df$val <- rnorm(n = nrow(center_df), mean = 10, sd = 20)
+
 server <- function(input, output) {
   
   # Histogram Output 
@@ -15,7 +23,7 @@ server <- function(input, output) {
   output$map <- renderLeaflet({
 
     #  dt <- as.Date("1966-01-02")
-      disease_name <- input$diseasemap
+      disease_name <- "POLIO"
       fulldf <- diseases[[disease_name]]
       print(dim(fulldf))
       fulldf <- fulldf[order(fulldf$date),]
@@ -23,10 +31,13 @@ server <- function(input, output) {
       # get date from slider
       print(input$maptime)
       if (input$maptime == 0){
-          dt <- fulldf$date[1]  
+          dt <- fulldf$date[1]
+    
       } else if (input$maptime == 100){
-          dt <- fulldf$date[nrow(fulldf)] 
-      } else {   
+          dt <- fulldf$date[nrow(fulldf)]
+ 
+      } else {
+   
           dt <- fulldf$date[ ceiling(input$maptime / 100 * n) ]
       }
       print(dt)
@@ -50,7 +61,7 @@ server <- function(input, output) {
 
       leaflet(data=usa_data) %>%
           addTiles() %>%
-          addCircles(lng = ~Longitude, lat = ~Latitude, weight=1, radius = ~(1*10^5*incidence), popup= ~popup, color="red") %>%
+          addCircles(lng = ~Longitude, lat = ~Latitude, weight=1, radius = ~(2*10^5*incidence), popup= ~popup, color="red") %>%
       setView(lng = -93.85, lat = 37.45, zoom = 4) %>%
           addLegend(position = "bottomleft", title=dt, color="red", opacity=.8, labels="Incidence")
           
@@ -102,44 +113,27 @@ server <- function(input, output) {
          main = title, xlab = "Time", ylab = "Count per 100,000", 
          xlim = c(start_time, end_time))
   })
-  
-  output$avail_years_chlor <- renderUI({
-    disease_index <- which(names(x = diseases) == input$disease)  
-    current_disease <- diseases[[disease_index]]
-    dates <- current_disease$date     
-    dateRangeInput("avail_years_chlor", 
-                   label = h3("Date Range"), 
-                   start = dates[1], 
-                   end = dates[nrow(current_disease)])    
-  })
-  
-  output$chloropleth <- renderPlot({    
-    # Subset the disease list and the appropriate dates 
-    disease_index <- which(names(x = diseases) == input$disease)
-    current_disease <- diseases[[disease_index]]
 
-    non_data_cols <- which(names(current_disease) %in% c("YEAR", "WEEK", "date"))
-    tmp_data <- current_disease[, -non_data_cols]
-    tmp_data <- sapply(tmp_data, as.numeric)
-    
-    # Get the column wise averages for each location 
-    # and turn this into a vector 
-    state_means <- as.numeric(colMeans(tmp_data, na.rm = TRUE))
-    state_names <- gsub(pattern = "\\.", " ", colnames(tmp_data))
-    state_names <- tolower(state_names)
-    plot_data <- data.frame(state_names, state_means)
-    
-    # Plot the resulting image along with us_fortify
-    ggplot() + geom_map(data = plot_data, aes(map_id = state_names, fill = state_means), 
+  output$chloropleth <- renderPlot({    
+    ggplot() + geom_map(data = center_df, aes(map_id = region, fill = val), 
                         map = us_fortify) + expand_limits(x = us_fortify$long, y = us_fortify$lat)
   })
 
-  output$disease_ts <- renderPlot({
+  output$diseasemap <- renderPlot({
     # Subset the disease and obtain the location and 
     # time indices 
     disease_index <- which(names(x = diseases) == input$disease)
     current_disease <- diseases[[disease_index]]
     location_index <- which(colnames(current_disease) == input$avail_locs)
+
+      output$avail_locs_<- renderUI({
+    disease_index <- which(names(x = diseases) == input$disease)
+    current_disease <- diseases[[disease_index]]    
+    location_names <- colnames(current_disease)[3:(ncol(current_disease) - 1)]
+    avail_locs <- as.list(location_names)
+    selectInput("avail_locs", h3("Location"), avail_locs)
+  })  
+    
     
     # Plot the time series plot 
     start_time <- input$avail_years[1] - 5

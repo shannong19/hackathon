@@ -44,28 +44,16 @@ dashboardPage(skin="yellow",
         fluidRow(
             column(width = 9,
                box(width = NULL, solidHeader = TRUE,
-                   leafletOutput("map", height = 500)),
+                   leafletOutput("map", height = 450)),
                box(width = NULL,
-                   uiOutput("numVehiclesTable"))
+                   sliderInput("maptime", label = h5("Time (%)"), min = 0, 
+        max = 100, value = 0)
+        )
                ),
               column(width = 3,
-                 box(width = NULL, status = "warning",
-                     uiOutput("routeSelect"),
-                     checkboxGroupInput("directions", "Show",
-                                        choices = c(
-                                            Northbound = 4,
-                                            Southbound = 1,
-                                            Eastbound = 2,
-                                            Westbound = 3
-                                        ),
-                                        selected = c(1, 2, 3, 4)
-                                        ),
-                     p(class = "text-muted",
-                       paste("Note: a route number can have several different trips, each",
-                               "with a different path. Only the most commonly-used path will",
-                               "be displayed on the map.")
-                     ),
-                     actionButton("zoomButton", "Zoom to fit buses")
+                 box(width = NULL, status = "success", solidHeader = TRUE,
+                      selectInput("diseasemap", label = h3("Disease"), 
+                              choices = disease_names, selected="MUMPS")
                      ),
                      box(width = NULL, status = "warning",
                        selectInput("interval", "Refresh interval",
