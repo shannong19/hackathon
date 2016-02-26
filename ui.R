@@ -33,14 +33,6 @@ dashboardPage(skin="yellow",
     # Mapping tab  
     tabItem(tabName = "map",
         fluidRow(
-            column(width = 9,
-               box(width = NULL, solidHeader = TRUE,
-                   leafletOutput("map", height = 450)),
-               box(width = NULL,
-                   sliderInput("maptime", label = h5("Time (%)"), min = 0, 
-        max = 100, value = 0, animate = TRUE)
-        )
-               ),
               column(width = 3,
                  box(width = NULL, status = "warning", solidHeader = TRUE,
                       selectInput("diseasemap", label = h3("Disease"), 
@@ -48,9 +40,17 @@ dashboardPage(skin="yellow",
                      ),
                      box(width = NULL, status = "warning",
                       h3("Interactive Map"),
-                      p("In this map, the radius of the circle is proportional to the disease incidence.  Click on circle for the exact value.  You can scroll over to Hawaii and Alaska as well!  Click the play button at the bottom to see the diseases over time.")
+                      p("In this map, the radius of the circle is proportional to the disease incidence",  strong("Click on a circle"), "for the exact value.  You can", strong("scroll"), "over to Hawaii and Alaska as well!",  strong("Click the play button"), "at the bottom to see the diseases over time.")
                      )
-                  )           
+                  ),
+             column(width = 9,
+               box(width = NULL, solidHeader = TRUE,
+                   leafletOutput("map", height = 450)),
+               box(width = NULL,
+                   sliderInput("maptime", label = h5("Time (%)"), min = 0, 
+        max = 100, value = 0, animate = TRUE)
+        )
+        )
         )
       ),
 
@@ -58,28 +58,26 @@ dashboardPage(skin="yellow",
       tabItem(tabName = "ds",
               fluidRow(
                     
-    box(title = "Correlation Plots",  width=9, status="warning", solidHeader=TRUE,
-        plotOutput("cor", height=800, hover="hover_ds")
-        ),
-      box(width=3,
-        uiOutput("x_value")
-        ),
-    box(status = "primary", width=3,
-          radioButtons("radiods", label=h3("Choose primary view"),
-                    choices = list("States' Incidence" = 1, "Distance and Incidence" = 2)),
-         selectInput("diseaseds", label = h3("Disease"), 
-                              choices = disease_names, selected="POLIO"),
-        dateRangeInput("timeds", label = h3("Time Range"),
-                       min="1860-01-01",
-                       max = "2015-12-31",
-                       start ="1860-01-01",
-                       end = "2015-12-31"),
+                  box(status = "primary", width=3, title= "Toggles",
+                      uiOutput("x_value"),
+                      radioButtons("radiods", label=h3("Choose primary view"),
+                                   choices = list("States' Incidence" = 1, "Distance and Incidence" = 2)),
+                      selectInput("diseaseds", label = h3("Disease"), 
+                                  choices = disease_names, selected="POLIO"),
+                      dateRangeInput("timeds", label = h3("Time Range"),
+                                     min="1860-01-01",
+                                     max = "2015-12-31",
+                                     start ="1860-01-01",
+                                     end = "2015-12-31"),
 
-    uiOutput("cor_locs")
-    )
-
-
-    )
+                      uiOutput("cor_locs")
+                      ),
+    
+      
+                  box(title = "Correlation Plots",  width=9, status="warning", solidHeader=TRUE,
+                      plotOutput("cor", height=800, hover="hover_ds")
+                      )
+              )
 
     ),
     
@@ -151,16 +149,19 @@ dashboardPage(skin="yellow",
                                         # Create a new Row in the UI for selectInputs
               fluidRow( box(width=12, title="Snapshot", solidHeader=TRUE, status="warning",
                             p("Look at the data in row format.  Pick the disease, location, and date range."),
-                  column(4,
+                  column(3,
                          selectInput("disease_snap",
                                      "Disease", choices = disease_names, selected="POLIO")
                          ),
                   
-                  column(4,
+                  column(3,
                           uiOutput("snap_locs")
                          ),
-                  column(4,
+                  column(3,
                           uiOutput("snap_years")
+                         ),
+                  column(3,
+                         downloadButton("downloadData", "Download (.csv)")
                          )
               )           
               ),

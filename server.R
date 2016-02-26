@@ -67,7 +67,7 @@ server <- function(input, output) {
           addTiles() %>%
           addCircleMarkers(lng = ~Longitude, lat = ~Latitude, weight=1, radius = ~(10*sqrt(incidence)), popup= ~popup, color="goldenrod", fillOpacity=.5) %>%
       setView(lng = -93.85, lat = 37.45, zoom = 4) %>%
-          addLegend(position = "bottomleft", title=dt, color="goldrod", opacity=.8, labels="Incidence")
+          addLegend(position = "bottomleft", title=paste(input$diseasemap, ";", dt), color="goldenrod", opacity=.8, labels="Incidence")
           
       
     ## leaflet() %>%
@@ -191,14 +191,31 @@ server <- function(input, output) {
     disease_index <- which(names(x = diseases) == input$disease_snap)
     current_disease <- diseases[[disease_index]]
     location_index <- which(colnames(current_disease) %in% input$snap_locs)
-    print(location_index)
-    print(input$snap_years)
-    print(head(data$date))
+
     data <- subset(data, subset= (data$date >= input$snap_years[1] & data$date <= input$snap_years[2]) )
     data <- data[, c(1,2, location_index)]
-    print(head(data))
+
     data
   }))
+
+
+    # download table viewer
+
+    output$downloadData <- downloadHandler(
+        filename = function() { paste('spewview_tab', '.csv', sep='') },
+        content = function(file) {
+            data <- diseases[[input$disease_snap]]
+
+            disease_index <- which(names(x = diseases) == input$disease_snap)
+            current_disease <- diseases[[disease_index]]
+            location_index <- which(colnames(current_disease) %in% input$snap_locs)
+
+            data <- subset(data, subset= (data$date >= input$snap_years[1] & data$date <= input$snap_years[2]) )
+            data <- data[, c(1,2, location_index)]
+
+            write.csv(data, file)
+    }
+  )
 
     ## years for table viewer
     output$snap_years <- renderUI({
@@ -300,7 +317,7 @@ server <- function(input, output) {
            # plot(dist, cors)
            my_df <- data.frame(dist=dist, cors=cors)
             p <- ggplot(my_df, aes(dist, cors)) + geom_point(colour="gold", size=2) +
-                geom_smooth(level=.999, colour="blue", fill="blue")+ ggtitle(disease_name) +
+                geom_smooth(level=.999, colour="blue", fill="blue")+ ggtitle(paste(disease_name, "\n", input$timeds[1], "-", input$timeds[1])) +
                  labs(x="Distance (Scaled)", y="Correlation") +
                 theme_minimal()  
             print(p)
@@ -318,7 +335,7 @@ server <- function(input, output) {
                                                  size = 8, hjust = 1),
                       axis.title.x=element_blank(),
                       axis.title.y=element_blank())+
-                coord_fixed() + ggtitle(disease_name)
+                coord_fixed() + ggtitle(paste(disease_name, "\n", input$timeds[1], "-", input$timeds[1]))
             print(g)
         }
     })
