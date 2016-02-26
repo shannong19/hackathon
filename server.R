@@ -1,13 +1,5 @@
 source("global.R")
 
-## # Update the US Shapefile to work with ggplot2 
-## us_fortify <- fortify(usa_shape, region = "NAME_1")
-## alaska_hawaii_df <- which(center_df$region %in% c("Alaska", "Hawaii"))
-## alaska_hawaii_shape <- which(us_fortify$id %in% c("Alaska", "Hawaii"))
-## us_fortify <- us_fortify[-alaska_hawaii_shape, ]    
-## center_df <- center_df[-alaska_hawaii_df, ]
-## center_df$val <- rnorm(n = nrow(center_df), mean = 10, sd = 20)
-
 server <- function(input, output) {
   
   # Histogram Output 
@@ -110,9 +102,35 @@ server <- function(input, output) {
          main = title, xlab = "Time", ylab = "Count per 100,000", 
          xlim = c(start_time, end_time))
   })
-
+  
+  output$avail_years_chlor <- renderUI({
+    disease_index <- which(names(x = diseases) == input$disease)  
+    current_disease <- diseases[[disease_index]]
+    dates <- current_disease$date     
+    dateRangeInput("avail_years_chlor", 
+                   label = h3("Date Range"), 
+                   start = dates[1], 
+                   end = dates[nrow(current_disease)])    
+  })
+  
   output$chloropleth <- renderPlot({    
-    ggplot() + geom_map(data = center_df, aes(map_id = region, fill = val), 
+    # Subset the disease list and the appropriate dates 
+    disease_index <- which(names(x = diseases) == input$disease)
+    current_disease <- diseases[[disease_index]]
+
+    non_data_cols <- which(names(current_disease) %in% c("YEAR", "WEEK", "date"))
+    tmp_data <- current_disease[, -non_data_cols]
+    tmp_data <- sapply(tmp_data, as.numeric)
+    
+    # Get the column wise averages for each location 
+    # and turn this into a vector 
+    state_means <- as.numeric(colMeans(tmp_data, na.rm = TRUE))
+    state_names <- gsub(pattern = "\\.", " ", colnames(tmp_data))
+    state_names <- tolower(state_names)
+    plot_data <- data.frame(state_names, state_means)
+    
+    # Plot the resulting image along with us_fortify
+    ggplot() + geom_map(data = plot_data, aes(map_id = state_names, fill = state_means), 
                         map = us_fortify) + expand_limits(x = us_fortify$long, y = us_fortify$lat)
   })
 

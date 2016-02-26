@@ -151,9 +151,20 @@ dashboardPage(skin="yellow",
     ), 
   
   tabItem(tabName = "chloropleth", 
-          h1("Movie Tab")
+          h1("Movie Tab"), 
+
+          fluidRow(
+            box(selectInput("disease_chlor", label = h3("Disease"), 
+                  choices = disease_names), 
+                uiOutput("avail_years_chlor"), 
+                width = 3
+              ), 
+            box(
+              plotOutput("chloropleth", height = 650), 
+              width = 8 
+              )
+            )
           )
-    
     )
   )
 )
