@@ -50,7 +50,7 @@ server <- function(input, output) {
 
       leaflet(data=usa_data) %>%
           addTiles() %>%
-          addCircles(lng = ~Longitude, lat = ~Latitude, weight=1, radius = ~(1*10^5*incidence), popup= ~popup, color="red") %>%
+          addCircles(lng = ~Longitude, lat = ~Latitude, weight=1, radius = ~(1*10^5*sqrt(incidence)), popup= ~popup, color="red") %>%
       setView(lng = -93.85, lat = 37.45, zoom = 4) %>%
           addLegend(position = "bottomleft", title=dt, color="red", opacity=.8, labels="Incidence")
           
@@ -62,6 +62,18 @@ server <- function(input, output) {
     ##   ) %>%
     ##   setView(lng = -93.85, lat = 37.45, zoom = 4)
   })
+
+    # Print the name of the x value
+    output$x_value <- renderText({
+        if (is.null(input$hover_ds$x)) return("Hover over plot")
+        if ( input$radiods == 1){
+            out <- "This correlation plot tells us if the states are correlated with one another.  The redder the square is, then an increase of the disease in the square's row state is associated with an increase of the disease in the square's column state."
+        } else {
+            out <- "This plot shows us the effect of distance on correlation.  A downward trend line implies that as states become farther apart, the less likely their incidences are to have the same pattern.  A smoothed trend line is fit to the data with a 99% Confidence Interval. "
+        }
+        out
+    })
+    
   
   # Adaptive user choices ---------------------------------
   output$avail_locs <- renderUI({
@@ -73,7 +85,7 @@ server <- function(input, output) {
   })  
     
   output$avail_years <- renderUI({
-    disease_index <- which(names(x = diseases) == input$disease)  
+    disease_index<- which(names(x = diseases) == input$disease)  
     current_disease <- diseases[[disease_index]]    
     dates <- current_disease$date     
     dateRangeInput("avail_years", 
@@ -87,21 +99,17 @@ server <- function(input, output) {
     paste0("You have selected Location: ", input$avail_locs, " Disease: ", input$disease)
   })
 
-  output$disease_ts <- renderPlot({
-    # Subset the disease and obtain the location and 
-    # time indices 
-    disease_index <- which(names(x = diseases) == input$disease)
-    current_disease <- diseases[[disease_index]]
-    location_index <- which(colnames(current_disease) == input$avail_locs)
-    
-    # Plot the time series plot 
-    start_time <- input$avail_years[1] - 5
-    end_time <- input$avail_years[2] + 5
-    title <- paste0(input$disease, " In ", input$avail_locs)
-    plot(current_disease$date, as.numeric(current_disease[, location_index]), 
-         main = title, xlab = "Time", ylab = "Count per 100,000", 
-         xlim = c(start_time, end_time))
-  })
+  ## output$disease_ts <- renderPlot({
+  ##   # Subset the disease and obtain the location and 
+  ##   # time indices 
+  ##   disease_index <- which(names(x = diseases) == input$disease)
+  ##   current_disease <- diseases[[disease_index]]
+  ##   location_index <- which(colnames(current_disease) == input$avail_locs)
+  
+  ##   plot(current_disease$date, as.numeric(current_disease[, location_index]), 
+  ##       main = title, xlab = "Time", ylab = "Count per 100,000", 
+  ##       xlim = c(start_time, end_time))
+  ## })
   
   output$avail_years_chlor <- renderUI({
     disease_index <- which(names(x = diseases) == input$disease)  
@@ -140,14 +148,15 @@ server <- function(input, output) {
     disease_index <- which(names(x = diseases) == input$disease)
     current_disease <- diseases[[disease_index]]
     location_index <- which(colnames(current_disease) == input$avail_locs)
-    
-    # Plot the time series plot 
-    start_time <- input$avail_years[1] - 5
-    end_time <- input$avail_years[2] + 5
-    title <- paste0(input$disease, " In ", input$avail_locs)
-    plot(current_disease$date, as.numeric(current_disease[, location_index]), 
-         main = title, xlab = "Time", ylab = "Count per 100,000", 
-         xlim = c(start_time, end_time))
+
+             start_time <- input$avail_years[1] - 5
+          end_time <- input$avail_years[2] + 5
+          title <- paste0(input$disease, " In ", input$avail_locs)
+          
+           plot(current_disease$date, as.numeric(current_disease[, location_index]), 
+               xlab = "Time", ylab = "Count per 100,000", 
+               xlim = c(start_time, end_time), col="gold")
+
   })
     
   
