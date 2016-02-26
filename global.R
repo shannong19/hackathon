@@ -3,13 +3,14 @@ library(shiny)
 library(shinydashboard)
 library(leaflet)
 library(dplyr)
+#library(rgdal)
+#library(rgeos)
 library(maptools)
 library(ggplot2)
 library(reshape2)
 library(plyr)
 
-# New Packages 
-library(rgeos)
+
 
 
 # Choices for drop down menu's 
