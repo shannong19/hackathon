@@ -43,7 +43,6 @@ This is a project to advance the availability and use of pubic health data. Name
 - Histograms/Bar Charts 
 - Add text explanations to describe what's going on
 
-
 - STRETCH Kriging (value, covariance model, and a grid)
   - Fit a spatial model
   - Cut the time Range (Start overall)
@@ -56,6 +55,13 @@ This is a project to advance the availability and use of pubic health data. Name
   - Interpolate the state data (incidence) onto the counties 
   - Plot using ggmap 
   - Work into animate 
-  
+
+- Do fortify OFFLINE
+- Map 
+- Map w/ Count data 
+- Map w/ count data by disease
+- Map w/ time 
+- Map w/ animation 
+- Smooth Map 
   
   

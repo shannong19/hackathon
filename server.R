@@ -1,5 +1,13 @@
 source("global.R")
 
+# Update the US Shapefile to work with ggplot2 
+us_fortify <- fortify(usa_shape, region = "NAME_1")
+alaska_hawaii_df <- which(center_df$region %in% c("Alaska", "Hawaii"))
+alaska_hawaii_shape <- which(us_fortify$id %in% c("Alaska", "Hawaii"))
+us_fortify <- us_fortify[-alaska_hawaii_shape, ]    
+center_df <- center_df[-alaska_hawaii_df, ]
+center_df$val <- rnorm(n = nrow(center_df), mean = 10, sd = 20)
+
 server <- function(input, output) {
   
   # Histogram Output 
@@ -69,8 +77,7 @@ server <- function(input, output) {
   
   # Display the results of the selection 
   output$text1 <- renderText({
-    paste0("You have selected Location: ", input$location, " Disease: ", input$disease, 
-           " and Time Period ", input$time)
+    paste0("You have selected Location: ", input$avail_locs, " Disease: ", input$disease)
   })
 
   output$disease_ts <- renderPlot({
@@ -81,17 +88,19 @@ server <- function(input, output) {
     location_index <- which(colnames(current_disease) == input$avail_locs)
     
     # Plot the time series plot 
-    print(str(input$avail_years))
     start_time <- input$avail_years[1] - 5
     end_time <- input$avail_years[2] + 5
-    print(c(start_time, end_time))
     title <- paste0(input$disease, " In ", input$avail_locs)
     plot(current_disease$date, as.numeric(current_disease[, location_index]), 
          main = title, xlab = "Time", ylab = "Count per 100,000", 
          xlim = c(start_time, end_time))
   })
 
-
+  output$chloropleth <- renderPLot({    
+    ggplot() + geom_map(data = center_df, aes(map_id = region, fill = val), 
+                        map = us_fortify) + expand_limits(x = us_fortify$long, y = us_fortify$lat)
+  })  
+  
     output$timeds <- renderUI({
     disease_index <- which(names(x = diseases) == input$disease)  
     current_disease <- diseases[[disease_index]]    
@@ -101,18 +110,6 @@ server <- function(input, output) {
                    start = min(dates), 
                    end = max(dates))    
   })
-
-#   output$avail_locs <- renderUI({
-#       disease_index <- which(names(x = diseases) == input$diseaseds)
-#       current_disease <- diseases[[disease_index]]    
-#       avail_locs <- as.list(colnames(current_disease))
-#       selectInput("avail_locs", "Location 2", avail_locs)
-#       disease_name <- names(diseases)[disease_index]
-#     })  
-
-
-
-    
 
     #correlation plot
     output$cor<- renderPlot({
