@@ -99,17 +99,6 @@ server <- function(input, output) {
     paste0("You have selected Location: ", input$avail_locs, " Disease: ", input$disease)
   })
 
-  ## output$disease_ts <- renderPlot({
-  ##   # Subset the disease and obtain the location and 
-  ##   # time indices 
-  ##   disease_index <- which(names(x = diseases) == input$disease)
-  ##   current_disease <- diseases[[disease_index]]
-  ##   location_index <- which(colnames(current_disease) == input$avail_locs)
-  
-  ##   plot(current_disease$date, as.numeric(current_disease[, location_index]), 
-  ##       main = title, xlab = "Time", ylab = "Count per 100,000", 
-  ##       xlim = c(start_time, end_time))
-  ## })
   
   output$avail_years_chlor <- renderUI({
     disease_index <- which(names(x = diseases) == input$disease_chlor)  
@@ -130,9 +119,6 @@ server <- function(input, output) {
     start_time <- input$avail_years_chlor[1] - 5
     end_time <- input$avail_years_chlor[2] + 5
     date_range <- which(dates > start_time & dates < end_time)
-    print(dates)
-    print(start_time)
-    print(end_time)
     current_disease <- current_disease[date_range, ]
 
     non_data_cols <- which(names(current_disease) %in% c("YEAR", "WEEK", "date"))
