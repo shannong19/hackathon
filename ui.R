@@ -12,7 +12,8 @@ dashboardPage(skin="yellow",
       menuItem("Home", tabName = "home", icon = icon("dashboard")),
       menuItem("Explore Time Series", tabName = "timeseries", icon = icon("th")),
       menuItem("Summary Data", tabName = "ds", icon = icon("th")),
-      menuItem("Map", tabName="map", icon=icon("map"))
+      menuItem("Map", tabName="map", icon=icon("map")),
+      menuItem("Animations", tabName = "chloropleth", icon = icon("th"))
     )
   ),
   
@@ -144,22 +145,27 @@ dashboardPage(skin="yellow",
     
   # Time series Tab -----------------    
   tabItem(tabName = "timeseries",
-          h1("Time Series Tab"), 
-          fluidRow(
-            box(
-              selectInput("disease", label = h3("Disease"), 
-                          choices = disease_names),
-              uiOutput("avail_locs"), 
-              uiOutput("avail_years"),  
-              width = 3
-            ), 
-            box(
-              textOutput("text1"), 
-              plotOutput("disease_ts", height = 650), 
-              width = 8 
-              )
-          )
+    h1("Time Series Tab"), 
+    fluidRow(
+      box(
+        selectInput("disease", label = h3("Disease"), 
+                    choices = disease_names),
+        uiOutput("avail_locs"), 
+        uiOutput("avail_years"),  
+        width = 3
+      ), 
+      box(
+        textOutput("text1"), 
+        plotOutput("disease_ts", height = 650), 
+        width = 8 
         )
+      )
+    ), 
+  
+  tabItem(tabName = "chloropleth", 
+          h1("Movie Tab")
+          )
+    
     )
   )
 )
