@@ -21,7 +21,7 @@ dashboardPage(skin="yellow",
   # Body of User Interface -----------------------------------
   dashboardBody(
       
-    # Set up the stylesheet 
+    # Set up the style  sheet 
     tags$head(
         tags$link(rel = "stylesheet", type="text/css", href = "custom.css")
         ),
@@ -107,6 +107,8 @@ dashboardPage(skin="yellow",
             box(selectInput("disease_chlor", label = h3("Disease"), 
                   choices = disease_names_nodip), 
                 uiOutput("avail_years_chlor"), 
+                h3("Download Animation Below"),
+                downloadButton("testgif"), 
                 width = 3
               ), 
             box(
@@ -129,7 +131,8 @@ dashboardPage(skin="yellow",
            p("6. Polio"),
            p("7. Rubella"),
            p("8. Smallpox."),
-           p("All data is from", a("Project Tycho", href="https://www.tycho.pitt.edu/", target="_blank"), ".")
+           p("All data is from", a("Project Tycho", href="https://www.tycho.pitt.edu/", target="_blank"), 
+             ".")
            ),
         box(status="warning", solidHeader=TRUE, title=h1("Features"),
             h3("Time Series - Look at diseases over time"),
@@ -137,12 +140,9 @@ dashboardPage(skin="yellow",
             h3("Interactive Map - Explore the US"),
             h3("Animations - Smoothed data over time"),
             h3("Table Viewer - Snapshot of the data")
-            
-            
             )
-        
         ),
-
+  
   tabItem(tabName = "snapshot", title= h3("Snapshot"),
           fluidPage(
 
@@ -170,8 +170,7 @@ dashboardPage(skin="yellow",
               fluidRow(
                   DT::dataTableOutput("table")
               )
-          )
-
+            )
           )
     )
   )

@@ -2,15 +2,24 @@
 library(shiny)
 library(shinydashboard)
 library(leaflet)
+library(plyr)
 library(dplyr)
 library(maptools)
 library(ggplot2)
 library(reshape2)
-library(plyr)
+library(animation)
+library(RColorBrewer)
 #library(Cairo)
 #options(shiny.usecairo=TRUE) 
 
-
+# Choices for drop down menu's 
+vars <- c(
+  "Is SuperZIP?" = "superzip",
+  "Centile score" = "centile",
+  "College education" = "college",
+  "Median income" = "income",
+  "Population" = "adultpop"
+)
 
 # Loading in our data ---------
 load(file = "data/disease_list.Rda")
@@ -49,14 +58,12 @@ state_dist <- apply(mat, 1, function(x) {
 ## state pops
 state_pops$NAME_1<- gsub(" ", ".", toupper(state_pops$Name))
 
-
 #city numaes
 city_lookup$NAME_1 <- gsub(" ", ".", toupper(city_lookup$cs))
 city_lookup <- city_lookup[, c("lng", "lat", "NAME_1")]
 colnames(city_lookup)[1:2] <- c("Longitude", "Latitude")
 city_lookup$NAME_1[73] <- "SYERACUSE.NY"
 city_lookup$NAME_1[85] <- "PITTSBURGH.PA"
-
 
 city_mat <- data.matrix(city_lookup[,1:2])
 city_dist <- apply(city_mat, 1, function(x) {

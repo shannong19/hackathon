@@ -14,7 +14,6 @@ server <- function(input, output) {
   # Mapping output 
   output$map <- renderLeaflet({
 
-    #  dt <- as.Date("1966-01-02")
       disease_name <- input$diseasemap
       fulldf <- diseases[[disease_name]]
       print(dim(fulldf))
@@ -32,12 +31,13 @@ server <- function(input, output) {
       print(dt)
       df <- subset(fulldf, date==dt)
       
-      mega_df <-  do.call('rbind', lapply(3:(ncol(df)-1), function(i) {
-          subdf <- df[,c( ncol(df), i)] #date then incidence
-          subdf$NAME_1<- colnames(subdf)[2] #make a state id
-          colnames(subdf)[1:2] <- c("date", "incidence")
-          return(subdf)
-          }))
+     mega_df <-  do.call('rbind', lapply(3:(ncol(df)-1), function(i) {
+        subdf <- df[,c( ncol(df), i)] #date then incidence
+        subdf$NAME_1<- colnames(subdf)[2] #make a state id
+        colnames(subdf)[1:2] <- c("date", "incidence")
+        return(subdf)
+      }))
+      
       mega_df$incidence <- as.numeric(mega_df$incidence)
 
       #join with us map data
@@ -67,15 +67,7 @@ server <- function(input, output) {
           addTiles() %>%
           addCircleMarkers(lng = ~Longitude, lat = ~Latitude, weight=1, radius = ~(10*sqrt(incidence)), popup= ~popup, color="goldenrod", fillOpacity=.5) %>%
       setView(lng = -93.85, lat = 37.45, zoom = 4) %>%
-          addLegend(position = "bottomleft", title=paste(input$diseasemap, ";", dt), color="goldenrod", opacity=.8, labels="Incidence")
-          
-      
-    ## leaflet() %>%
-    ##   addTiles(
-    ##     urlTemplate = "//{s}.tiles.mapbox.com/v3/jcheng.map-5ebohr46/{z}/{x}/{y}.png",
-    ##     attribution = 'Maps by <a href="http://www.mapbox.com/">Mapbox</a>'
-    ##   ) %>%
-    ##   setView(lng = -93.85, lat = 37.45, zoom = 4)
+          addLegend(position = "bottomleft", title=paste(input$diseasemap, ";", dt), color="goldenrod", opacity=.8, labels="Incidence")          
   })
 
     # Print the name of the x value
@@ -89,7 +81,6 @@ server <- function(input, output) {
         out
     })
     
-  
   # Adaptive user choices ---------------------------------
   output$avail_locs <- renderUI({
     disease_index <- which(names(x = diseases) == input$disease)
@@ -109,12 +100,29 @@ server <- function(input, output) {
                    end = dates[nrow(current_disease)])    
   })
   
+  # Time Series ------------------------------------
   # Display the results of the selection 
   output$text1 <- renderText({
     paste0("You have selected Location: ", input$avail_locs, " Disease: ", input$disease)
   })
-
   
+  output$disease_ts <- renderPlot({
+    # Subset the disease and obtain the location and 
+    # time indices 
+    disease_index <- which(names(x = diseases) == input$disease)
+    current_disease <- diseases[[disease_index]]
+    location_index <- which(colnames(current_disease) == input$avail_locs)
+    
+    start_time <- input$avail_years[1] - 5
+    end_time <- input$avail_years[2] + 5
+    title <- paste0(input$disease, " In ", input$avail_locs)
+    
+    plot(current_disease$date, as.numeric(current_disease[, location_index]), 
+         xlab = "Time", ylab = "Count per 100,000", 
+         xlim = c(start_time, end_time), col="gold")
+  })
+  
+  # Chloropleth ----------------------------------------------
   output$avail_years_chlor <- renderUI({
     disease_index <- which(names(x = diseases) == input$disease_chlor)  
     current_disease <- diseases[[disease_index]]
@@ -142,38 +150,76 @@ server <- function(input, output) {
     
     # Get the column wise averages for each location 
     # and turn this into a vector 
-    state_means <- as.numeric(colMeans(tmp_data, na.rm = TRUE))
+    incidence <- as.numeric(colMeans(tmp_data, na.rm = TRUE))
     state_names <- gsub(pattern = "\\.", " ", colnames(tmp_data))
     id <- tolower(state_names)
-    value_df<- data.frame(id, state_means)
+    value_df<- data.frame(id, incidence)
     value_df$id <- as.character(value_df$id)    
     plot_data <- left_join(us_fortify, value_df)
     
     # Plot the resulting image along with us_fortify
     ggplot() + geom_polygon(data = plot_data, 
-                  aes(x = long, y = lat, group = group, fill = state_means), 
-                  color = "black", size = 0.25)
+                  aes(x = long, y = lat, group = group, fill = incidence), 
+                  color = "black", size = 0.25) + scale_fill_distiller(palette = "Spectral")
   })
-
-  output$disease_ts <- renderPlot({
-    # Subset the disease and obtain the location and 
-    # time indices 
-    disease_index <- which(names(x = diseases) == input$disease)
-    current_disease <- diseases[[disease_index]]
-    location_index <- which(colnames(current_disease) == input$avail_locs)
-
-             start_time <- input$avail_years[1] - 5
-          end_time <- input$avail_years[2] + 5
-          title <- paste0(input$disease, " In ", input$avail_locs)
-          
-           plot(current_disease$date, as.numeric(current_disease[, location_index]), 
-               xlab = "Time", ylab = "Count per 100,000", 
-               xlim = c(start_time, end_time), col="orange", pch=16, size=2)
-
-  })
-    
   
-    output$timeds <- renderUI({
+  # Animation -------------------------------------------------  
+  output$testgif = downloadHandler(
+    filename = paste0(input$disease_chlor, '.gif'),   
+    content  = function(file) {
+      
+      disease_index <- which(names(x = diseases) == input$disease_chlor)
+      current_disease <- diseases[[disease_index]]
+      
+      mega_df <-  do.call('rbind', lapply(3:(ncol(current_disease)-1), function(i) {
+        subdf <- current_disease[,c( ncol(current_disease), i)] # date then incidence
+        subdf$NAME_1<- colnames(subdf)[2] # make a state id
+        colnames(subdf)[1:2] <- c("date", "incidence")
+        return(subdf)
+      }))
+      
+      names(mega_df)[3] <- "region"  
+      mega_df$region <- gsub(pattern = "\\.", " ", mega_df$region)
+      
+      # Remove alaska and hawaii, append on the latitude 
+      # and longitude, and 
+      alaska_hawaii <- which(mega_df$region %in% c("ALASKA", "HAWAII"))
+      mega_df <- mega_df[-alaska_hawaii, ]
+      
+      mega_df <- left_join(mega_df, center_df)
+      names(mega_df)[c(4, 5)] <- c("lon", "lat")
+      mega_df$incidence <- as.numeric(mega_df$incidence)    
+      mega_df$year <- as.numeric(format(mega_df$date,'%Y'))
+      
+      # Obrain a map of the USA 
+      usa_map <- borders("usa", colour="gray50", fill="white")
+      
+      saveGIF({
+        start_year <- min(mega_df$year)
+        end_year <- max(mega_df$year)
+        for (year in start_year:end_year) {
+          year_df <- mega_df[which(mega_df$year == year), ]
+          
+          # Turn the data into a ggplot2 format 
+          plot_data <- ddply(.data = year_df, .variables = c("region", "lon", "lat"), 
+                             .fun = summarise,
+                             incidence = mean(incidence, na.rm = TRUE)
+          )
+          plot_data <- plot_data[!is.na(plot_data$incidence), ]
+          if (nrow(plot_data) < 5) {
+            next
+          }
+          
+          year_plot <- ggplot(data = plot_data, aes(x = lon, y = lat, col = incidence)) + 
+            usa_map + geom_point(size = 10) + ggtitle(paste0("Year: ", year))
+          print(year_plot)
+        }
+      }, movie.name = "random.gif", interval = 1)
+      file.rename('random.gif', paste0(input$disease_chlor, '.gif'))  
+    }
+  )
+
+  output$timeds <- renderUI({
     disease_index <- which(names(x = diseases) == input$disease)  
     current_disease <- diseases[[disease_index]]    
     dates <- current_disease$date     
@@ -322,8 +368,6 @@ server <- function(input, output) {
                 theme_minimal()  
             print(p)
         }
-            
-
       } else{
         
             g <- ggplot(data = melted_cormat, aes(x=Var1, y=Var2, fill=value)) + geom_tile(color="white") +
