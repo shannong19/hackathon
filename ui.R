@@ -155,7 +155,7 @@ dashboardPage(skin="yellow",
 
           fluidRow(
             box(selectInput("disease_chlor", label = h3("Disease"), 
-                  choices = disease_names), 
+                  choices = disease_names_nodip), 
                 uiOutput("avail_years_chlor"), 
                 width = 3
               ), 

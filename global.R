@@ -40,6 +40,7 @@ diseases <- lapply(diseases, function(df){
     
 # Names for the lookup table 
 disease_names <- as.list(names(diseases))
+disease_names_nodip <- disease_names[-1]
 
 # Centroids
 center_df <- as.data.frame(coordinates(usa_shape))

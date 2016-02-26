@@ -104,7 +104,7 @@ server <- function(input, output) {
   })
   
   output$avail_years_chlor <- renderUI({
-    disease_index <- which(names(x = diseases) == input$disease)  
+    disease_index <- which(names(x = diseases) == input$disease_chlor)  
     current_disease <- diseases[[disease_index]]
     dates <- current_disease$date     
     dateRangeInput("avail_years_chlor", 
@@ -115,8 +115,17 @@ server <- function(input, output) {
   
   output$chloropleth <- renderPlot({    
     # Subset the disease list and the appropriate dates 
-    disease_index <- which(names(x = diseases) == input$disease)
+    disease_index <- which(names(x = diseases) == input$disease_chlor)
     current_disease <- diseases[[disease_index]]
+    
+    dates <- current_disease$date
+    start_time <- input$avail_years_chlor[1] - 5
+    end_time <- input$avail_years_chlor[2] + 5
+    date_range <- which(dates > start_time & dates < end_time)
+    print(dates)
+    print(start_time)
+    print(end_time)
+    current_disease <- current_disease[date_range, ]
 
     non_data_cols <- which(names(current_disease) %in% c("YEAR", "WEEK", "date"))
     tmp_data <- current_disease[, -non_data_cols]
@@ -126,12 +135,15 @@ server <- function(input, output) {
     # and turn this into a vector 
     state_means <- as.numeric(colMeans(tmp_data, na.rm = TRUE))
     state_names <- gsub(pattern = "\\.", " ", colnames(tmp_data))
-    state_names <- tolower(state_names)
-    plot_data <- data.frame(state_names, state_means)
+    id <- tolower(state_names)
+    value_df<- data.frame(id, state_means)
+    value_df$id <- as.character(value_df$id)    
+    plot_data <- left_join(us_fortify, value_df)
     
     # Plot the resulting image along with us_fortify
-    ggplot() + geom_map(data = plot_data, aes(map_id = state_names, fill = state_means), 
-                        map = us_fortify) + expand_limits(x = us_fortify$long, y = us_fortify$lat)
+    ggplot() + geom_polygon(data = plot_data, 
+                  aes(x = long, y = lat, group = group, fill = state_means), 
+                  color = "black", size = 0.25)
   })
 
   output$disease_ts <- renderPlot({
