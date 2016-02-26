@@ -13,12 +13,39 @@ server <- function(input, output) {
   
   # Mapping output 
   output$map <- renderLeaflet({
-    leaflet() %>%
-      addTiles(
-        urlTemplate = "//{s}.tiles.mapbox.com/v3/jcheng.map-5ebohr46/{z}/{x}/{y}.png",
-        attribution = 'Maps by <a href="http://www.mapbox.com/">Mapbox</a>'
-      ) %>%
+
+      dt <- as.Date("1966-01-02")
+      disease_name <- "HEPATITIS"
+      df <- diseases[[disease_name]]
+      df <- subset(df, date==dt)
+      mega_df <-  do.call('rbind', lapply(3:(ncol(df)-1), function(i) {
+          subdf <- df[,c( ncol(df), i)] #date then incidence
+          subdf$NAME_1<- colnames(subdf)[2] #make a state id
+          colnames(subdf)[1:2] <- c("date", "incidence")
+          return(subdf)
+          }))
+      mega_df$incidence <- as.numeric(mega_df$incidence)
+
+      #join with us map data
+     # us_data <- join(usa_shape@data[, c(1,5)], mega_df, by="NAME_1")
+      #usa_shape@data <- us_data
+      center_df$NAME_1 <- center_df$region
+      usa_data <- join(center_df, mega_df, "NAME_1")
+      usa_data$popup <- paste(usa_data$NAME_1, "\n", usa_data$incidence, "incidence")
+      pal <- colorQuantile("Purples", NULL, n=5)
+
+      leaflet(data=usa_data) %>%
+          addTiles() %>%
+          addCircles(lng = ~Longitude, lat = ~Latitude, weight=1, radius = ~(2*10^5*incidence), popup= ~popup, color="red") %>%
       setView(lng = -93.85, lat = 37.45, zoom = 4)
+          
+      
+    ## leaflet() %>%
+    ##   addTiles(
+    ##     urlTemplate = "//{s}.tiles.mapbox.com/v3/jcheng.map-5ebohr46/{z}/{x}/{y}.png",
+    ##     attribution = 'Maps by <a href="http://www.mapbox.com/">Mapbox</a>'
+    ##   ) %>%
+    ##   setView(lng = -93.85, lat = 37.45, zoom = 4)
   })
   
   # Adaptive user choices ---------------------------------

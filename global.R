@@ -6,6 +6,7 @@ library(dplyr)
 library(maptools)
 library(ggplot2)
 library(reshape2)
+library(plyr)
 
 # Choices for drop down menu's 
 vars <- c(
@@ -20,6 +21,7 @@ vars <- c(
 load(file = "data/disease_list.Rda")
 city_lookup <- read.csv("data/city_table.csv", stringsAsFactors = FALSE)
 usa_shape <- readShapeSpatial(fn = "data/USA_adm_shp/USA_adm1.shp")
+usa_shape@data$NAME_1 <- toupper(as.character(usa_shape@data$NAME_1))
 
 # rewrite disease to have a date column
 
