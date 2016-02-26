@@ -45,7 +45,17 @@ server <- function(input, output) {
       #usa_shape@data <- us_data
       center_df$NAME_1 <- center_df$region
       usa_data <- join(center_df, mega_df, "NAME_1")
-      usa_data$popup <- paste(usa_data$NAME_1, "\n", usa_data$incidence, "incidence")
+      # add in state pop
+      yr <- as.numeric(format(dt, "%Y"))
+      yr <- paste0("X", floor(yr/10) * 10) #get a census year
+      print(yr)
+      print('state pop')
+      state_pop_df <- state_pops[,c("NAME_1", yr)]
+      print(head(state_pop_df))
+      colnames(state_pop_df)[2] <- "pop"
+      usa_data <- join(usa_data, state_pop_df, "NAME_1")
+      usa_data$popup <- paste0(usa_data$NAME_1, "; Incidence: ", usa_data$incidence, "; Pop: ", prettyNum(usa_data$pop, big.mark=","))
+            
       pal <- colorQuantile("Purples", NULL, n=5)
 
       leaflet(data=usa_data) %>%
@@ -67,7 +77,7 @@ server <- function(input, output) {
     output$x_value <- renderText({
         if (is.null(input$hover_ds$x)) return("Hover over plot")
         if ( input$radiods == 1){
-            out <- "This correlation plot tells us if the states are correlated with one another.  The redder the square is, then an increase of the disease in the square's row state is associated with an increase of the disease in the square's column state."
+            out <- "This correlation plot tells us if the states are correlated with one another.  The redder the square is, then more of an increase of the disease in the square's row state is associated with an increase of the disease in the square's column state."
         } else {
             out <- "This plot shows us the effect of distance on correlation.  A downward trend line implies that as states become farther apart, the less likely their incidences are to have the same pattern.  A smoothed trend line is fit to the data with a 99% Confidence Interval. "
         }
@@ -153,7 +163,7 @@ server <- function(input, output) {
           
            plot(current_disease$date, as.numeric(current_disease[, location_index]), 
                xlab = "Time", ylab = "Count per 100,000", 
-               xlim = c(start_time, end_time), col="gold")
+               xlim = c(start_time, end_time), col="orange")
 
   })
     
@@ -168,6 +178,68 @@ server <- function(input, output) {
                    end = max(dates))    
   })
 
+    #table viewer
+    # Filter data based on selections
+  output$table <- DT::renderDataTable(DT::datatable({
+    data <- diseases[[input$disease_snap]]
+
+    disease_index <- which(names(x = diseases) == input$disease_snap)
+    current_disease <- diseases[[disease_index]]
+    location_index <- which(colnames(current_disease) %in% input$snap_locs)
+    print(location_index)
+    print(input$snap_years)
+    print(head(data$date))
+    data <- subset(data, subset= (data$date >= input$snap_years[1] & data$date <= input$snap_years[2]) )
+    data <- data[, c(1,2, location_index)]
+    print(head(data))
+    data
+  }))
+
+    ## years for table viewer
+    output$snap_years <- renderUI({
+        disease_index <- which(names(x = diseases) == input$disease_snap)  
+        current_disease <- diseases[[disease_index]]    
+        dates <- current_disease$date     
+        dateRangeInput("snap_years", 
+                       label = "Date Range",
+                       min = min(dates),
+                       max = max(dates),
+                       start = min(dates), 
+                       end = max(dates))    
+  })
+
+    # locations for table viewer
+  output$snap_locs<- renderUI({
+    disease_index <- which(names(x = diseases) == input$disease_snap)
+    current_disease <- diseases[[disease_index]]    
+    location_names <- colnames(current_disease)[3:(ncol(current_disease) - 1)]
+    snap_locs <- as.list(location_names)
+    if( input$disease_snap != "DIPHTHERIA"){
+        d_sel <- c("WASHINGTON", "CALIFORNIA", "COLORADO")
+    } else {
+        d_sel <- c("PITTSBURGH.PA", "PHILADELPHIA.PA", "SCRANTON.PA")
+    }
+    selectInput("snap_locs", "Location", snap_locs, multiple = TRUE, selected = d_sel)
+  })  
+
+
+
+    # correlation locations
+    output$cor_locs<- renderUI({
+        disease_index <- which(names(x = diseases) == input$diseaseds)
+        current_disease <- diseases[[disease_index]]    
+        location_names <- colnames(current_disease)[3:(ncol(current_disease) - 1)]
+        print(location_names)
+        cor_locs<- location_names
+        if( input$diseaseds != "DIPHTHERIA"){
+            d_sel <- c("PA", "OHIO", "NEW.YORK", "MARYLAND", "WEST.VIRGINIA", "VIRGINIA", "MICHIGAN", "ILLINOIS", "INDIANA", "DELAWARE")
+        } else {
+            d_sel <- location_names
+    }
+        selectInput("cor_locs", "Location", c("ALL", cor_locs), multiple = TRUE, selected = d_sel)
+  })  
+    
+
     #correlation plot
     output$cor<- renderPlot({
        # disease_name <- "SMALLPOX"
@@ -176,11 +248,20 @@ server <- function(input, output) {
         #subset df to proper time range
         print(input$timeds)
         df <- subset(df, df$date >= input$timeds[1] & df$date <= input$timeds[2])      
-        print(head(df))
-        print(tail(df))
-        
+        #print(head(df))
+       # print(tail(df))
+        if("ALL" %in% input$cor_locs){
+            locs <- colnames(df)[-c(1,2, ncol(df))]
+          } else {
+            locs <- input$cor_locs
+          }
+        print(locs)
+
+        df <- df[, c("WEEK", "YEAR", locs , "date")]
+#        print(head(df))
            
         nms <- colnames(df)
+        print(nms)
         mat <- data.matrix(df[, -c(1,2, ncol(df))])
         cormat <- cor(mat, use="pairwise.complete.obs", method="spearman")
         melted_cormat <- melt(cormat)
@@ -191,7 +272,13 @@ server <- function(input, output) {
             plot(1,1, main="Under Construction")
         } else {
             cors <- as.vector((cormat))
-            dist <- as.vector(t(state_dist))
+            state_inds <- which( center_df$region %in% locs)
+            st_dist <- state_dist[state_inds, state_inds] #extract chosen states
+            print("dim of st dist")
+            print(dim(st_dist))
+            print("dim of cormat")
+            print(dim(cormat))
+            dist <- as.vector(t(st_dist))
            # plot(dist, cors)
            my_df <- data.frame(dist=dist, cors=cors)
             p <- ggplot(my_df, aes(dist, cors)) + geom_point(colour="gold", size=2) +
