@@ -11,9 +11,9 @@ dashboardPage(skin="yellow",
     sidebarMenu(
       menuItem("Home", tabName = "home", icon = icon("dashboard")),
       menuItem("Data Snapshot", tabName="snapshot", icon=icon("bar-chart")),
-      menuItem("Time Series", tabName = "timeseries", icon = icon("calendar"), selected=TRUE),
+      menuItem("Time Series", tabName = "timeseries", icon = icon("calendar")),
       menuItem("Correlations", tabName = "ds", icon = icon("line-chart")),
-      menuItem("Map", tabName="map", icon=icon("map")),
+      menuItem("Map", tabName="map", icon=icon("map"), selected=TRUE),
       menuItem("Animations", tabName = "chloropleth", icon = icon("caret-square-o-right"))
     )
   ),
@@ -42,9 +42,9 @@ dashboardPage(skin="yellow",
         )
                ),
               column(width = 3,
-                 box(width = NULL, status = "success", solidHeader = TRUE,
+                 box(width = NULL, status = "warning", solidHeader = TRUE,
                       selectInput("diseasemap", label = h3("Disease"), 
-                              choices = disease_names, selected="MUMPS")
+                              choices = disease_names, selected="DIPHTHERIA")
                      ),
                      box(width = NULL, status = "warning",
                       h3("Interactive Map"),

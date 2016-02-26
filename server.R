@@ -43,8 +43,13 @@ server <- function(input, output) {
       #join with us map data
      # us_data <- join(usa_shape@data[, c(1,5)], mega_df, by="NAME_1")
       #usa_shape@data <- us_data
-      center_df$NAME_1 <- center_df$region
-      usa_data <- join(center_df, mega_df, "NAME_1")
+      if (input$diseasemap != "DIPHTHERIA"){
+          center_df$NAME_1 <- center_df$region
+          usa_data <- join(center_df, mega_df, "NAME_1")
+      } else {
+          usa_data <- join(city_lookup, mega_df, "NAME_1")
+      }
+      
       # add in state pop
       yr <- as.numeric(format(dt, "%Y"))
       yr <- paste0("X", floor(yr/10) * 10) #get a census year
@@ -56,13 +61,13 @@ server <- function(input, output) {
       usa_data <- join(usa_data, state_pop_df, "NAME_1")
       usa_data$popup <- paste0(usa_data$NAME_1, "; Incidence: ", usa_data$incidence, "; Pop: ", prettyNum(usa_data$pop, big.mark=","))
             
-      pal <- colorQuantile("Purples", NULL, n=5)
+      #pal <- colorQuantile("Purples", NULL, n=5)
 
       leaflet(data=usa_data) %>%
           addTiles() %>%
-          addCircles(lng = ~Longitude, lat = ~Latitude, weight=1, radius = ~(1*10^5*sqrt(incidence)), popup= ~popup, color="red") %>%
+          addCircleMarkers(lng = ~Longitude, lat = ~Latitude, weight=1, radius = ~(10*sqrt(incidence)), popup= ~popup, color="goldenrod", fillOpacity=.5) %>%
       setView(lng = -93.85, lat = 37.45, zoom = 4) %>%
-          addLegend(position = "bottomleft", title=dt, color="red", opacity=.8, labels="Incidence")
+          addLegend(position = "bottomleft", title=dt, color="goldrod", opacity=.8, labels="Incidence")
           
       
     ## leaflet() %>%
@@ -163,7 +168,7 @@ server <- function(input, output) {
           
            plot(current_disease$date, as.numeric(current_disease[, location_index]), 
                xlab = "Time", ylab = "Count per 100,000", 
-               xlim = c(start_time, end_time), col="orange")
+               xlim = c(start_time, end_time), col="orange", pch=16, size=2)
 
   })
     
@@ -232,9 +237,9 @@ server <- function(input, output) {
         print(location_names)
         cor_locs<- location_names
         if( input$diseaseds != "DIPHTHERIA"){
-            d_sel <- c("PA", "OHIO", "NEW.YORK", "MARYLAND", "WEST.VIRGINIA", "VIRGINIA", "MICHIGAN", "ILLINOIS", "INDIANA", "DELAWARE")
+            d_sel <- c("PENNSYLVANIA", "OHIO", "NEW.YORK", "MARYLAND", "WEST.VIRGINIA", "VIRGINIA", "MICHIGAN", "ILLINOIS", "INDIANA", "DELAWARE")
         } else {
-            d_sel <- location_names
+            d_sel <- c("CLEVELAND.OH", "COLUMBUS.OH", "TOLEDO.OH", "CINCINNATI", "PITTSBURGH.PA", "PHILADELPHIA.PA", "SCRANTON.PA", "READING.PA", "WILKES.BARRE.PA", "BUFFALO.NY", "NEW.YORK.NY", "ROCHESTER.NY")
     }
         selectInput("cor_locs", "Location", c("ALL", cor_locs), multiple = TRUE, selected = d_sel)
   })  
@@ -269,15 +274,28 @@ server <- function(input, output) {
            #distance and incidence
         if (input$radiods == 2){
           if (input$diseaseds == "DIPHTHERIA"){
-            plot(1,1, main="Under Construction")
+              print(locs)
+              print(dim(cormat))
+               cors <- as.vector((cormat))
+            city_inds <- which( city_lookup$NAME_1 %in% locs)
+              print(city_inds)
+            ct_dist <- city_dist[city_inds, city_inds] #extract chosen states
+
+            dist <- as.vector(t(ct_dist))
+           # plot(dist, cors)
+           my_df <- data.frame(dist=dist, cors=cors)
+            p <- ggplot(my_df, aes(dist, cors)) + geom_point(colour="gold", size=2) +
+                geom_smooth(level=.999, colour="blue", fill="blue")+ ggtitle(disease_name) +
+                 labs(x="Distance (Scaled)", y="Correlation") +
+                theme_minimal()  
+            print(p)
+              
+           # plot(1,1, main="Under Construction")
         } else {
             cors <- as.vector((cormat))
             state_inds <- which( center_df$region %in% locs)
             st_dist <- state_dist[state_inds, state_inds] #extract chosen states
-            print("dim of st dist")
-            print(dim(st_dist))
-            print("dim of cormat")
-            print(dim(cormat))
+
             dist <- as.vector(t(st_dist))
            # plot(dist, cors)
            my_df <- data.frame(dist=dist, cors=cors)
