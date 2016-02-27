@@ -36801,3 +36801,1574 @@ Warning in func() : NAs introduced by coercion
 4   ARKANSAS 1574449
 5 CALIFORNIA 2377549
 6   COLORADO  799024
+  C-c C-c
+> 
+> 
+> runApp()
+
+Listening on http://127.0.0.1:7030
+[1] 1716  121
+[1] 0
+[1] "1916-01-02"
+Warning in func() : NAs introduced by coercion
+[1] "X1910"
+[1] "state pop"
+      NAME_1   X1910
+1    ALABAMA 2138093
+2     ALASKA   64356
+3    ARIZONA  204354
+4   ARKANSAS 1574449
+5 CALIFORNIA 2377549
+6   COLORADO  799024
+[1] 1920
+[1] "integer"
+[1] "integer"
+[1] 51
+           AB       name decade HEPATITIS  MEASLES MUMPS PERTUSSIS       POLIO
+ALABAMA    AL    ALABAMA   1920         0 4.424950     0         0 0.044615385
+ALASKA     AK     ALASKA   1920         0 0.000000     0         0 0.000000000
+ARIZONA    AZ    ARIZONA   1920         0 3.319870     0         0 0.045000000
+ARKANSAS   AR   ARKANSAS   1920         0 5.778842     0         0 0.006923077
+CALIFORNIA CA CALIFORNIA   1920         0 1.365577     0         0 0.075576923
+COLORADO   CO   COLORADO   1920         0 2.840606     0         0 0.082574257
+           RUBELLA  SMALLPOX  Longitude Latitude
+ALABAMA          0 0.2649515  -86.82773 32.79370
+ALASKA           0 0.0000000 -152.69739 64.55328
+ARIZONA          0 1.5663107 -111.66405 34.29374
+ARKANSAS         0 0.2339806  -92.43951 34.89916
+CALIFORNIA       0 0.5325243 -119.60806 37.25281
+COLORADO         0 1.1735000 -105.54780 38.99905
+[1] 51 12
+Warning in data.frame(clust_df[, c("name", "Longitude", "Latitude", "AB")],  :
+  row names were found from a short variable and have been discarded
+Warning: Removed 20 rows containing missing values (geom_point).
+Warning: Removed 20 rows containing missing values (geom_text).
+Warning: Error in colMeans: 'x' must be an array of at least two dimensions
+Stack trace (innermost first):
+    77: colMeans
+    76: renderPlot [/home/shannon/hackathon/server.R#153]
+    68: output$chloropleth
+     1: runApp
+Warning in lapply(X = X, FUN = FUN, ...) : NAs introduced by coercion
+Warning in lapply(X = X, FUN = FUN, ...) : NAs introduced by coercion
+Warning in lapply(X = X, FUN = FUN, ...) : NAs introduced by coercion
+Warning in lapply(X = X, FUN = FUN, ...) : NAs introduced by coercion
+Warning in lapply(X = X, FUN = FUN, ...) : NAs introduced by coercion
+Warning in lapply(X = X, FUN = FUN, ...) : NAs introduced by coercion
+Warning in lapply(X = X, FUN = FUN, ...) : NAs introduced by coercion
+Warning in lapply(X = X, FUN = FUN, ...) : NAs introduced by coercion
+Warning in lapply(X = X, FUN = FUN, ...) : NAs introduced by coercion
+Warning in lapply(X = X, FUN = FUN, ...) : NAs introduced by coercion
+Warning in lapply(X = X, FUN = FUN, ...) : NAs introduced by coercion
+Warning in lapply(X = X, FUN = FUN, ...) : NAs introduced by coercion
+Warning in lapply(X = X, FUN = FUN, ...) : NAs introduced by coercion
+Warning in lapply(X = X, FUN = FUN, ...) : NAs introduced by coercion
+Warning in lapply(X = X, FUN = FUN, ...) : NAs introduced by coercion
+Warning in lapply(X = X, FUN = FUN, ...) : NAs introduced by coercion
+Warning in lapply(X = X, FUN = FUN, ...) : NAs introduced by coercion
+Warning in lapply(X = X, FUN = FUN, ...) : NAs introduced by coercion
+Warning in lapply(X = X, FUN = FUN, ...) : NAs introduced by coercion
+Warning in lapply(X = X, FUN = FUN, ...) : NAs introduced by coercion
+Warning in lapply(X = X, FUN = FUN, ...) : NAs introduced by coercion
+Warning in lapply(X = X, FUN = FUN, ...) : NAs introduced by coercion
+Warning in lapply(X = X, FUN = FUN, ...) : NAs introduced by coercion
+Warning in lapply(X = X, FUN = FUN, ...) : NAs introduced by coercion
+Warning in lapply(X = X, FUN = FUN, ...) : NAs introduced by coercion
+Warning in lapply(X = X, FUN = FUN, ...) : NAs introduced by coercion
+Warning in lapply(X = X, FUN = FUN, ...) : NAs introduced by coercion
+Warning in lapply(X = X, FUN = FUN, ...) : NAs introduced by coercion
+Warning in lapply(X = X, FUN = FUN, ...) : NAs introduced by coercion
+Warning in lapply(X = X, FUN = FUN, ...) : NAs introduced by coercion
+Warning in lapply(X = X, FUN = FUN, ...) : NAs introduced by coercion
+Warning in lapply(X = X, FUN = FUN, ...) : NAs introduced by coercion
+Warning in lapply(X = X, FUN = FUN, ...) : NAs introduced by coercion
+Warning in lapply(X = X, FUN = FUN, ...) : NAs introduced by coercion
+Warning in lapply(X = X, FUN = FUN, ...) : NAs introduced by coercion
+Warning in lapply(X = X, FUN = FUN, ...) : NAs introduced by coercion
+Warning in lapply(X = X, FUN = FUN, ...) : NAs introduced by coercion
+Warning in lapply(X = X, FUN = FUN, ...) : NAs introduced by coercion
+Warning in lapply(X = X, FUN = FUN, ...) : NAs introduced by coercion
+Warning in lapply(X = X, FUN = FUN, ...) : NAs introduced by coercion
+Warning in lapply(X = X, FUN = FUN, ...) : NAs introduced by coercion
+Warning in lapply(X = X, FUN = FUN, ...) : NAs introduced by coercion
+Warning in lapply(X = X, FUN = FUN, ...) : NAs introduced by coercion
+Warning in lapply(X = X, FUN = FUN, ...) : NAs introduced by coercion
+Warning in lapply(X = X, FUN = FUN, ...) : NAs introduced by coercion
+Warning in lapply(X = X, FUN = FUN, ...) : NAs introduced by coercion
+Warning in lapply(X = X, FUN = FUN, ...) : NAs introduced by coercion
+Warning in lapply(X = X, FUN = FUN, ...) : NAs introduced by coercion
+Warning in lapply(X = X, FUN = FUN, ...) : NAs introduced by coercion
+Warning in lapply(X = X, FUN = FUN, ...) : NAs introduced by coercion
+Warning in lapply(X = X, FUN = FUN, ...) : NAs introduced by coercion
+Joining by: "id"
+[1] 1716  121
+[1] 0
+[1] "1916-01-02"
+Warning in func() : NAs introduced by coercion
+[1] "X1910"
+[1] "state pop"
+      NAME_1   X1910
+1    ALABAMA 2138093
+2     ALASKA   64356
+3    ARIZONA  204354
+4   ARKANSAS 1574449
+5 CALIFORNIA 2377549
+6   COLORADO  799024
+ [1] "ALABAMA"              "ALASKA"               "ARIZONA"             
+ [4] "ARKANSAS"             "CALIFORNIA"           "COLORADO"            
+ [7] "CONNECTICUT"          "DELAWARE"             "DISTRICT.OF.COLUMBIA"
+[10] "FLORIDA"              "GEORGIA"              "HAWAII"              
+[13] "IDAHO"                "ILLINOIS"             "INDIANA"             
+[16] "IOWA"                 "KANSAS"               "KENTUCKY"            
+[19] "LOUISIANA"            "MAINE"                "MARYLAND"            
+[22] "MASSACHUSETTS"        "MICHIGAN"             "MINNESOTA"           
+[25] "MISSISSIPPI"          "MISSOURI"             "MONTANA"             
+[28] "NEBRASKA"             "NEVADA"               "NEW.HAMPSHIRE"       
+[31] "NEW.JERSEY"           "NEW.MEXICO"           "NEW.YORK"            
+[34] "NORTH.CAROLINA"       "NORTH.DAKOTA"         "OHIO"                
+[37] "OKLAHOMA"             "OREGON"               "PENNSYLVANIA"        
+[40] "RHODE.ISLAND"         "SOUTH.CAROLINA"       "SOUTH.DAKOTA"        
+[43] "TENNESSEE"            "TEXAS"                "UTAH"                
+[46] "VERMONT"              "VIRGINIA"             "WASHINGTON"          
+[49] "WEST.VIRGINIA"        "WISCONSIN"            "WYOMING"             
+[1] "1860-01-01" "2015-12-31"
+NULL
+[1] "WEEK" "YEAR" "date"
+Warning: Error in cor: 'x' is empty
+Stack trace (innermost first):
+    77: cor
+    76: renderPlot [/home/shannon/hackathon/server.R#335]
+    68: output$cor
+     1: runApp
+[1] "1860-01-01" "2015-12-31"
+ [1] "DELAWARE"      "ILLINOIS"      "INDIANA"       "MARYLAND"     
+ [5] "MICHIGAN"      "NEW.YORK"      "OHIO"          "PENNSYLVANIA" 
+ [9] "VIRGINIA"      "WEST.VIRGINIA"
+ [1] "WEEK"          "YEAR"          "DELAWARE"      "ILLINOIS"     
+ [5] "INDIANA"       "MARYLAND"      "MICHIGAN"      "NEW.YORK"     
+ [9] "OHIO"          "PENNSYLVANIA"  "VIRGINIA"      "WEST.VIRGINIA"
+[13] "date"         
+Warning in data.matrix(df[, -c(1, 2, ncol(df))]) :
+  NAs introduced by coercion
+Warning in data.matrix(df[, -c(1, 2, ncol(df))]) :
+  NAs introduced by coercion
+Warning in data.matrix(df[, -c(1, 2, ncol(df))]) :
+  NAs introduced by coercion
+Warning in data.matrix(df[, -c(1, 2, ncol(df))]) :
+  NAs introduced by coercion
+Warning in data.matrix(df[, -c(1, 2, ncol(df))]) :
+  NAs introduced by coercion
+Warning in data.matrix(df[, -c(1, 2, ncol(df))]) :
+  NAs introduced by coercion
+Warning in data.matrix(df[, -c(1, 2, ncol(df))]) :
+  NAs introduced by coercion
+Warning in data.matrix(df[, -c(1, 2, ncol(df))]) :
+  NAs introduced by coercion
+Warning in data.matrix(df[, -c(1, 2, ncol(df))]) :
+  NAs introduced by coercion
+Warning in data.matrix(df[, -c(1, 2, ncol(df))]) :
+  NAs introduced by coercion
+Warning: Error in colMeans: 'x' must be an array of at least two dimensions
+Stack trace (innermost first):
+    77: colMeans
+    76: renderPlot [/home/shannon/hackathon/server.R#153]
+    68: output$chloropleth
+     1: runApp
+Warning in lapply(X = X, FUN = FUN, ...) : NAs introduced by coercion
+Warning in lapply(X = X, FUN = FUN, ...) : NAs introduced by coercion
+Warning in lapply(X = X, FUN = FUN, ...) : NAs introduced by coercion
+Warning in lapply(X = X, FUN = FUN, ...) : NAs introduced by coercion
+Warning in lapply(X = X, FUN = FUN, ...) : NAs introduced by coercion
+Warning in lapply(X = X, FUN = FUN, ...) : NAs introduced by coercion
+Warning in lapply(X = X, FUN = FUN, ...) : NAs introduced by coercion
+Warning in lapply(X = X, FUN = FUN, ...) : NAs introduced by coercion
+Warning in lapply(X = X, FUN = FUN, ...) : NAs introduced by coercion
+Warning in lapply(X = X, FUN = FUN, ...) : NAs introduced by coercion
+Warning in lapply(X = X, FUN = FUN, ...) : NAs introduced by coercion
+Warning in lapply(X = X, FUN = FUN, ...) : NAs introduced by coercion
+Warning in lapply(X = X, FUN = FUN, ...) : NAs introduced by coercion
+Warning in lapply(X = X, FUN = FUN, ...) : NAs introduced by coercion
+Warning in lapply(X = X, FUN = FUN, ...) : NAs introduced by coercion
+Warning in lapply(X = X, FUN = FUN, ...) : NAs introduced by coercion
+Warning in lapply(X = X, FUN = FUN, ...) : NAs introduced by coercion
+Warning in lapply(X = X, FUN = FUN, ...) : NAs introduced by coercion
+Warning in lapply(X = X, FUN = FUN, ...) : NAs introduced by coercion
+Warning in lapply(X = X, FUN = FUN, ...) : NAs introduced by coercion
+Warning in lapply(X = X, FUN = FUN, ...) : NAs introduced by coercion
+Warning in lapply(X = X, FUN = FUN, ...) : NAs introduced by coercion
+Warning in lapply(X = X, FUN = FUN, ...) : NAs introduced by coercion
+Warning in lapply(X = X, FUN = FUN, ...) : NAs introduced by coercion
+Warning in lapply(X = X, FUN = FUN, ...) : NAs introduced by coercion
+Warning in lapply(X = X, FUN = FUN, ...) : NAs introduced by coercion
+Warning in lapply(X = X, FUN = FUN, ...) : NAs introduced by coercion
+Warning in lapply(X = X, FUN = FUN, ...) : NAs introduced by coercion
+Warning in lapply(X = X, FUN = FUN, ...) : NAs introduced by coercion
+Warning in lapply(X = X, FUN = FUN, ...) : NAs introduced by coercion
+Warning in lapply(X = X, FUN = FUN, ...) : NAs introduced by coercion
+Warning in lapply(X = X, FUN = FUN, ...) : NAs introduced by coercion
+Warning in lapply(X = X, FUN = FUN, ...) : NAs introduced by coercion
+Warning in lapply(X = X, FUN = FUN, ...) : NAs introduced by coercion
+Warning in lapply(X = X, FUN = FUN, ...) : NAs introduced by coercion
+Warning in lapply(X = X, FUN = FUN, ...) : NAs introduced by coercion
+Warning in lapply(X = X, FUN = FUN, ...) : NAs introduced by coercion
+Warning in lapply(X = X, FUN = FUN, ...) : NAs introduced by coercion
+Warning in lapply(X = X, FUN = FUN, ...) : NAs introduced by coercion
+Warning in lapply(X = X, FUN = FUN, ...) : NAs introduced by coercion
+Warning in lapply(X = X, FUN = FUN, ...) : NAs introduced by coercion
+Warning in lapply(X = X, FUN = FUN, ...) : NAs introduced by coercion
+Warning in lapply(X = X, FUN = FUN, ...) : NAs introduced by coercion
+Warning in lapply(X = X, FUN = FUN, ...) : NAs introduced by coercion
+Warning in lapply(X = X, FUN = FUN, ...) : NAs introduced by coercion
+Warning in lapply(X = X, FUN = FUN, ...) : NAs introduced by coercion
+Warning in lapply(X = X, FUN = FUN, ...) : NAs introduced by coercion
+Warning in lapply(X = X, FUN = FUN, ...) : NAs introduced by coercion
+Warning in lapply(X = X, FUN = FUN, ...) : NAs introduced by coercion
+Warning in lapply(X = X, FUN = FUN, ...) : NAs introduced by coercion
+Warning in lapply(X = X, FUN = FUN, ...) : NAs introduced by coercion
+Joining by: "id"
+[1] 1920
+[1] "integer"
+[1] "integer"
+[1] 51
+           AB       name decade HEPATITIS  MEASLES MUMPS PERTUSSIS       POLIO
+ALABAMA    AL    ALABAMA   1920         0 4.424950     0         0 0.044615385
+ALASKA     AK     ALASKA   1920         0 0.000000     0         0 0.000000000
+ARIZONA    AZ    ARIZONA   1920         0 3.319870     0         0 0.045000000
+ARKANSAS   AR   ARKANSAS   1920         0 5.778842     0         0 0.006923077
+CALIFORNIA CA CALIFORNIA   1920         0 1.365577     0         0 0.075576923
+COLORADO   CO   COLORADO   1920         0 2.840606     0         0 0.082574257
+           RUBELLA  SMALLPOX  Longitude Latitude
+ALABAMA          0 0.2649515  -86.82773 32.79370
+ALASKA           0 0.0000000 -152.69739 64.55328
+ARIZONA          0 1.5663107 -111.66405 34.29374
+ARKANSAS         0 0.2339806  -92.43951 34.89916
+CALIFORNIA       0 0.5325243 -119.60806 37.25281
+COLORADO         0 1.1735000 -105.54780 38.99905
+[1] 51 12
+Warning in data.frame(clust_df[, c("name", "Longitude", "Latitude", "AB")],  :
+  row names were found from a short variable and have been discarded
+Warning: Removed 20 rows containing missing values (geom_point).
+Warning: Removed 20 rows containing missing values (geom_text).
+  C-c C-c
+> 
+> 
+> 
+> runApp()
+
+Listening on http://127.0.0.1:7030
+Warning: Error in xy.coords: 'x' and 'y' lengths differ
+Stack trace (innermost first):
+    80: xy.coords
+    79: plot.default
+    78: plot
+    77: plot
+    76: renderPlot [/home/shannon/hackathon/server.R#120]
+    68: output$disease_ts
+     1: runApp
+Warning: NAs introduced by coercion
+ [1] "ALABAMA"              "ALASKA"               "ARIZONA"             
+ [4] "ARKANSAS"             "CALIFORNIA"           "COLORADO"            
+ [7] "CONNECTICUT"          "DELAWARE"             "DISTRICT.OF.COLUMBIA"
+[10] "FLORIDA"              "GEORGIA"              "HAWAII"              
+[13] "IDAHO"                "ILLINOIS"             "INDIANA"             
+[16] "IOWA"                 "KANSAS"               "KENTUCKY"            
+[19] "LOUISIANA"            "MAINE"                "MARYLAND"            
+[22] "MASSACHUSETTS"        "MICHIGAN"             "MINNESOTA"           
+[25] "MISSISSIPPI"          "MISSOURI"             "MONTANA"             
+[28] "NEBRASKA"             "NEVADA"               "NEW.HAMPSHIRE"       
+[31] "NEW.JERSEY"           "NEW.MEXICO"           "NEW.YORK"            
+[34] "NORTH.CAROLINA"       "NORTH.DAKOTA"         "OHIO"                
+[37] "OKLAHOMA"             "OREGON"               "PENNSYLVANIA"        
+[40] "RHODE.ISLAND"         "SOUTH.CAROLINA"       "SOUTH.DAKOTA"        
+[43] "TENNESSEE"            "TEXAS"                "UTAH"                
+[46] "VERMONT"              "VIRGINIA"             "WASHINGTON"          
+[49] "WEST.VIRGINIA"        "WISCONSIN"            "WYOMING"             
+[1] "1860-01-01" "2015-12-31"
+NULL
+[1] "WEEK" "YEAR" "date"
+Warning: Error in cor: 'x' is empty
+Stack trace (innermost first):
+    77: cor
+    76: renderPlot [/home/shannon/hackathon/server.R#335]
+    68: output$cor
+     1: runApp
+[1] "1860-01-01" "2015-12-31"
+ [1] "DELAWARE"      "ILLINOIS"      "INDIANA"       "MARYLAND"     
+ [5] "MICHIGAN"      "NEW.YORK"      "OHIO"          "PENNSYLVANIA" 
+ [9] "VIRGINIA"      "WEST.VIRGINIA"
+ [1] "WEEK"          "YEAR"          "DELAWARE"      "ILLINOIS"     
+ [5] "INDIANA"       "MARYLAND"      "MICHIGAN"      "NEW.YORK"     
+ [9] "OHIO"          "PENNSYLVANIA"  "VIRGINIA"      "WEST.VIRGINIA"
+[13] "date"         
+Warning in data.matrix(df[, -c(1, 2, ncol(df))]) :
+  NAs introduced by coercion
+Warning in data.matrix(df[, -c(1, 2, ncol(df))]) :
+  NAs introduced by coercion
+Warning in data.matrix(df[, -c(1, 2, ncol(df))]) :
+  NAs introduced by coercion
+Warning in data.matrix(df[, -c(1, 2, ncol(df))]) :
+  NAs introduced by coercion
+Warning in data.matrix(df[, -c(1, 2, ncol(df))]) :
+  NAs introduced by coercion
+Warning in data.matrix(df[, -c(1, 2, ncol(df))]) :
+  NAs introduced by coercion
+Warning in data.matrix(df[, -c(1, 2, ncol(df))]) :
+  NAs introduced by coercion
+Warning in data.matrix(df[, -c(1, 2, ncol(df))]) :
+  NAs introduced by coercion
+Warning in data.matrix(df[, -c(1, 2, ncol(df))]) :
+  NAs introduced by coercion
+Warning in data.matrix(df[, -c(1, 2, ncol(df))]) :
+  NAs introduced by coercion
+  C-c C-c
+> 
+> 
+> runApp()
+
+Listening on http://127.0.0.1:7030
+[1] 1920
+[1] "integer"
+[1] "integer"
+[1] 51
+           AB       name decade HEPATITIS  MEASLES MUMPS PERTUSSIS       POLIO
+ALABAMA    AL    ALABAMA   1920         0 4.424950     0         0 0.044615385
+ALASKA     AK     ALASKA   1920         0 0.000000     0         0 0.000000000
+ARIZONA    AZ    ARIZONA   1920         0 3.319870     0         0 0.045000000
+ARKANSAS   AR   ARKANSAS   1920         0 5.778842     0         0 0.006923077
+CALIFORNIA CA CALIFORNIA   1920         0 1.365577     0         0 0.075576923
+COLORADO   CO   COLORADO   1920         0 2.840606     0         0 0.082574257
+           RUBELLA  SMALLPOX  Longitude Latitude
+ALABAMA          0 0.2649515  -86.82773 32.79370
+ALASKA           0 0.0000000 -152.69739 64.55328
+ARIZONA          0 1.5663107 -111.66405 34.29374
+ARKANSAS         0 0.2339806  -92.43951 34.89916
+CALIFORNIA       0 0.5325243 -119.60806 37.25281
+COLORADO         0 1.1735000 -105.54780 38.99905
+[1] 51 12
+Warning in data.frame(clust_df[, c("name", "Longitude", "Latitude", "AB")],  :
+  row names were found from a short variable and have been discarded
+Warning: Removed 20 rows containing missing values (geom_point).
+Warning: Removed 20 rows containing missing values (geom_text).
+[1] 1716  121
+[1] 0
+[1] "1916-01-02"
+Warning in func() : NAs introduced by coercion
+[1] "X1910"
+[1] "state pop"
+      NAME_1   X1910
+1    ALABAMA 2138093
+2     ALASKA   64356
+3    ARIZONA  204354
+4   ARKANSAS 1574449
+5 CALIFORNIA 2377549
+6   COLORADO  799024
+Warning: Error in colMeans: 'x' must be an array of at least two dimensions
+Stack trace (innermost first):
+    77: colMeans
+    76: renderPlot [/home/shannon/hackathon/server.R#153]
+    68: output$chloropleth
+     1: runApp
+Warning in lapply(X = X, FUN = FUN, ...) : NAs introduced by coercion
+Warning in lapply(X = X, FUN = FUN, ...) : NAs introduced by coercion
+Warning in lapply(X = X, FUN = FUN, ...) : NAs introduced by coercion
+Warning in lapply(X = X, FUN = FUN, ...) : NAs introduced by coercion
+Warning in lapply(X = X, FUN = FUN, ...) : NAs introduced by coercion
+Warning in lapply(X = X, FUN = FUN, ...) : NAs introduced by coercion
+Warning in lapply(X = X, FUN = FUN, ...) : NAs introduced by coercion
+Warning in lapply(X = X, FUN = FUN, ...) : NAs introduced by coercion
+Warning in lapply(X = X, FUN = FUN, ...) : NAs introduced by coercion
+Warning in lapply(X = X, FUN = FUN, ...) : NAs introduced by coercion
+Warning in lapply(X = X, FUN = FUN, ...) : NAs introduced by coercion
+Warning in lapply(X = X, FUN = FUN, ...) : NAs introduced by coercion
+Warning in lapply(X = X, FUN = FUN, ...) : NAs introduced by coercion
+Warning in lapply(X = X, FUN = FUN, ...) : NAs introduced by coercion
+Warning in lapply(X = X, FUN = FUN, ...) : NAs introduced by coercion
+Warning in lapply(X = X, FUN = FUN, ...) : NAs introduced by coercion
+Warning in lapply(X = X, FUN = FUN, ...) : NAs introduced by coercion
+Warning in lapply(X = X, FUN = FUN, ...) : NAs introduced by coercion
+Warning in lapply(X = X, FUN = FUN, ...) : NAs introduced by coercion
+Warning in lapply(X = X, FUN = FUN, ...) : NAs introduced by coercion
+Warning in lapply(X = X, FUN = FUN, ...) : NAs introduced by coercion
+Warning in lapply(X = X, FUN = FUN, ...) : NAs introduced by coercion
+Warning in lapply(X = X, FUN = FUN, ...) : NAs introduced by coercion
+Warning in lapply(X = X, FUN = FUN, ...) : NAs introduced by coercion
+Warning in lapply(X = X, FUN = FUN, ...) : NAs introduced by coercion
+Warning in lapply(X = X, FUN = FUN, ...) : NAs introduced by coercion
+Warning in lapply(X = X, FUN = FUN, ...) : NAs introduced by coercion
+Warning in lapply(X = X, FUN = FUN, ...) : NAs introduced by coercion
+Warning in lapply(X = X, FUN = FUN, ...) : NAs introduced by coercion
+Warning in lapply(X = X, FUN = FUN, ...) : NAs introduced by coercion
+Warning in lapply(X = X, FUN = FUN, ...) : NAs introduced by coercion
+Warning in lapply(X = X, FUN = FUN, ...) : NAs introduced by coercion
+Warning in lapply(X = X, FUN = FUN, ...) : NAs introduced by coercion
+Warning in lapply(X = X, FUN = FUN, ...) : NAs introduced by coercion
+Warning in lapply(X = X, FUN = FUN, ...) : NAs introduced by coercion
+Warning in lapply(X = X, FUN = FUN, ...) : NAs introduced by coercion
+Warning in lapply(X = X, FUN = FUN, ...) : NAs introduced by coercion
+Warning in lapply(X = X, FUN = FUN, ...) : NAs introduced by coercion
+Warning in lapply(X = X, FUN = FUN, ...) : NAs introduced by coercion
+Warning in lapply(X = X, FUN = FUN, ...) : NAs introduced by coercion
+Warning in lapply(X = X, FUN = FUN, ...) : NAs introduced by coercion
+Warning in lapply(X = X, FUN = FUN, ...) : NAs introduced by coercion
+Warning in lapply(X = X, FUN = FUN, ...) : NAs introduced by coercion
+Warning in lapply(X = X, FUN = FUN, ...) : NAs introduced by coercion
+Warning in lapply(X = X, FUN = FUN, ...) : NAs introduced by coercion
+Warning in lapply(X = X, FUN = FUN, ...) : NAs introduced by coercion
+Warning in lapply(X = X, FUN = FUN, ...) : NAs introduced by coercion
+Warning in lapply(X = X, FUN = FUN, ...) : NAs introduced by coercion
+Warning in lapply(X = X, FUN = FUN, ...) : NAs introduced by coercion
+Warning in lapply(X = X, FUN = FUN, ...) : NAs introduced by coercion
+Warning in lapply(X = X, FUN = FUN, ...) : NAs introduced by coercion
+Joining by: "id"
+  C-c C-c
+> 
+> 
+> 
+> runApp()
+
+Listening on http://127.0.0.1:7030
+Warning in max(avail, na.rm = TRUE) :
+  no non-missing arguments to max; returning -Inf
+Warning in min(avail, na.rm = TRUE) :
+  no non-missing arguments to min; returning Inf
+integer(0)
+[1] NA
+Warning: Error in plot: error in evaluating the argument 'y' in selecting a method for function 'plot': Error in `[.data.frame`(current_disease, , location_index[1]) (from server.R#133) : 
+  undefined columns selected
+
+Stack trace (innermost first):
+    77: plot
+    76: renderPlot [/home/shannon/hackathon/server.R#133]
+    68: output$disease_ts
+     1: runApp
+Warning in lapply(avail, as.numeric) : NAs introduced by coercion
+Warning in lapply(avail, as.numeric) : NAs introduced by coercion
+Warning in lapply(avail, as.numeric) : NAs introduced by coercion
+Warning in lapply(avail, as.numeric) : NAs introduced by coercion
+Warning in lapply(avail, as.numeric) : NAs introduced by coercion
+Warning in lapply(avail, as.numeric) : NAs introduced by coercion
+Warning in lapply(avail, as.numeric) : NAs introduced by coercion
+Warning in lapply(avail, as.numeric) : NAs introduced by coercion
+Warning in lapply(avail, as.numeric) : NAs introduced by coercion
+Warning in lapply(avail, as.numeric) : NAs introduced by coercion
+Warning in lapply(avail, as.numeric) : NAs introduced by coercion
+Warning in lapply(avail, as.numeric) : NAs introduced by coercion
+Warning in lapply(avail, as.numeric) : NAs introduced by coercion
+Warning in lapply(avail, as.numeric) : NAs introduced by coercion
+Warning in lapply(avail, as.numeric) : NAs introduced by coercion
+Warning in lapply(avail, as.numeric) : NAs introduced by coercion
+Warning in lapply(avail, as.numeric) : NAs introduced by coercion
+Warning in lapply(avail, as.numeric) : NAs introduced by coercion
+Warning in lapply(avail, as.numeric) : NAs introduced by coercion
+Warning in lapply(avail, as.numeric) : NAs introduced by coercion
+Warning in lapply(avail, as.numeric) : NAs introduced by coercion
+Warning in lapply(avail, as.numeric) : NAs introduced by coercion
+Warning in lapply(avail, as.numeric) : NAs introduced by coercion
+Warning in lapply(avail, as.numeric) : NAs introduced by coercion
+Warning in lapply(avail, as.numeric) : NAs introduced by coercion
+Warning in lapply(avail, as.numeric) : NAs introduced by coercion
+Warning in lapply(avail, as.numeric) : NAs introduced by coercion
+Warning in lapply(avail, as.numeric) : NAs introduced by coercion
+Warning in lapply(avail, as.numeric) : NAs introduced by coercion
+Warning in lapply(avail, as.numeric) : NAs introduced by coercion
+Warning in lapply(avail, as.numeric) : NAs introduced by coercion
+Warning in lapply(avail, as.numeric) : NAs introduced by coercion
+Warning in lapply(avail, as.numeric) : NAs introduced by coercion
+Warning in lapply(avail, as.numeric) : NAs introduced by coercion
+Warning in lapply(avail, as.numeric) : NAs introduced by coercion
+Warning in lapply(avail, as.numeric) : NAs introduced by coercion
+Warning in lapply(avail, as.numeric) : NAs introduced by coercion
+Warning in lapply(avail, as.numeric) : NAs introduced by coercion
+Warning in lapply(avail, as.numeric) : NAs introduced by coercion
+Warning in lapply(avail, as.numeric) : NAs introduced by coercion
+Warning in lapply(avail, as.numeric) : NAs introduced by coercion
+Warning in lapply(avail, as.numeric) : NAs introduced by coercion
+Warning in lapply(avail, as.numeric) : NAs introduced by coercion
+Warning in lapply(avail, as.numeric) : NAs introduced by coercion
+Warning in lapply(avail, as.numeric) : NAs introduced by coercion
+Warning in lapply(avail, as.numeric) : NAs introduced by coercion
+Warning in lapply(avail, as.numeric) : NAs introduced by coercion
+Warning in lapply(avail, as.numeric) : NAs introduced by coercion
+Warning in lapply(avail, as.numeric) : NAs introduced by coercion
+Warning in lapply(avail, as.numeric) : NAs introduced by coercion
+Warning in lapply(avail, as.numeric) : NAs introduced by coercion
+Warning in lapply(avail, as.numeric) : NAs introduced by coercion
+Warning in lapply(avail, as.numeric) : NAs introduced by coercion
+Warning in lapply(avail, as.numeric) : NAs introduced by coercion
+Warning in lapply(avail, as.numeric) : NAs introduced by coercion
+Warning in lapply(avail, as.numeric) : NAs introduced by coercion
+Warning in lapply(avail, as.numeric) : NAs introduced by coercion
+Warning in lapply(avail, as.numeric) : NAs introduced by coercion
+Warning in lapply(avail, as.numeric) : NAs introduced by coercion
+Warning in lapply(avail, as.numeric) : NAs introduced by coercion
+Warning in lapply(avail, as.numeric) : NAs introduced by coercion
+Warning in lapply(avail, as.numeric) : NAs introduced by coercion
+Warning in lapply(avail, as.numeric) : NAs introduced by coercion
+Warning in lapply(avail, as.numeric) : NAs introduced by coercion
+Warning in lapply(avail, as.numeric) : NAs introduced by coercion
+Warning in lapply(avail, as.numeric) : NAs introduced by coercion
+Warning in lapply(avail, as.numeric) : NAs introduced by coercion
+Warning in lapply(avail, as.numeric) : NAs introduced by coercion
+Warning in lapply(avail, as.numeric) : NAs introduced by coercion
+Warning in lapply(avail, as.numeric) : NAs introduced by coercion
+Warning in lapply(avail, as.numeric) : NAs introduced by coercion
+Warning in lapply(avail, as.numeric) : NAs introduced by coercion
+Warning in lapply(avail, as.numeric) : NAs introduced by coercion
+Warning in lapply(avail, as.numeric) : NAs introduced by coercion
+Warning in lapply(avail, as.numeric) : NAs introduced by coercion
+Warning in lapply(avail, as.numeric) : NAs introduced by coercion
+Warning in lapply(avail, as.numeric) : NAs introduced by coercion
+Warning in lapply(avail, as.numeric) : NAs introduced by coercion
+Warning in lapply(avail, as.numeric) : NAs introduced by coercion
+Warning in lapply(avail, as.numeric) : NAs introduced by coercion
+Warning in lapply(avail, as.numeric) : NAs introduced by coercion
+Warning in lapply(avail, as.numeric) : NAs introduced by coercion
+Warning in lapply(avail, as.numeric) : NAs introduced by coercion
+Warning in lapply(avail, as.numeric) : NAs introduced by coercion
+Warning in lapply(avail, as.numeric) : NAs introduced by coercion
+Warning in lapply(avail, as.numeric) : NAs introduced by coercion
+Warning in lapply(avail, as.numeric) : NAs introduced by coercion
+Warning in lapply(avail, as.numeric) : NAs introduced by coercion
+Warning in lapply(avail, as.numeric) : NAs introduced by coercion
+Warning in lapply(avail, as.numeric) : NAs introduced by coercion
+Warning in lapply(avail, as.numeric) : NAs introduced by coercion
+Warning in lapply(avail, as.numeric) : NAs introduced by coercion
+Warning in lapply(avail, as.numeric) : NAs introduced by coercion
+Warning in lapply(avail, as.numeric) : NAs introduced by coercion
+Warning in lapply(avail, as.numeric) : NAs introduced by coercion
+Warning in lapply(avail, as.numeric) : NAs introduced by coercion
+Warning in lapply(avail, as.numeric) : NAs introduced by coercion
+Warning in lapply(avail, as.numeric) : NAs introduced by coercion
+Warning in lapply(avail, as.numeric) : NAs introduced by coercion
+Warning in lapply(avail, as.numeric) : NAs introduced by coercion
+Warning in lapply(avail, as.numeric) : NAs introduced by coercion
+Warning in lapply(avail, as.numeric) : NAs introduced by coercion
+Warning in lapply(avail, as.numeric) : NAs introduced by coercion
+Warning in lapply(avail, as.numeric) : NAs introduced by coercion
+Warning in lapply(avail, as.numeric) : NAs introduced by coercion
+Warning in lapply(avail, as.numeric) : NAs introduced by coercion
+Warning in lapply(avail, as.numeric) : NAs introduced by coercion
+Warning in lapply(avail, as.numeric) : NAs introduced by coercion
+Warning in lapply(avail, as.numeric) : NAs introduced by coercion
+Warning in lapply(avail, as.numeric) : NAs introduced by coercion
+Warning in lapply(avail, as.numeric) : NAs introduced by coercion
+Warning in lapply(avail, as.numeric) : NAs introduced by coercion
+Warning in lapply(avail, as.numeric) : NAs introduced by coercion
+Warning in lapply(avail, as.numeric) : NAs introduced by coercion
+Warning in lapply(avail, as.numeric) : NAs introduced by coercion
+Warning in lapply(avail, as.numeric) : NAs introduced by coercion
+Warning in lapply(avail, as.numeric) : NAs introduced by coercion
+Warning in lapply(avail, as.numeric) : NAs introduced by coercion
+Warning in lapply(avail, as.numeric) : NAs introduced by coercion
+Warning in lapply(avail, as.numeric) : NAs introduced by coercion
+Warning in lapply(avail, as.numeric) : NAs introduced by coercion
+Warning in lapply(avail, as.numeric) : NAs introduced by coercion
+Warning in lapply(avail, as.numeric) : NAs introduced by coercion
+Warning in lapply(avail, as.numeric) : NAs introduced by coercion
+Warning in lapply(avail, as.numeric) : NAs introduced by coercion
+Warning in lapply(avail, as.numeric) : NAs introduced by coercion
+Warning in lapply(avail, as.numeric) : NAs introduced by coercion
+Warning in lapply(avail, as.numeric) : NAs introduced by coercion
+Warning in lapply(avail, as.numeric) : NAs introduced by coercion
+Warning in lapply(avail, as.numeric) : NAs introduced by coercion
+Warning in lapply(avail, as.numeric) : NAs introduced by coercion
+Warning in lapply(avail, as.numeric) : NAs introduced by coercion
+Warning in lapply(avail, as.numeric) : NAs introduced by coercion
+Warning in lapply(avail, as.numeric) : NAs introduced by coercion
+Warning in lapply(avail, as.numeric) : NAs introduced by coercion
+Warning in lapply(avail, as.numeric) : NAs introduced by coercion
+Warning in lapply(avail, as.numeric) : NAs introduced by coercion
+Warning in lapply(avail, as.numeric) : NAs introduced by coercion
+Warning in lapply(avail, as.numeric) : NAs introduced by coercion
+Warning in lapply(avail, as.numeric) : NAs introduced by coercion
+Warning in lapply(avail, as.numeric) : NAs introduced by coercion
+Warning in lapply(avail, as.numeric) : NAs introduced by coercion
+Warning in lapply(avail, as.numeric) : NAs introduced by coercion
+Warning in lapply(avail, as.numeric) : NAs introduced by coercion
+Warning in lapply(avail, as.numeric) : NAs introduced by coercion
+Warning in lapply(avail, as.numeric) : NAs introduced by coercion
+Warning in lapply(avail, as.numeric) : NAs introduced by coercion
+Warning in lapply(avail, as.numeric) : NAs introduced by coercion
+Warning in lapply(avail, as.numeric) : NAs introduced by coercion
+Warning in lapply(avail, as.numeric) : NAs introduced by coercion
+Warning in lapply(avail, as.numeric) : NAs introduced by coercion
+Warning in lapply(avail, as.numeric) : NAs introduced by coercion
+Warning in lapply(avail, as.numeric) : NAs introduced by coercion
+Warning in lapply(avail, as.numeric) : NAs introduced by coercion
+Warning in lapply(avail, as.numeric) : NAs introduced by coercion
+Warning in lapply(avail, as.numeric) : NAs introduced by coercion
+Warning in lapply(avail, as.numeric) : NAs introduced by coercion
+Warning in lapply(avail, as.numeric) : NAs introduced by coercion
+Warning in lapply(avail, as.numeric) : NAs introduced by coercion
+Warning in lapply(avail, as.numeric) : NAs introduced by coercion
+Warning in lapply(avail, as.numeric) : NAs introduced by coercion
+Warning in lapply(avail, as.numeric) : NAs introduced by coercion
+Warning in lapply(avail, as.numeric) : NAs introduced by coercion
+Warning in lapply(avail, as.numeric) : NAs introduced by coercion
+Warning in lapply(avail, as.numeric) : NAs introduced by coercion
+Warning in lapply(avail, as.numeric) : NAs introduced by coercion
+Warning in lapply(avail, as.numeric) : NAs introduced by coercion
+Warning in lapply(avail, as.numeric) : NAs introduced by coercion
+Warning in lapply(avail, as.numeric) : NAs introduced by coercion
+Warning in lapply(avail, as.numeric) : NAs introduced by coercion
+Warning in lapply(avail, as.numeric) : NAs introduced by coercion
+Warning in lapply(avail, as.numeric) : NAs introduced by coercion
+Warning in lapply(avail, as.numeric) : NAs introduced by coercion
+Warning in lapply(avail, as.numeric) : NAs introduced by coercion
+Warning in lapply(avail, as.numeric) : NAs introduced by coercion
+Warning in lapply(avail, as.numeric) : NAs introduced by coercion
+Warning in lapply(avail, as.numeric) : NAs introduced by coercion
+Warning in lapply(avail, as.numeric) : NAs introduced by coercion
+Warning in lapply(avail, as.numeric) : NAs introduced by coercion
+Warning in lapply(avail, as.numeric) : NAs introduced by coercion
+Warning in lapply(avail, as.numeric) : NAs introduced by coercion
+Warning in lapply(avail, as.numeric) : NAs introduced by coercion
+Warning in lapply(avail, as.numeric) : NAs introduced by coercion
+Warning in lapply(avail, as.numeric) : NAs introduced by coercion
+Warning in lapply(avail, as.numeric) : NAs introduced by coercion
+Warning in lapply(avail, as.numeric) : NAs introduced by coercion
+Warning in lapply(avail, as.numeric) : NAs introduced by coercion
+Warning in lapply(avail, as.numeric) : NAs introduced by coercion
+Warning in lapply(avail, as.numeric) : NAs introduced by coercion
+Warning in lapply(avail, as.numeric) : NAs introduced by coercion
+Warning in lapply(avail, as.numeric) : NAs introduced by coercion
+Warning in lapply(avail, as.numeric) : NAs introduced by coercion
+Warning in lapply(avail, as.numeric) : NAs introduced by coercion
+Warning in lapply(avail, as.numeric) : NAs introduced by coercion
+Warning in lapply(avail, as.numeric) : NAs introduced by coercion
+Warning in lapply(avail, as.numeric) : NAs introduced by coercion
+Warning in lapply(avail, as.numeric) : NAs introduced by coercion
+Warning in lapply(avail, as.numeric) : NAs introduced by coercion
+Warning in lapply(avail, as.numeric) : NAs introduced by coercion
+Warning in lapply(avail, as.numeric) : NAs introduced by coercion
+Warning in lapply(avail, as.numeric) : NAs introduced by coercion
+Warning in lapply(avail, as.numeric) : NAs introduced by coercion
+Warning in lapply(avail, as.numeric) : NAs introduced by coercion
+Warning in lapply(avail, as.numeric) : NAs introduced by coercion
+Warning in lapply(avail, as.numeric) : NAs introduced by coercion
+Warning in lapply(avail, as.numeric) : NAs introduced by coercion
+Warning in lapply(avail, as.numeric) : NAs introduced by coercion
+Warning in lapply(avail, as.numeric) : NAs introduced by coercion
+Warning in lapply(avail, as.numeric) : NAs introduced by coercion
+Warning in lapply(avail, as.numeric) : NAs introduced by coercion
+Warning in lapply(avail, as.numeric) : NAs introduced by coercion
+Warning in lapply(avail, as.numeric) : NAs introduced by coercion
+Warning in lapply(avail, as.numeric) : NAs introduced by coercion
+Warning in lapply(avail, as.numeric) : NAs introduced by coercion
+Warning in lapply(avail, as.numeric) : NAs introduced by coercion
+Warning in lapply(avail, as.numeric) : NAs introduced by coercion
+Warning in lapply(avail, as.numeric) : NAs introduced by coercion
+Warning in lapply(avail, as.numeric) : NAs introduced by coercion
+Warning in lapply(avail, as.numeric) : NAs introduced by coercion
+Warning in lapply(avail, as.numeric) : NAs introduced by coercion
+Warning in lapply(avail, as.numeric) : NAs introduced by coercion
+Warning in lapply(avail, as.numeric) : NAs introduced by coercion
+Warning in lapply(avail, as.numeric) : NAs introduced by coercion
+Warning in lapply(avail, as.numeric) : NAs introduced by coercion
+Warning in lapply(avail, as.numeric) : NAs introduced by coercion
+Warning in lapply(avail, as.numeric) : NAs introduced by coercion
+Warning in lapply(avail, as.numeric) : NAs introduced by coercion
+Warning in lapply(avail, as.numeric) : NAs introduced by coercion
+Warning in lapply(avail, as.numeric) : NAs introduced by coercion
+Warning in lapply(avail, as.numeric) : NAs introduced by coercion
+Warning in lapply(avail, as.numeric) : NAs introduced by coercion
+Warning in lapply(avail, as.numeric) : NAs introduced by coercion
+Warning in lapply(avail, as.numeric) : NAs introduced by coercion
+Warning in lapply(avail, as.numeric) : NAs introduced by coercion
+Warning in lapply(avail, as.numeric) : NAs introduced by coercion
+Warning in lapply(avail, as.numeric) : NAs introduced by coercion
+Warning in lapply(avail, as.numeric) : NAs introduced by coercion
+Warning in lapply(avail, as.numeric) : NAs introduced by coercion
+Warning in lapply(avail, as.numeric) : NAs introduced by coercion
+Warning in lapply(avail, as.numeric) : NAs introduced by coercion
+Warning in lapply(avail, as.numeric) : NAs introduced by coercion
+Warning in lapply(avail, as.numeric) : NAs introduced by coercion
+Warning in lapply(avail, as.numeric) : NAs introduced by coercion
+Warning in lapply(avail, as.numeric) : NAs introduced by coercion
+Warning in lapply(avail, as.numeric) : NAs introduced by coercion
+Warning in lapply(avail, as.numeric) : NAs introduced by coercion
+Warning in lapply(avail, as.numeric) : NAs introduced by coercion
+Warning in lapply(avail, as.numeric) : NAs introduced by coercion
+Warning in lapply(avail, as.numeric) : NAs introduced by coercion
+Warning in lapply(avail, as.numeric) : NAs introduced by coercion
+Warning in lapply(avail, as.numeric) : NAs introduced by coercion
+Warning in lapply(avail, as.numeric) : NAs introduced by coercion
+Warning in lapply(avail, as.numeric) : NAs introduced by coercion
+Warning in lapply(avail, as.numeric) : NAs introduced by coercion
+Warning in lapply(avail, as.numeric) : NAs introduced by coercion
+Warning in lapply(avail, as.numeric) : NAs introduced by coercion
+Warning in lapply(avail, as.numeric) : NAs introduced by coercion
+Warning in lapply(avail, as.numeric) : NAs introduced by coercion
+Warning in lapply(avail, as.numeric) : NAs introduced by coercion
+Warning in lapply(avail, as.numeric) : NAs introduced by coercion
+Warning in lapply(avail, as.numeric) : NAs introduced by coercion
+Warning in lapply(avail, as.numeric) : NAs introduced by coercion
+Warning in lapply(avail, as.numeric) : NAs introduced by coercion
+Warning in lapply(avail, as.numeric) : NAs introduced by coercion
+Warning in lapply(avail, as.numeric) : NAs introduced by coercion
+Warning in lapply(avail, as.numeric) : NAs introduced by coercion
+Warning in lapply(avail, as.numeric) : NAs introduced by coercion
+Warning in lapply(avail, as.numeric) : NAs introduced by coercion
+Warning in lapply(avail, as.numeric) : NAs introduced by coercion
+Warning in lapply(avail, as.numeric) : NAs introduced by coercion
+Warning in lapply(avail, as.numeric) : NAs introduced by coercion
+Warning in lapply(avail, as.numeric) : NAs introduced by coercion
+Warning in lapply(avail, as.numeric) : NAs introduced by coercion
+Warning in lapply(avail, as.numeric) : NAs introduced by coercion
+Warning in lapply(avail, as.numeric) : NAs introduced by coercion
+Warning in lapply(avail, as.numeric) : NAs introduced by coercion
+Warning in lapply(avail, as.numeric) : NAs introduced by coercion
+Warning in lapply(avail, as.numeric) : NAs introduced by coercion
+Warning in lapply(avail, as.numeric) : NAs introduced by coercion
+Warning in lapply(avail, as.numeric) : NAs introduced by coercion
+Warning in lapply(avail, as.numeric) : NAs introduced by coercion
+Warning in lapply(avail, as.numeric) : NAs introduced by coercion
+Warning in lapply(avail, as.numeric) : NAs introduced by coercion
+Warning in lapply(avail, as.numeric) : NAs introduced by coercion
+Warning in lapply(avail, as.numeric) : NAs introduced by coercion
+Warning in lapply(avail, as.numeric) : NAs introduced by coercion
+Warning in lapply(avail, as.numeric) : NAs introduced by coercion
+Warning in lapply(avail, as.numeric) : NAs introduced by coercion
+Warning in lapply(avail, as.numeric) : NAs introduced by coercion
+Warning in lapply(avail, as.numeric) : NAs introduced by coercion
+Warning in lapply(avail, as.numeric) : NAs introduced by coercion
+Warning in lapply(avail, as.numeric) : NAs introduced by coercion
+Warning in lapply(avail, as.numeric) : NAs introduced by coercion
+Warning in lapply(avail, as.numeric) : NAs introduced by coercion
+[1] 3
+[1] 3
+Warning: NAs introduced by coercion
+Warning in lapply(avail, as.numeric) : NAs introduced by coercion
+Warning in lapply(avail, as.numeric) : NAs introduced by coercion
+Warning in lapply(avail, as.numeric) : NAs introduced by coercion
+Warning in lapply(avail, as.numeric) : NAs introduced by coercion
+Warning in lapply(avail, as.numeric) : NAs introduced by coercion
+Warning in lapply(avail, as.numeric) : NAs introduced by coercion
+Warning in lapply(avail, as.numeric) : NAs introduced by coercion
+Warning in lapply(avail, as.numeric) : NAs introduced by coercion
+Warning in lapply(avail, as.numeric) : NAs introduced by coercion
+Warning in lapply(avail, as.numeric) : NAs introduced by coercion
+Warning in lapply(avail, as.numeric) : NAs introduced by coercion
+Warning in lapply(avail, as.numeric) : NAs introduced by coercion
+Warning in lapply(avail, as.numeric) : NAs introduced by coercion
+Warning in lapply(avail, as.numeric) : NAs introduced by coercion
+Warning in lapply(avail, as.numeric) : NAs introduced by coercion
+Warning in lapply(avail, as.numeric) : NAs introduced by coercion
+Warning in lapply(avail, as.numeric) : NAs introduced by coercion
+Warning in lapply(avail, as.numeric) : NAs introduced by coercion
+Warning in lapply(avail, as.numeric) : NAs introduced by coercion
+Warning in lapply(avail, as.numeric) : NAs introduced by coercion
+Warning in lapply(avail, as.numeric) : NAs introduced by coercion
+Warning in lapply(avail, as.numeric) : NAs introduced by coercion
+Warning in lapply(avail, as.numeric) : NAs introduced by coercion
+Warning in lapply(avail, as.numeric) : NAs introduced by coercion
+Warning in lapply(avail, as.numeric) : NAs introduced by coercion
+Warning in lapply(avail, as.numeric) : NAs introduced by coercion
+Warning in lapply(avail, as.numeric) : NAs introduced by coercion
+Warning in lapply(avail, as.numeric) : NAs introduced by coercion
+Warning in lapply(avail, as.numeric) : NAs introduced by coercion
+Warning in lapply(avail, as.numeric) : NAs introduced by coercion
+Warning in lapply(avail, as.numeric) : NAs introduced by coercion
+Warning in lapply(avail, as.numeric) : NAs introduced by coercion
+Warning in lapply(avail, as.numeric) : NAs introduced by coercion
+Warning in lapply(avail, as.numeric) : NAs introduced by coercion
+Warning in lapply(avail, as.numeric) : NAs introduced by coercion
+Warning in lapply(avail, as.numeric) : NAs introduced by coercion
+Warning in lapply(avail, as.numeric) : NAs introduced by coercion
+Warning in lapply(avail, as.numeric) : NAs introduced by coercion
+Warning in lapply(avail, as.numeric) : NAs introduced by coercion
+Warning in lapply(avail, as.numeric) : NAs introduced by coercion
+Warning in lapply(avail, as.numeric) : NAs introduced by coercion
+Warning in lapply(avail, as.numeric) : NAs introduced by coercion
+Warning in lapply(avail, as.numeric) : NAs introduced by coercion
+Warning in lapply(avail, as.numeric) : NAs introduced by coercion
+Warning in lapply(avail, as.numeric) : NAs introduced by coercion
+Warning in lapply(avail, as.numeric) : NAs introduced by coercion
+Warning in lapply(avail, as.numeric) : NAs introduced by coercion
+Warning in lapply(avail, as.numeric) : NAs introduced by coercion
+Warning in lapply(avail, as.numeric) : NAs introduced by coercion
+Warning in lapply(avail, as.numeric) : NAs introduced by coercion
+Warning in lapply(avail, as.numeric) : NAs introduced by coercion
+Warning in lapply(avail, as.numeric) : NAs introduced by coercion
+Warning in lapply(avail, as.numeric) : NAs introduced by coercion
+Warning in lapply(avail, as.numeric) : NAs introduced by coercion
+Warning in lapply(avail, as.numeric) : NAs introduced by coercion
+Warning in lapply(avail, as.numeric) : NAs introduced by coercion
+Warning in lapply(avail, as.numeric) : NAs introduced by coercion
+Warning in lapply(avail, as.numeric) : NAs introduced by coercion
+Warning in lapply(avail, as.numeric) : NAs introduced by coercion
+Warning in lapply(avail, as.numeric) : NAs introduced by coercion
+Warning in lapply(avail, as.numeric) : NAs introduced by coercion
+Warning in lapply(avail, as.numeric) : NAs introduced by coercion
+Warning in lapply(avail, as.numeric) : NAs introduced by coercion
+Warning in lapply(avail, as.numeric) : NAs introduced by coercion
+Warning in lapply(avail, as.numeric) : NAs introduced by coercion
+Warning in lapply(avail, as.numeric) : NAs introduced by coercion
+Warning in lapply(avail, as.numeric) : NAs introduced by coercion
+Warning in lapply(avail, as.numeric) : NAs introduced by coercion
+Warning in lapply(avail, as.numeric) : NAs introduced by coercion
+Warning in lapply(avail, as.numeric) : NAs introduced by coercion
+Warning in lapply(avail, as.numeric) : NAs introduced by coercion
+Warning in lapply(avail, as.numeric) : NAs introduced by coercion
+Warning in lapply(avail, as.numeric) : NAs introduced by coercion
+Warning in lapply(avail, as.numeric) : NAs introduced by coercion
+Warning in lapply(avail, as.numeric) : NAs introduced by coercion
+Warning in lapply(avail, as.numeric) : NAs introduced by coercion
+Warning in lapply(avail, as.numeric) : NAs introduced by coercion
+Warning in lapply(avail, as.numeric) : NAs introduced by coercion
+Warning in lapply(avail, as.numeric) : NAs introduced by coercion
+Warning in lapply(avail, as.numeric) : NAs introduced by coercion
+Warning in lapply(avail, as.numeric) : NAs introduced by coercion
+Warning in lapply(avail, as.numeric) : NAs introduced by coercion
+Warning in lapply(avail, as.numeric) : NAs introduced by coercion
+Warning in lapply(avail, as.numeric) : NAs introduced by coercion
+Warning in lapply(avail, as.numeric) : NAs introduced by coercion
+Warning in lapply(avail, as.numeric) : NAs introduced by coercion
+Warning in lapply(avail, as.numeric) : NAs introduced by coercion
+Warning in lapply(avail, as.numeric) : NAs introduced by coercion
+Warning in lapply(avail, as.numeric) : NAs introduced by coercion
+Warning in lapply(avail, as.numeric) : NAs introduced by coercion
+Warning in lapply(avail, as.numeric) : NAs introduced by coercion
+Warning in lapply(avail, as.numeric) : NAs introduced by coercion
+Warning in lapply(avail, as.numeric) : NAs introduced by coercion
+Warning in lapply(avail, as.numeric) : NAs introduced by coercion
+Warning in lapply(avail, as.numeric) : NAs introduced by coercion
+Warning in lapply(avail, as.numeric) : NAs introduced by coercion
+Warning in lapply(avail, as.numeric) : NAs introduced by coercion
+Warning in lapply(avail, as.numeric) : NAs introduced by coercion
+Warning in lapply(avail, as.numeric) : NAs introduced by coercion
+Warning in lapply(avail, as.numeric) : NAs introduced by coercion
+Warning in lapply(avail, as.numeric) : NAs introduced by coercion
+Warning in lapply(avail, as.numeric) : NAs introduced by coercion
+Warning in lapply(avail, as.numeric) : NAs introduced by coercion
+Warning in lapply(avail, as.numeric) : NAs introduced by coercion
+Warning in lapply(avail, as.numeric) : NAs introduced by coercion
+Warning in lapply(avail, as.numeric) : NAs introduced by coercion
+Warning in lapply(avail, as.numeric) : NAs introduced by coercion
+Warning in lapply(avail, as.numeric) : NAs introduced by coercion
+Warning in lapply(avail, as.numeric) : NAs introduced by coercion
+Warning in lapply(avail, as.numeric) : NAs introduced by coercion
+Warning in lapply(avail, as.numeric) : NAs introduced by coercion
+Warning in lapply(avail, as.numeric) : NAs introduced by coercion
+Warning in lapply(avail, as.numeric) : NAs introduced by coercion
+Warning in lapply(avail, as.numeric) : NAs introduced by coercion
+Warning in lapply(avail, as.numeric) : NAs introduced by coercion
+Warning in lapply(avail, as.numeric) : NAs introduced by coercion
+Warning in lapply(avail, as.numeric) : NAs introduced by coercion
+Warning in lapply(avail, as.numeric) : NAs introduced by coercion
+Warning in lapply(avail, as.numeric) : NAs introduced by coercion
+Warning in lapply(avail, as.numeric) : NAs introduced by coercion
+Warning in lapply(avail, as.numeric) : NAs introduced by coercion
+Warning in lapply(avail, as.numeric) : NAs introduced by coercion
+Warning in lapply(avail, as.numeric) : NAs introduced by coercion
+Warning in lapply(avail, as.numeric) : NAs introduced by coercion
+Warning in lapply(avail, as.numeric) : NAs introduced by coercion
+Warning in lapply(avail, as.numeric) : NAs introduced by coercion
+Warning in lapply(avail, as.numeric) : NAs introduced by coercion
+Warning in lapply(avail, as.numeric) : NAs introduced by coercion
+Warning in lapply(avail, as.numeric) : NAs introduced by coercion
+Warning in lapply(avail, as.numeric) : NAs introduced by coercion
+Warning in lapply(avail, as.numeric) : NAs introduced by coercion
+Warning in lapply(avail, as.numeric) : NAs introduced by coercion
+Warning in lapply(avail, as.numeric) : NAs introduced by coercion
+Warning in lapply(avail, as.numeric) : NAs introduced by coercion
+Warning in lapply(avail, as.numeric) : NAs introduced by coercion
+Warning in lapply(avail, as.numeric) : NAs introduced by coercion
+Warning in lapply(avail, as.numeric) : NAs introduced by coercion
+Warning in lapply(avail, as.numeric) : NAs introduced by coercion
+Warning in lapply(avail, as.numeric) : NAs introduced by coercion
+Warning in lapply(avail, as.numeric) : NAs introduced by coercion
+Warning in lapply(avail, as.numeric) : NAs introduced by coercion
+Warning in lapply(avail, as.numeric) : NAs introduced by coercion
+Warning in lapply(avail, as.numeric) : NAs introduced by coercion
+Warning in lapply(avail, as.numeric) : NAs introduced by coercion
+Warning in lapply(avail, as.numeric) : NAs introduced by coercion
+Warning in lapply(avail, as.numeric) : NAs introduced by coercion
+Warning in lapply(avail, as.numeric) : NAs introduced by coercion
+Warning in lapply(avail, as.numeric) : NAs introduced by coercion
+Warning in lapply(avail, as.numeric) : NAs introduced by coercion
+Warning in lapply(avail, as.numeric) : NAs introduced by coercion
+Warning in lapply(avail, as.numeric) : NAs introduced by coercion
+Warning in lapply(avail, as.numeric) : NAs introduced by coercion
+Warning in lapply(avail, as.numeric) : NAs introduced by coercion
+Warning in lapply(avail, as.numeric) : NAs introduced by coercion
+Warning in lapply(avail, as.numeric) : NAs introduced by coercion
+Warning in lapply(avail, as.numeric) : NAs introduced by coercion
+Warning in lapply(avail, as.numeric) : NAs introduced by coercion
+Warning in lapply(avail, as.numeric) : NAs introduced by coercion
+Warning in lapply(avail, as.numeric) : NAs introduced by coercion
+Warning in lapply(avail, as.numeric) : NAs introduced by coercion
+Warning in lapply(avail, as.numeric) : NAs introduced by coercion
+Warning in lapply(avail, as.numeric) : NAs introduced by coercion
+Warning in lapply(avail, as.numeric) : NAs introduced by coercion
+Warning in lapply(avail, as.numeric) : NAs introduced by coercion
+Warning in lapply(avail, as.numeric) : NAs introduced by coercion
+Warning in lapply(avail, as.numeric) : NAs introduced by coercion
+Warning in lapply(avail, as.numeric) : NAs introduced by coercion
+Warning in lapply(avail, as.numeric) : NAs introduced by coercion
+Warning in lapply(avail, as.numeric) : NAs introduced by coercion
+Warning in lapply(avail, as.numeric) : NAs introduced by coercion
+Warning in lapply(avail, as.numeric) : NAs introduced by coercion
+Warning in lapply(avail, as.numeric) : NAs introduced by coercion
+Warning in lapply(avail, as.numeric) : NAs introduced by coercion
+Warning in lapply(avail, as.numeric) : NAs introduced by coercion
+Warning in lapply(avail, as.numeric) : NAs introduced by coercion
+Warning in lapply(avail, as.numeric) : NAs introduced by coercion
+Warning in lapply(avail, as.numeric) : NAs introduced by coercion
+Warning in lapply(avail, as.numeric) : NAs introduced by coercion
+Warning in lapply(avail, as.numeric) : NAs introduced by coercion
+Warning in lapply(avail, as.numeric) : NAs introduced by coercion
+Warning in lapply(avail, as.numeric) : NAs introduced by coercion
+Warning in lapply(avail, as.numeric) : NAs introduced by coercion
+Warning in lapply(avail, as.numeric) : NAs introduced by coercion
+Warning in lapply(avail, as.numeric) : NAs introduced by coercion
+Warning in lapply(avail, as.numeric) : NAs introduced by coercion
+Warning in lapply(avail, as.numeric) : NAs introduced by coercion
+Warning in lapply(avail, as.numeric) : NAs introduced by coercion
+Warning in lapply(avail, as.numeric) : NAs introduced by coercion
+Warning in lapply(avail, as.numeric) : NAs introduced by coercion
+Warning in lapply(avail, as.numeric) : NAs introduced by coercion
+Warning in lapply(avail, as.numeric) : NAs introduced by coercion
+Warning in lapply(avail, as.numeric) : NAs introduced by coercion
+Warning in lapply(avail, as.numeric) : NAs introduced by coercion
+Warning in lapply(avail, as.numeric) : NAs introduced by coercion
+Warning in lapply(avail, as.numeric) : NAs introduced by coercion
+Warning in lapply(avail, as.numeric) : NAs introduced by coercion
+Warning in lapply(avail, as.numeric) : NAs introduced by coercion
+Warning in lapply(avail, as.numeric) : NAs introduced by coercion
+Warning in lapply(avail, as.numeric) : NAs introduced by coercion
+Warning in lapply(avail, as.numeric) : NAs introduced by coercion
+Warning in lapply(avail, as.numeric) : NAs introduced by coercion
+Warning in lapply(avail, as.numeric) : NAs introduced by coercion
+Warning in lapply(avail, as.numeric) : NAs introduced by coercion
+Warning in lapply(avail, as.numeric) : NAs introduced by coercion
+Warning in lapply(avail, as.numeric) : NAs introduced by coercion
+Warning in lapply(avail, as.numeric) : NAs introduced by coercion
+Warning in lapply(avail, as.numeric) : NAs introduced by coercion
+Warning in lapply(avail, as.numeric) : NAs introduced by coercion
+Warning in lapply(avail, as.numeric) : NAs introduced by coercion
+Warning in lapply(avail, as.numeric) : NAs introduced by coercion
+Warning in lapply(avail, as.numeric) : NAs introduced by coercion
+Warning in lapply(avail, as.numeric) : NAs introduced by coercion
+Warning in lapply(avail, as.numeric) : NAs introduced by coercion
+Warning in lapply(avail, as.numeric) : NAs introduced by coercion
+Warning in lapply(avail, as.numeric) : NAs introduced by coercion
+Warning in lapply(avail, as.numeric) : NAs introduced by coercion
+Warning in lapply(avail, as.numeric) : NAs introduced by coercion
+Warning in lapply(avail, as.numeric) : NAs introduced by coercion
+Warning in lapply(avail, as.numeric) : NAs introduced by coercion
+Warning in lapply(avail, as.numeric) : NAs introduced by coercion
+Warning in lapply(avail, as.numeric) : NAs introduced by coercion
+Warning in lapply(avail, as.numeric) : NAs introduced by coercion
+Warning in lapply(avail, as.numeric) : NAs introduced by coercion
+Warning in lapply(avail, as.numeric) : NAs introduced by coercion
+Warning in lapply(avail, as.numeric) : NAs introduced by coercion
+Warning in lapply(avail, as.numeric) : NAs introduced by coercion
+Warning in lapply(avail, as.numeric) : NAs introduced by coercion
+Warning in lapply(avail, as.numeric) : NAs introduced by coercion
+Warning in lapply(avail, as.numeric) : NAs introduced by coercion
+Warning in lapply(avail, as.numeric) : NAs introduced by coercion
+Warning in lapply(avail, as.numeric) : NAs introduced by coercion
+Warning in lapply(avail, as.numeric) : NAs introduced by coercion
+Warning in lapply(avail, as.numeric) : NAs introduced by coercion
+Warning in lapply(avail, as.numeric) : NAs introduced by coercion
+Warning in lapply(avail, as.numeric) : NAs introduced by coercion
+Warning in lapply(avail, as.numeric) : NAs introduced by coercion
+Warning in lapply(avail, as.numeric) : NAs introduced by coercion
+Warning in lapply(avail, as.numeric) : NAs introduced by coercion
+Warning in lapply(avail, as.numeric) : NAs introduced by coercion
+Warning in lapply(avail, as.numeric) : NAs introduced by coercion
+Warning in lapply(avail, as.numeric) : NAs introduced by coercion
+Warning in lapply(avail, as.numeric) : NAs introduced by coercion
+Warning in lapply(avail, as.numeric) : NAs introduced by coercion
+Warning in lapply(avail, as.numeric) : NAs introduced by coercion
+Warning in lapply(avail, as.numeric) : NAs introduced by coercion
+Warning in lapply(avail, as.numeric) : NAs introduced by coercion
+Warning in lapply(avail, as.numeric) : NAs introduced by coercion
+Warning in lapply(avail, as.numeric) : NAs introduced by coercion
+Warning in lapply(avail, as.numeric) : NAs introduced by coercion
+Warning in lapply(avail, as.numeric) : NAs introduced by coercion
+Warning in lapply(avail, as.numeric) : NAs introduced by coercion
+Warning in lapply(avail, as.numeric) : NAs introduced by coercion
+Warning in lapply(avail, as.numeric) : NAs introduced by coercion
+Warning in lapply(avail, as.numeric) : NAs introduced by coercion
+Warning in lapply(avail, as.numeric) : NAs introduced by coercion
+Warning in lapply(avail, as.numeric) : NAs introduced by coercion
+Warning in lapply(avail, as.numeric) : NAs introduced by coercion
+Warning in lapply(avail, as.numeric) : NAs introduced by coercion
+Warning in lapply(avail, as.numeric) : NAs introduced by coercion
+Warning in lapply(avail, as.numeric) : NAs introduced by coercion
+Warning in lapply(avail, as.numeric) : NAs introduced by coercion
+Warning in lapply(avail, as.numeric) : NAs introduced by coercion
+Warning in lapply(avail, as.numeric) : NAs introduced by coercion
+Warning in lapply(avail, as.numeric) : NAs introduced by coercion
+Warning in lapply(avail, as.numeric) : NAs introduced by coercion
+Warning in lapply(avail, as.numeric) : NAs introduced by coercion
+Warning in lapply(avail, as.numeric) : NAs introduced by coercion
+Warning in lapply(avail, as.numeric) : NAs introduced by coercion
+Warning in lapply(avail, as.numeric) : NAs introduced by coercion
+Warning in lapply(avail, as.numeric) : NAs introduced by coercion
+Warning in lapply(avail, as.numeric) : NAs introduced by coercion
+Warning in lapply(avail, as.numeric) : NAs introduced by coercion
+Warning in lapply(avail, as.numeric) : NAs introduced by coercion
+Warning in lapply(avail, as.numeric) : NAs introduced by coercion
+Warning in lapply(avail, as.numeric) : NAs introduced by coercion
+Warning in lapply(avail, as.numeric) : NAs introduced by coercion
+Warning in lapply(avail, as.numeric) : NAs introduced by coercion
+Warning in lapply(avail, as.numeric) : NAs introduced by coercion
+Warning in lapply(avail, as.numeric) : NAs introduced by coercion
+Warning in lapply(avail, as.numeric) : NAs introduced by coercion
+Warning in lapply(avail, as.numeric) : NAs introduced by coercion
+Warning in lapply(avail, as.numeric) : NAs introduced by coercion
+Warning in lapply(avail, as.numeric) : NAs introduced by coercion
+Warning in lapply(avail, as.numeric) : NAs introduced by coercion
+Warning in lapply(avail, as.numeric) : NAs introduced by coercion
+Warning in lapply(avail, as.numeric) : NAs introduced by coercion
+Warning in lapply(avail, as.numeric) : NAs introduced by coercion
+Warning in lapply(avail, as.numeric) : NAs introduced by coercion
+Warning in lapply(avail, as.numeric) : NAs introduced by coercion
+Warning in lapply(avail, as.numeric) : NAs introduced by coercion
+Warning in lapply(avail, as.numeric) : NAs introduced by coercion
+Warning in lapply(avail, as.numeric) : NAs introduced by coercion
+Warning in lapply(avail, as.numeric) : NAs introduced by coercion
+Warning in lapply(avail, as.numeric) : NAs introduced by coercion
+[1] 8
+[1] 8
+Warning: NAs introduced by coercion
+Warning in lapply(avail, as.numeric) : NAs introduced by coercion
+Warning in lapply(avail, as.numeric) : NAs introduced by coercion
+Warning in lapply(avail, as.numeric) : NAs introduced by coercion
+Warning in lapply(avail, as.numeric) : NAs introduced by coercion
+Warning in lapply(avail, as.numeric) : NAs introduced by coercion
+Warning in lapply(avail, as.numeric) : NAs introduced by coercion
+Warning in lapply(avail, as.numeric) : NAs introduced by coercion
+Warning in lapply(avail, as.numeric) : NAs introduced by coercion
+Warning in lapply(avail, as.numeric) : NAs introduced by coercion
+Warning in lapply(avail, as.numeric) : NAs introduced by coercion
+Warning in lapply(avail, as.numeric) : NAs introduced by coercion
+Warning in lapply(avail, as.numeric) : NAs introduced by coercion
+Warning in lapply(avail, as.numeric) : NAs introduced by coercion
+Warning in lapply(avail, as.numeric) : NAs introduced by coercion
+Warning in lapply(avail, as.numeric) : NAs introduced by coercion
+Warning in lapply(avail, as.numeric) : NAs introduced by coercion
+Warning in lapply(avail, as.numeric) : NAs introduced by coercion
+Warning in lapply(avail, as.numeric) : NAs introduced by coercion
+Warning in lapply(avail, as.numeric) : NAs introduced by coercion
+Warning in lapply(avail, as.numeric) : NAs introduced by coercion
+Warning in lapply(avail, as.numeric) : NAs introduced by coercion
+Warning in lapply(avail, as.numeric) : NAs introduced by coercion
+Warning in lapply(avail, as.numeric) : NAs introduced by coercion
+Warning in lapply(avail, as.numeric) : NAs introduced by coercion
+Warning in lapply(avail, as.numeric) : NAs introduced by coercion
+Warning in lapply(avail, as.numeric) : NAs introduced by coercion
+Warning in lapply(avail, as.numeric) : NAs introduced by coercion
+Warning in lapply(avail, as.numeric) : NAs introduced by coercion
+Warning in lapply(avail, as.numeric) : NAs introduced by coercion
+Warning in lapply(avail, as.numeric) : NAs introduced by coercion
+Warning in lapply(avail, as.numeric) : NAs introduced by coercion
+Warning in lapply(avail, as.numeric) : NAs introduced by coercion
+Warning in lapply(avail, as.numeric) : NAs introduced by coercion
+Warning in lapply(avail, as.numeric) : NAs introduced by coercion
+Warning in lapply(avail, as.numeric) : NAs introduced by coercion
+Warning in lapply(avail, as.numeric) : NAs introduced by coercion
+Warning in lapply(avail, as.numeric) : NAs introduced by coercion
+Warning in lapply(avail, as.numeric) : NAs introduced by coercion
+Warning in lapply(avail, as.numeric) : NAs introduced by coercion
+Warning in lapply(avail, as.numeric) : NAs introduced by coercion
+Warning in lapply(avail, as.numeric) : NAs introduced by coercion
+Warning in lapply(avail, as.numeric) : NAs introduced by coercion
+Warning in lapply(avail, as.numeric) : NAs introduced by coercion
+Warning in lapply(avail, as.numeric) : NAs introduced by coercion
+Warning in lapply(avail, as.numeric) : NAs introduced by coercion
+Warning in lapply(avail, as.numeric) : NAs introduced by coercion
+Warning in lapply(avail, as.numeric) : NAs introduced by coercion
+Warning in lapply(avail, as.numeric) : NAs introduced by coercion
+Warning in lapply(avail, as.numeric) : NAs introduced by coercion
+Warning in lapply(avail, as.numeric) : NAs introduced by coercion
+Warning in lapply(avail, as.numeric) : NAs introduced by coercion
+Warning in lapply(avail, as.numeric) : NAs introduced by coercion
+Warning in lapply(avail, as.numeric) : NAs introduced by coercion
+Warning in lapply(avail, as.numeric) : NAs introduced by coercion
+Warning in lapply(avail, as.numeric) : NAs introduced by coercion
+Warning in lapply(avail, as.numeric) : NAs introduced by coercion
+Warning in lapply(avail, as.numeric) : NAs introduced by coercion
+Warning in lapply(avail, as.numeric) : NAs introduced by coercion
+Warning in lapply(avail, as.numeric) : NAs introduced by coercion
+Warning in lapply(avail, as.numeric) : NAs introduced by coercion
+Warning in lapply(avail, as.numeric) : NAs introduced by coercion
+Warning in lapply(avail, as.numeric) : NAs introduced by coercion
+Warning in lapply(avail, as.numeric) : NAs introduced by coercion
+Warning in lapply(avail, as.numeric) : NAs introduced by coercion
+Warning in lapply(avail, as.numeric) : NAs introduced by coercion
+Warning in lapply(avail, as.numeric) : NAs introduced by coercion
+Warning in lapply(avail, as.numeric) : NAs introduced by coercion
+Warning in lapply(avail, as.numeric) : NAs introduced by coercion
+Warning in lapply(avail, as.numeric) : NAs introduced by coercion
+Warning in lapply(avail, as.numeric) : NAs introduced by coercion
+Warning in lapply(avail, as.numeric) : NAs introduced by coercion
+Warning in lapply(avail, as.numeric) : NAs introduced by coercion
+Warning in lapply(avail, as.numeric) : NAs introduced by coercion
+Warning in lapply(avail, as.numeric) : NAs introduced by coercion
+Warning in lapply(avail, as.numeric) : NAs introduced by coercion
+Warning in lapply(avail, as.numeric) : NAs introduced by coercion
+Warning in lapply(avail, as.numeric) : NAs introduced by coercion
+Warning in lapply(avail, as.numeric) : NAs introduced by coercion
+Warning in lapply(avail, as.numeric) : NAs introduced by coercion
+Warning in lapply(avail, as.numeric) : NAs introduced by coercion
+Warning in lapply(avail, as.numeric) : NAs introduced by coercion
+Warning in lapply(avail, as.numeric) : NAs introduced by coercion
+Warning in lapply(avail, as.numeric) : NAs introduced by coercion
+Warning in lapply(avail, as.numeric) : NAs introduced by coercion
+Warning in lapply(avail, as.numeric) : NAs introduced by coercion
+Warning in lapply(avail, as.numeric) : NAs introduced by coercion
+Warning in lapply(avail, as.numeric) : NAs introduced by coercion
+Warning in lapply(avail, as.numeric) : NAs introduced by coercion
+Warning in lapply(avail, as.numeric) : NAs introduced by coercion
+Warning in lapply(avail, as.numeric) : NAs introduced by coercion
+Warning in lapply(avail, as.numeric) : NAs introduced by coercion
+Warning in lapply(avail, as.numeric) : NAs introduced by coercion
+Warning in lapply(avail, as.numeric) : NAs introduced by coercion
+Warning in lapply(avail, as.numeric) : NAs introduced by coercion
+Warning in lapply(avail, as.numeric) : NAs introduced by coercion
+Warning in lapply(avail, as.numeric) : NAs introduced by coercion
+Warning in lapply(avail, as.numeric) : NAs introduced by coercion
+Warning in lapply(avail, as.numeric) : NAs introduced by coercion
+Warning in lapply(avail, as.numeric) : NAs introduced by coercion
+Warning in lapply(avail, as.numeric) : NAs introduced by coercion
+Warning in lapply(avail, as.numeric) : NAs introduced by coercion
+Warning in lapply(avail, as.numeric) : NAs introduced by coercion
+Warning in lapply(avail, as.numeric) : NAs introduced by coercion
+Warning in lapply(avail, as.numeric) : NAs introduced by coercion
+Warning in lapply(avail, as.numeric) : NAs introduced by coercion
+Warning in lapply(avail, as.numeric) : NAs introduced by coercion
+Warning in lapply(avail, as.numeric) : NAs introduced by coercion
+Warning in lapply(avail, as.numeric) : NAs introduced by coercion
+Warning in lapply(avail, as.numeric) : NAs introduced by coercion
+Warning in lapply(avail, as.numeric) : NAs introduced by coercion
+Warning in lapply(avail, as.numeric) : NAs introduced by coercion
+Warning in lapply(avail, as.numeric) : NAs introduced by coercion
+Warning in lapply(avail, as.numeric) : NAs introduced by coercion
+Warning in lapply(avail, as.numeric) : NAs introduced by coercion
+Warning in lapply(avail, as.numeric) : NAs introduced by coercion
+Warning in lapply(avail, as.numeric) : NAs introduced by coercion
+Warning in lapply(avail, as.numeric) : NAs introduced by coercion
+Warning in lapply(avail, as.numeric) : NAs introduced by coercion
+Warning in lapply(avail, as.numeric) : NAs introduced by coercion
+Warning in lapply(avail, as.numeric) : NAs introduced by coercion
+Warning in lapply(avail, as.numeric) : NAs introduced by coercion
+Warning in lapply(avail, as.numeric) : NAs introduced by coercion
+Warning in lapply(avail, as.numeric) : NAs introduced by coercion
+Warning in lapply(avail, as.numeric) : NAs introduced by coercion
+Warning in lapply(avail, as.numeric) : NAs introduced by coercion
+Warning in lapply(avail, as.numeric) : NAs introduced by coercion
+Warning in lapply(avail, as.numeric) : NAs introduced by coercion
+Warning in lapply(avail, as.numeric) : NAs introduced by coercion
+Warning in lapply(avail, as.numeric) : NAs introduced by coercion
+Warning in lapply(avail, as.numeric) : NAs introduced by coercion
+Warning in lapply(avail, as.numeric) : NAs introduced by coercion
+Warning in lapply(avail, as.numeric) : NAs introduced by coercion
+Warning in lapply(avail, as.numeric) : NAs introduced by coercion
+Warning in lapply(avail, as.numeric) : NAs introduced by coercion
+Warning in lapply(avail, as.numeric) : NAs introduced by coercion
+Warning in lapply(avail, as.numeric) : NAs introduced by coercion
+Warning in lapply(avail, as.numeric) : NAs introduced by coercion
+Warning in lapply(avail, as.numeric) : NAs introduced by coercion
+Warning in lapply(avail, as.numeric) : NAs introduced by coercion
+Warning in lapply(avail, as.numeric) : NAs introduced by coercion
+Warning in lapply(avail, as.numeric) : NAs introduced by coercion
+Warning in lapply(avail, as.numeric) : NAs introduced by coercion
+Warning in lapply(avail, as.numeric) : NAs introduced by coercion
+Warning in lapply(avail, as.numeric) : NAs introduced by coercion
+Warning in lapply(avail, as.numeric) : NAs introduced by coercion
+Warning in lapply(avail, as.numeric) : NAs introduced by coercion
+Warning in lapply(avail, as.numeric) : NAs introduced by coercion
+Warning in lapply(avail, as.numeric) : NAs introduced by coercion
+Warning in lapply(avail, as.numeric) : NAs introduced by coercion
+Warning in lapply(avail, as.numeric) : NAs introduced by coercion
+Warning in lapply(avail, as.numeric) : NAs introduced by coercion
+Warning in lapply(avail, as.numeric) : NAs introduced by coercion
+Warning in lapply(avail, as.numeric) : NAs introduced by coercion
+Warning in lapply(avail, as.numeric) : NAs introduced by coercion
+Warning in lapply(avail, as.numeric) : NAs introduced by coercion
+Warning in lapply(avail, as.numeric) : NAs introduced by coercion
+Warning in lapply(avail, as.numeric) : NAs introduced by coercion
+Warning in lapply(avail, as.numeric) : NAs introduced by coercion
+Warning in lapply(avail, as.numeric) : NAs introduced by coercion
+Warning in lapply(avail, as.numeric) : NAs introduced by coercion
+Warning in lapply(avail, as.numeric) : NAs introduced by coercion
+Warning in lapply(avail, as.numeric) : NAs introduced by coercion
+Warning in lapply(avail, as.numeric) : NAs introduced by coercion
+Warning in lapply(avail, as.numeric) : NAs introduced by coercion
+Warning in lapply(avail, as.numeric) : NAs introduced by coercion
+Warning in lapply(avail, as.numeric) : NAs introduced by coercion
+Warning in lapply(avail, as.numeric) : NAs introduced by coercion
+Warning in lapply(avail, as.numeric) : NAs introduced by coercion
+Warning in lapply(avail, as.numeric) : NAs introduced by coercion
+Warning in lapply(avail, as.numeric) : NAs introduced by coercion
+Warning in lapply(avail, as.numeric) : NAs introduced by coercion
+Warning in lapply(avail, as.numeric) : NAs introduced by coercion
+Warning in lapply(avail, as.numeric) : NAs introduced by coercion
+Warning in lapply(avail, as.numeric) : NAs introduced by coercion
+Warning in lapply(avail, as.numeric) : NAs introduced by coercion
+Warning in lapply(avail, as.numeric) : NAs introduced by coercion
+Warning in lapply(avail, as.numeric) : NAs introduced by coercion
+Warning in lapply(avail, as.numeric) : NAs introduced by coercion
+Warning in lapply(avail, as.numeric) : NAs introduced by coercion
+Warning in lapply(avail, as.numeric) : NAs introduced by coercion
+Warning in lapply(avail, as.numeric) : NAs introduced by coercion
+Warning in lapply(avail, as.numeric) : NAs introduced by coercion
+Warning in lapply(avail, as.numeric) : NAs introduced by coercion
+Warning in lapply(avail, as.numeric) : NAs introduced by coercion
+Warning in lapply(avail, as.numeric) : NAs introduced by coercion
+Warning in lapply(avail, as.numeric) : NAs introduced by coercion
+Warning in lapply(avail, as.numeric) : NAs introduced by coercion
+Warning in lapply(avail, as.numeric) : NAs introduced by coercion
+Warning in lapply(avail, as.numeric) : NAs introduced by coercion
+Warning in lapply(avail, as.numeric) : NAs introduced by coercion
+Warning in lapply(avail, as.numeric) : NAs introduced by coercion
+Warning in lapply(avail, as.numeric) : NAs introduced by coercion
+Warning in lapply(avail, as.numeric) : NAs introduced by coercion
+Warning in lapply(avail, as.numeric) : NAs introduced by coercion
+Warning in lapply(avail, as.numeric) : NAs introduced by coercion
+Warning in lapply(avail, as.numeric) : NAs introduced by coercion
+Warning in lapply(avail, as.numeric) : NAs introduced by coercion
+Warning in lapply(avail, as.numeric) : NAs introduced by coercion
+Warning in lapply(avail, as.numeric) : NAs introduced by coercion
+Warning in lapply(avail, as.numeric) : NAs introduced by coercion
+Warning in lapply(avail, as.numeric) : NAs introduced by coercion
+Warning in lapply(avail, as.numeric) : NAs introduced by coercion
+Warning in lapply(avail, as.numeric) : NAs introduced by coercion
+Warning in lapply(avail, as.numeric) : NAs introduced by coercion
+Warning in lapply(avail, as.numeric) : NAs introduced by coercion
+Warning in lapply(avail, as.numeric) : NAs introduced by coercion
+Warning in lapply(avail, as.numeric) : NAs introduced by coercion
+Warning in lapply(avail, as.numeric) : NAs introduced by coercion
+Warning in lapply(avail, as.numeric) : NAs introduced by coercion
+Warning in lapply(avail, as.numeric) : NAs introduced by coercion
+Warning in lapply(avail, as.numeric) : NAs introduced by coercion
+Warning in lapply(avail, as.numeric) : NAs introduced by coercion
+Warning in lapply(avail, as.numeric) : NAs introduced by coercion
+Warning in lapply(avail, as.numeric) : NAs introduced by coercion
+Warning in lapply(avail, as.numeric) : NAs introduced by coercion
+Warning in lapply(avail, as.numeric) : NAs introduced by coercion
+Warning in lapply(avail, as.numeric) : NAs introduced by coercion
+Warning in lapply(avail, as.numeric) : NAs introduced by coercion
+Warning in lapply(avail, as.numeric) : NAs introduced by coercion
+Warning in lapply(avail, as.numeric) : NAs introduced by coercion
+Warning in lapply(avail, as.numeric) : NAs introduced by coercion
+Warning in lapply(avail, as.numeric) : NAs introduced by coercion
+Warning in lapply(avail, as.numeric) : NAs introduced by coercion
+Warning in lapply(avail, as.numeric) : NAs introduced by coercion
+Warning in lapply(avail, as.numeric) : NAs introduced by coercion
+Warning in lapply(avail, as.numeric) : NAs introduced by coercion
+Warning in lapply(avail, as.numeric) : NAs introduced by coercion
+Warning in lapply(avail, as.numeric) : NAs introduced by coercion
+Warning in lapply(avail, as.numeric) : NAs introduced by coercion
+Warning in lapply(avail, as.numeric) : NAs introduced by coercion
+Warning in lapply(avail, as.numeric) : NAs introduced by coercion
+Warning in lapply(avail, as.numeric) : NAs introduced by coercion
+Warning in lapply(avail, as.numeric) : NAs introduced by coercion
+Warning in lapply(avail, as.numeric) : NAs introduced by coercion
+Warning in lapply(avail, as.numeric) : NAs introduced by coercion
+Warning in lapply(avail, as.numeric) : NAs introduced by coercion
+Warning in lapply(avail, as.numeric) : NAs introduced by coercion
+Warning in lapply(avail, as.numeric) : NAs introduced by coercion
+Warning in lapply(avail, as.numeric) : NAs introduced by coercion
+Warning in lapply(avail, as.numeric) : NAs introduced by coercion
+Warning in lapply(avail, as.numeric) : NAs introduced by coercion
+Warning in lapply(avail, as.numeric) : NAs introduced by coercion
+Warning in lapply(avail, as.numeric) : NAs introduced by coercion
+Warning in lapply(avail, as.numeric) : NAs introduced by coercion
+Warning in lapply(avail, as.numeric) : NAs introduced by coercion
+Warning in lapply(avail, as.numeric) : NAs introduced by coercion
+Warning in lapply(avail, as.numeric) : NAs introduced by coercion
+Warning in lapply(avail, as.numeric) : NAs introduced by coercion
+Warning in lapply(avail, as.numeric) : NAs introduced by coercion
+Warning in lapply(avail, as.numeric) : NAs introduced by coercion
+Warning in lapply(avail, as.numeric) : NAs introduced by coercion
+Warning in lapply(avail, as.numeric) : NAs introduced by coercion
+Warning in lapply(avail, as.numeric) : NAs introduced by coercion
+Warning in lapply(avail, as.numeric) : NAs introduced by coercion
+Warning in lapply(avail, as.numeric) : NAs introduced by coercion
+Warning in lapply(avail, as.numeric) : NAs introduced by coercion
+Warning in lapply(avail, as.numeric) : NAs introduced by coercion
+Warning in lapply(avail, as.numeric) : NAs introduced by coercion
+Warning in lapply(avail, as.numeric) : NAs introduced by coercion
+Warning in lapply(avail, as.numeric) : NAs introduced by coercion
+Warning in lapply(avail, as.numeric) : NAs introduced by coercion
+Warning in lapply(avail, as.numeric) : NAs introduced by coercion
+Warning in lapply(avail, as.numeric) : NAs introduced by coercion
+Warning in lapply(avail, as.numeric) : NAs introduced by coercion
+Warning in lapply(avail, as.numeric) : NAs introduced by coercion
+Warning in lapply(avail, as.numeric) : NAs introduced by coercion
+Warning in lapply(avail, as.numeric) : NAs introduced by coercion
+Warning in lapply(avail, as.numeric) : NAs introduced by coercion
+Warning in lapply(avail, as.numeric) : NAs introduced by coercion
+Warning in lapply(avail, as.numeric) : NAs introduced by coercion
+Warning in lapply(avail, as.numeric) : NAs introduced by coercion
+Warning in lapply(avail, as.numeric) : NAs introduced by coercion
+Warning in lapply(avail, as.numeric) : NAs introduced by coercion
+Warning in lapply(avail, as.numeric) : NAs introduced by coercion
+Warning in lapply(avail, as.numeric) : NAs introduced by coercion
+Warning in lapply(avail, as.numeric) : NAs introduced by coercion
+Warning in lapply(avail, as.numeric) : NAs introduced by coercion
+Warning in lapply(avail, as.numeric) : NAs introduced by coercion
+Warning in lapply(avail, as.numeric) : NAs introduced by coercion
+Warning in lapply(avail, as.numeric) : NAs introduced by coercion
+Warning in lapply(avail, as.numeric) : NAs introduced by coercion
+Warning in lapply(avail, as.numeric) : NAs introduced by coercion
+Warning in lapply(avail, as.numeric) : NAs introduced by coercion
+Warning in lapply(avail, as.numeric) : NAs introduced by coercion
+Warning in lapply(avail, as.numeric) : NAs introduced by coercion
+Warning in lapply(avail, as.numeric) : NAs introduced by coercion
+Warning in lapply(avail, as.numeric) : NAs introduced by coercion
+Warning in lapply(avail, as.numeric) : NAs introduced by coercion
+Warning in lapply(avail, as.numeric) : NAs introduced by coercion
+Warning in lapply(avail, as.numeric) : NAs introduced by coercion
+Warning in lapply(avail, as.numeric) : NAs introduced by coercion
+Warning in lapply(avail, as.numeric) : NAs introduced by coercion
+Warning in lapply(avail, as.numeric) : NAs introduced by coercion
+Warning in lapply(avail, as.numeric) : NAs introduced by coercion
+[1] 6
+[1] 6
+Warning: NAs introduced by coercion
+ [1] "ALABAMA"              "ALASKA"               "ARIZONA"             
+ [4] "ARKANSAS"             "CALIFORNIA"           "COLORADO"            
+ [7] "CONNECTICUT"          "DELAWARE"             "DISTRICT.OF.COLUMBIA"
+[10] "FLORIDA"              "GEORGIA"              "HAWAII"              
+[13] "IDAHO"                "ILLINOIS"             "INDIANA"             
+[16] "IOWA"                 "KANSAS"               "KENTUCKY"            
+[19] "LOUISIANA"            "MAINE"                "MARYLAND"            
+[22] "MASSACHUSETTS"        "MICHIGAN"             "MINNESOTA"           
+[25] "MISSISSIPPI"          "MISSOURI"             "MONTANA"             
+[28] "NEBRASKA"             "NEVADA"               "NEW.HAMPSHIRE"       
+[31] "NEW.JERSEY"           "NEW.MEXICO"           "NEW.YORK"            
+[34] "NORTH.CAROLINA"       "NORTH.DAKOTA"         "OHIO"                
+[37] "OKLAHOMA"             "OREGON"               "PENNSYLVANIA"        
+[40] "RHODE.ISLAND"         "SOUTH.CAROLINA"       "SOUTH.DAKOTA"        
+[43] "TENNESSEE"            "TEXAS"                "UTAH"                
+[46] "VERMONT"              "VIRGINIA"             "WASHINGTON"          
+[49] "WEST.VIRGINIA"        "WISCONSIN"            "WYOMING"             
+[1] "1860-01-01" "2015-12-31"
+NULL
+[1] "WEEK" "YEAR" "date"
+Warning: Error in cor: 'x' is empty
+Stack trace (innermost first):
+    77: cor
+    76: renderPlot [/home/shannon/hackathon/server.R#359]
+    68: output$cor
+     1: runApp
+[1] "1860-01-01" "2015-12-31"
+ [1] "DELAWARE"      "ILLINOIS"      "INDIANA"       "MARYLAND"     
+ [5] "MICHIGAN"      "NEW.YORK"      "OHIO"          "PENNSYLVANIA" 
+ [9] "VIRGINIA"      "WEST.VIRGINIA"
+ [1] "WEEK"          "YEAR"          "DELAWARE"      "ILLINOIS"     
+ [5] "INDIANA"       "MARYLAND"      "MICHIGAN"      "NEW.YORK"     
+ [9] "OHIO"          "PENNSYLVANIA"  "VIRGINIA"      "WEST.VIRGINIA"
+[13] "date"         
+Warning in data.matrix(df[, -c(1, 2, ncol(df))]) :
+  NAs introduced by coercion
+Warning in data.matrix(df[, -c(1, 2, ncol(df))]) :
+  NAs introduced by coercion
+Warning in data.matrix(df[, -c(1, 2, ncol(df))]) :
+  NAs introduced by coercion
+Warning in data.matrix(df[, -c(1, 2, ncol(df))]) :
+  NAs introduced by coercion
+Warning in data.matrix(df[, -c(1, 2, ncol(df))]) :
+  NAs introduced by coercion
+Warning in data.matrix(df[, -c(1, 2, ncol(df))]) :
+  NAs introduced by coercion
+Warning in data.matrix(df[, -c(1, 2, ncol(df))]) :
+  NAs introduced by coercion
+Warning in data.matrix(df[, -c(1, 2, ncol(df))]) :
+  NAs introduced by coercion
+Warning in data.matrix(df[, -c(1, 2, ncol(df))]) :
+  NAs introduced by coercion
+Warning in data.matrix(df[, -c(1, 2, ncol(df))]) :
+  NAs introduced by coercion
+[1] "1860-01-01" "2015-12-31"
+ [1] "DELAWARE"      "ILLINOIS"      "INDIANA"       "MARYLAND"     
+ [5] "MICHIGAN"      "NEW.YORK"      "OHIO"          "PENNSYLVANIA" 
+ [9] "VIRGINIA"      "WEST.VIRGINIA"
+ [1] "WEEK"          "YEAR"          "DELAWARE"      "ILLINOIS"     
+ [5] "INDIANA"       "MARYLAND"      "MICHIGAN"      "NEW.YORK"     
+ [9] "OHIO"          "PENNSYLVANIA"  "VIRGINIA"      "WEST.VIRGINIA"
+[13] "date"         
+Warning in data.matrix(df[, -c(1, 2, ncol(df))]) :
+  NAs introduced by coercion
+Warning in data.matrix(df[, -c(1, 2, ncol(df))]) :
+  NAs introduced by coercion
+Warning in data.matrix(df[, -c(1, 2, ncol(df))]) :
+  NAs introduced by coercion
+Warning in data.matrix(df[, -c(1, 2, ncol(df))]) :
+  NAs introduced by coercion
+Warning in data.matrix(df[, -c(1, 2, ncol(df))]) :
+  NAs introduced by coercion
+Warning in data.matrix(df[, -c(1, 2, ncol(df))]) :
+  NAs introduced by coercion
+Warning in data.matrix(df[, -c(1, 2, ncol(df))]) :
+  NAs introduced by coercion
+Warning in data.matrix(df[, -c(1, 2, ncol(df))]) :
+  NAs introduced by coercion
+Warning in data.matrix(df[, -c(1, 2, ncol(df))]) :
+  NAs introduced by coercion
+Warning in data.matrix(df[, -c(1, 2, ncol(df))]) :
+  NAs introduced by coercion
+[1] 1716  121
+[1] 0
+[1] "1916-01-02"
+Warning in func() : NAs introduced by coercion
+[1] "X1910"
+[1] "state pop"
+      NAME_1   X1910
+1    ALABAMA 2138093
+2     ALASKA   64356
+3    ARIZONA  204354
+4   ARKANSAS 1574449
+5 CALIFORNIA 2377549
+6   COLORADO  799024
+[1] 1920
+[1] "integer"
+[1] "integer"
+[1] 51
+           AB       name decade HEPATITIS  MEASLES MUMPS PERTUSSIS       POLIO
+ALABAMA    AL    ALABAMA   1920         0 4.424950     0         0 0.044615385
+ALASKA     AK     ALASKA   1920         0 0.000000     0         0 0.000000000
+ARIZONA    AZ    ARIZONA   1920         0 3.319870     0         0 0.045000000
+ARKANSAS   AR   ARKANSAS   1920         0 5.778842     0         0 0.006923077
+CALIFORNIA CA CALIFORNIA   1920         0 1.365577     0         0 0.075576923
+COLORADO   CO   COLORADO   1920         0 2.840606     0         0 0.082574257
+           RUBELLA  SMALLPOX  Longitude Latitude
+ALABAMA          0 0.2649515  -86.82773 32.79370
+ALASKA           0 0.0000000 -152.69739 64.55328
+ARIZONA          0 1.5663107 -111.66405 34.29374
+ARKANSAS         0 0.2339806  -92.43951 34.89916
+CALIFORNIA       0 0.5325243 -119.60806 37.25281
+COLORADO         0 1.1735000 -105.54780 38.99905
+[1] 51 12
+Warning in data.frame(clust_df[, c("name", "Longitude", "Latitude", "AB")],  :
+  row names were found from a short variable and have been discarded
+Warning: Removed 20 rows containing missing values (geom_point).
+Warning: Removed 20 rows containing missing values (geom_text).
+Warning: Error in colMeans: 'x' must be an array of at least two dimensions
+Stack trace (innermost first):
+    77: colMeans
+    76: renderPlot [/home/shannon/hackathon/server.R#177]
+    68: output$chloropleth
+     1: runApp
+Warning in lapply(X = X, FUN = FUN, ...) : NAs introduced by coercion
+Warning in lapply(X = X, FUN = FUN, ...) : NAs introduced by coercion
+Warning in lapply(X = X, FUN = FUN, ...) : NAs introduced by coercion
+Warning in lapply(X = X, FUN = FUN, ...) : NAs introduced by coercion
+Warning in lapply(X = X, FUN = FUN, ...) : NAs introduced by coercion
+Warning in lapply(X = X, FUN = FUN, ...) : NAs introduced by coercion
+Warning in lapply(X = X, FUN = FUN, ...) : NAs introduced by coercion
+Warning in lapply(X = X, FUN = FUN, ...) : NAs introduced by coercion
+Warning in lapply(X = X, FUN = FUN, ...) : NAs introduced by coercion
+Warning in lapply(X = X, FUN = FUN, ...) : NAs introduced by coercion
+Warning in lapply(X = X, FUN = FUN, ...) : NAs introduced by coercion
+Warning in lapply(X = X, FUN = FUN, ...) : NAs introduced by coercion
+Warning in lapply(X = X, FUN = FUN, ...) : NAs introduced by coercion
+Warning in lapply(X = X, FUN = FUN, ...) : NAs introduced by coercion
+Warning in lapply(X = X, FUN = FUN, ...) : NAs introduced by coercion
+Warning in lapply(X = X, FUN = FUN, ...) : NAs introduced by coercion
+Warning in lapply(X = X, FUN = FUN, ...) : NAs introduced by coercion
+Warning in lapply(X = X, FUN = FUN, ...) : NAs introduced by coercion
+Warning in lapply(X = X, FUN = FUN, ...) : NAs introduced by coercion
+Warning in lapply(X = X, FUN = FUN, ...) : NAs introduced by coercion
+Warning in lapply(X = X, FUN = FUN, ...) : NAs introduced by coercion
+Warning in lapply(X = X, FUN = FUN, ...) : NAs introduced by coercion
+Warning in lapply(X = X, FUN = FUN, ...) : NAs introduced by coercion
+Warning in lapply(X = X, FUN = FUN, ...) : NAs introduced by coercion
+Warning in lapply(X = X, FUN = FUN, ...) : NAs introduced by coercion
+Warning in lapply(X = X, FUN = FUN, ...) : NAs introduced by coercion
+Warning in lapply(X = X, FUN = FUN, ...) : NAs introduced by coercion
+Warning in lapply(X = X, FUN = FUN, ...) : NAs introduced by coercion
+Warning in lapply(X = X, FUN = FUN, ...) : NAs introduced by coercion
+Warning in lapply(X = X, FUN = FUN, ...) : NAs introduced by coercion
+Warning in lapply(X = X, FUN = FUN, ...) : NAs introduced by coercion
+Warning in lapply(X = X, FUN = FUN, ...) : NAs introduced by coercion
+Warning in lapply(X = X, FUN = FUN, ...) : NAs introduced by coercion
+Warning in lapply(X = X, FUN = FUN, ...) : NAs introduced by coercion
+Warning in lapply(X = X, FUN = FUN, ...) : NAs introduced by coercion
+Warning in lapply(X = X, FUN = FUN, ...) : NAs introduced by coercion
+Warning in lapply(X = X, FUN = FUN, ...) : NAs introduced by coercion
+Warning in lapply(X = X, FUN = FUN, ...) : NAs introduced by coercion
+Warning in lapply(X = X, FUN = FUN, ...) : NAs introduced by coercion
+Warning in lapply(X = X, FUN = FUN, ...) : NAs introduced by coercion
+Warning in lapply(X = X, FUN = FUN, ...) : NAs introduced by coercion
+Warning in lapply(X = X, FUN = FUN, ...) : NAs introduced by coercion
+Warning in lapply(X = X, FUN = FUN, ...) : NAs introduced by coercion
+Warning in lapply(X = X, FUN = FUN, ...) : NAs introduced by coercion
+Warning in lapply(X = X, FUN = FUN, ...) : NAs introduced by coercion
+Warning in lapply(X = X, FUN = FUN, ...) : NAs introduced by coercion
+Warning in lapply(X = X, FUN = FUN, ...) : NAs introduced by coercion
+Warning in lapply(X = X, FUN = FUN, ...) : NAs introduced by coercion
+Warning in lapply(X = X, FUN = FUN, ...) : NAs introduced by coercion
+Warning in lapply(X = X, FUN = FUN, ...) : NAs introduced by coercion
+Warning in lapply(X = X, FUN = FUN, ...) : NAs introduced by coercion
+Joining by: "id"
+  C-c C-c
+> 
+> 
+> runApp()
+
+Listening on http://127.0.0.1:7030
+Warning: Error in colMeans: 'x' must be an array of at least two dimensions
+Stack trace (innermost first):
+    77: colMeans
+    76: renderPlot [/home/shannon/hackathon/server.R#177]
+    68: output$chloropleth
+     1: runApp
+Warning in lapply(X = X, FUN = FUN, ...) : NAs introduced by coercion
+Warning in lapply(X = X, FUN = FUN, ...) : NAs introduced by coercion
+Warning in lapply(X = X, FUN = FUN, ...) : NAs introduced by coercion
+Warning in lapply(X = X, FUN = FUN, ...) : NAs introduced by coercion
+Warning in lapply(X = X, FUN = FUN, ...) : NAs introduced by coercion
+Warning in lapply(X = X, FUN = FUN, ...) : NAs introduced by coercion
+Warning in lapply(X = X, FUN = FUN, ...) : NAs introduced by coercion
+Warning in lapply(X = X, FUN = FUN, ...) : NAs introduced by coercion
+Warning in lapply(X = X, FUN = FUN, ...) : NAs introduced by coercion
+Warning in lapply(X = X, FUN = FUN, ...) : NAs introduced by coercion
+Warning in lapply(X = X, FUN = FUN, ...) : NAs introduced by coercion
+Warning in lapply(X = X, FUN = FUN, ...) : NAs introduced by coercion
+Warning in lapply(X = X, FUN = FUN, ...) : NAs introduced by coercion
+Warning in lapply(X = X, FUN = FUN, ...) : NAs introduced by coercion
+Warning in lapply(X = X, FUN = FUN, ...) : NAs introduced by coercion
+Warning in lapply(X = X, FUN = FUN, ...) : NAs introduced by coercion
+Warning in lapply(X = X, FUN = FUN, ...) : NAs introduced by coercion
+Warning in lapply(X = X, FUN = FUN, ...) : NAs introduced by coercion
+Warning in lapply(X = X, FUN = FUN, ...) : NAs introduced by coercion
+Warning in lapply(X = X, FUN = FUN, ...) : NAs introduced by coercion
+Warning in lapply(X = X, FUN = FUN, ...) : NAs introduced by coercion
+Warning in lapply(X = X, FUN = FUN, ...) : NAs introduced by coercion
+Warning in lapply(X = X, FUN = FUN, ...) : NAs introduced by coercion
+Warning in lapply(X = X, FUN = FUN, ...) : NAs introduced by coercion
+Warning in lapply(X = X, FUN = FUN, ...) : NAs introduced by coercion
+Warning in lapply(X = X, FUN = FUN, ...) : NAs introduced by coercion
+Warning in lapply(X = X, FUN = FUN, ...) : NAs introduced by coercion
+Warning in lapply(X = X, FUN = FUN, ...) : NAs introduced by coercion
+Warning in lapply(X = X, FUN = FUN, ...) : NAs introduced by coercion
+Warning in lapply(X = X, FUN = FUN, ...) : NAs introduced by coercion
+Warning in lapply(X = X, FUN = FUN, ...) : NAs introduced by coercion
+Warning in lapply(X = X, FUN = FUN, ...) : NAs introduced by coercion
+Warning in lapply(X = X, FUN = FUN, ...) : NAs introduced by coercion
+Warning in lapply(X = X, FUN = FUN, ...) : NAs introduced by coercion
+Warning in lapply(X = X, FUN = FUN, ...) : NAs introduced by coercion
+Warning in lapply(X = X, FUN = FUN, ...) : NAs introduced by coercion
+Warning in lapply(X = X, FUN = FUN, ...) : NAs introduced by coercion
+Warning in lapply(X = X, FUN = FUN, ...) : NAs introduced by coercion
+Warning in lapply(X = X, FUN = FUN, ...) : NAs introduced by coercion
+Warning in lapply(X = X, FUN = FUN, ...) : NAs introduced by coercion
+Warning in lapply(X = X, FUN = FUN, ...) : NAs introduced by coercion
+Warning in lapply(X = X, FUN = FUN, ...) : NAs introduced by coercion
+Warning in lapply(X = X, FUN = FUN, ...) : NAs introduced by coercion
+Warning in lapply(X = X, FUN = FUN, ...) : NAs introduced by coercion
+Warning in lapply(X = X, FUN = FUN, ...) : NAs introduced by coercion
+Warning in lapply(X = X, FUN = FUN, ...) : NAs introduced by coercion
+Warning in lapply(X = X, FUN = FUN, ...) : NAs introduced by coercion
+Warning in lapply(X = X, FUN = FUN, ...) : NAs introduced by coercion
+Warning in lapply(X = X, FUN = FUN, ...) : NAs introduced by coercion
+Warning in lapply(X = X, FUN = FUN, ...) : NAs introduced by coercion
+Warning in lapply(X = X, FUN = FUN, ...) : NAs introduced by coercion
+Joining by: "id"
