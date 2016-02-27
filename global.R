@@ -9,6 +9,7 @@ library(ggplot2)
 library(reshape2)
 library(animation)
 library(RColorBrewer)
+library(mclust)
 #library(Cairo)
 #options(shiny.usecairo=TRUE) 
 
@@ -74,6 +75,16 @@ city_dist <- apply(city_mat, 1, function(x) {
 #clustering
 
 clust_df <- read.csv("data/clust_decades.csv")
+abs <- usa_shape@data[, c("NAME_1", "HASC_1")]
+abs <- abs[,-3] # get rid of alaska 2
+abs$NAME_1 <- gsub(" ", ".", abs$NAME_1)
+abs$HASC_1 <- gsub("US.", "", abs$HASC_1)
+j.df <- clust_df[, 1:2]
+colnames(j.df)[2] <- "NAME_1"
+new_df <- join(j.df, abs, by="NAME_1", match="first")
+clust_df$X <- new_df$HASC_1
+colnames(clust_df)[1] <- "AB"
+
 
 ## set.seed(42)
 ## n <- 1000

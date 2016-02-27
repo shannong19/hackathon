@@ -14,7 +14,8 @@ dashboardPage(skin="yellow",
       menuItem("Time Series", tabName = "timeseries", icon = icon("calendar")),
       menuItem("Correlations", tabName = "ds", icon = icon("line-chart")),
       menuItem("Map", tabName="map", icon=icon("map"), selected=TRUE),
-      menuItem("Animations", tabName = "chloropleth", icon = icon("caret-square-o-right"))
+      menuItem("Clustering", tabName="clust", icon=icon("object-group")),
+      menuItem("Chloropleth", tabName = "chloropleth", icon = icon("caret-square-o-right"))
     )
   ),
   
@@ -94,14 +95,30 @@ dashboardPage(skin="yellow",
       ), 
       box(
         textOutput("text1"), 
-        plotOutput("disease_ts", height = 650), 
+        plotOutput("disease_ts", height = 450), 
         width = 8 
         )
       )
-    ), 
+    ),
+
+  #clustering
+  tabItem(tabName = "clust",
+          box(title="State Profiles", width=3, status="warning", solidHeader=TRUE,
+              selectInput("clust_method", label= h4("Clustering Method"), choices = c("Dendrogram", "k-means", "Model-Based Clustering"), selected="k-means"),
+              selectInput("decade", label = h4("Decade"), choices = seq(1920, 2010, by=10)),
+              sliderInput("nclust", label = h4("Number of Clusters (k-means, MB)"), min=2, max=10, value=4, step=1)
+              ),
+          
+                 
+                 
+          box(title="Clustering the States", width=9,
+              plotOutput("clust", height=500)
+              )
+                 
+          ),
   
   tabItem(tabName = "chloropleth", 
-          h1("Movie Tab"), 
+          h1("Chloropleths"), 
 
           fluidRow(
             box(selectInput("disease_chlor", label = h3("Disease"), 
@@ -112,7 +129,7 @@ dashboardPage(skin="yellow",
                 width = 3
               ), 
             box(
-              plotOutput("chloropleth", height = 650), 
+              plotOutput("chloropleth", height = 400), 
               width = 8 
               )
             )

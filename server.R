@@ -160,7 +160,8 @@ server <- function(input, output) {
     # Plot the resulting image along with us_fortify
     ggplot() + geom_polygon(data = plot_data, 
                   aes(x = long, y = lat, group = group, fill = incidence), 
-                  color = "black", size = 0.25) + scale_fill_distiller(palette = "Spectral")
+                  color = "white", size = 0.25) + scale_fill_distiller(palette = "Spectral") +
+        theme_minimal()  + ggtitle(paste(input$disease_chlor, "\n", input$avail_years_chlor[1], "-", input$avail_years_chlor[2])) +labs(x="Longitude", y="Latitude")
   })
   
   # Animation -------------------------------------------------  
@@ -211,7 +212,7 @@ server <- function(input, output) {
           }
           
           year_plot <- ggplot(data = plot_data, aes(x = lon, y = lat, col = incidence)) + 
-            usa_map + geom_point(size = 10) + ggtitle(paste0("Year: ", year))
+            usa_map + geom_point(size = 10) + ggtitle(paste0("Year: ", year))  
           print(year_plot)
         }
       }, movie.name = "random.gif", interval = 1)
@@ -383,4 +384,59 @@ server <- function(input, output) {
             print(g)
         }
     })
+
+
+    # clustering
+    output$clust <- renderPlot({
+       # plot(1,1)
+        k <- as.integer(as.character(input$nclust))
+        decade <- as.integer(as.character(input$decade))
+        print(decade)
+        print(class(decade))
+        print(class(clust_df$decade))
+        inds <- which(clust_df$decade == decade)
+        print(length(inds))
+        df <- clust_df[inds,]
+        rownames(df) <- df$name
+        print(head(df))
+        print(dim(df))
+        mat <- data.matrix(df[,-c(1:2)])
+        title <- paste("State Disease Profile in", input$decade)
+        if (input$clust_method == "Dendrogram"){
+            hc <- hclust(dist(df[,-c(1:2)]))
+            plot(hc, main=title , xlab="", y="State Dissimilarity", sub="")
+            
+        } else if (input$clust_method == "k-means") {
+           # k <- 5
+            kmns <- kmeans(mat, centers=k)
+            kmns_df <- data.frame(clust_df[,c("name", "Longitude", "Latitude", "AB")], id=kmns$cluster)
+            title <- paste(title, "\n # Clusters:", k)
+            g <- ggplot(kmns_df, aes(x=Longitude, y=Latitude, colour=factor(id), label=AB)) +
+                geom_point(size=4) + xlim(-125, -65) + ylim(25, 50) +
+                geom_text(hjust=-.5, vjust=-.5, col="black") +
+                 theme_minimal() + theme(legend.position="none") + 
+                ggtitle(title) 
+            g
+        } else if ( input$clust_method == "Model-Based Clustering"){
+            mcl <- Mclust(mat)
+            ids <- apply(mcl$z, 1, which.max)
+            kmns_df <- data.frame(clust_df[,c("name", "Longitude", "Latitude", "AB")], id=ids)
+            title <- paste(title, "\n # Clusters:", mcl$G)
+            g <- ggplot(kmns_df, aes(x=Longitude, y=Latitude, colour=factor(id), label=AB)) +
+                geom_point(size=4) + xlim(-125, -65) + ylim(25, 50) +
+                geom_text(hjust=-.5, vjust=-.5, col="black") +
+                 theme_minimal() + theme(legend.position="none") + 
+                ggtitle(title) 
+            g
+        }
+        
+
+
+    })
+
+
+
+q
+
+    
 }
