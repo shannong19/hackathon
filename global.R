@@ -10,6 +10,7 @@ library(reshape2)
 library(animation)
 library(RColorBrewer)
 library(mclust)
+library(maps)
 #library(Cairo)
 #options(shiny.usecairo=TRUE) 
 

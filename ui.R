@@ -13,9 +13,9 @@ dashboardPage(skin="yellow",
       menuItem("Data Snapshot", tabName="snapshot", icon=icon("bar-chart")),
       menuItem("Time Series", tabName = "timeseries", icon = icon("calendar")),
       menuItem("Correlations", tabName = "ds", icon = icon("line-chart")),
-      menuItem("Map", tabName="map", icon=icon("map"), selected=TRUE),
+      menuItem("Animated Maps", tabName="map", icon=icon("map")),
       menuItem("Clustering", tabName="clust", icon=icon("object-group")),
-      menuItem("Chloropleth", tabName = "chloropleth", icon = icon("caret-square-o-right"))
+      menuItem("Choropleth Maps", tabName = "chloropleth", icon = icon("caret-square-o-right"))
     )
   ),
   
@@ -76,7 +76,7 @@ dashboardPage(skin="yellow",
     
       
                   box(title = "Correlation Plots",  width=9, status="warning", solidHeader=TRUE,
-                      plotOutput("cor", height=800, hover="hover_ds")
+                      plotOutput("cor", height=500, hover="hover_ds")
                       )
               )
 
@@ -111,14 +111,14 @@ dashboardPage(skin="yellow",
           
                  
                  
-          box(title="Clustering the States", width=9,
+          box(title="Clustering the States by Decade-Long Disease Incidence Profiles", width=9,
               plotOutput("clust", height=500)
               )
                  
           ),
   
   tabItem(tabName = "chloropleth", 
-          h1("Chloropleths"), 
+          h1("Choropleth Maps of State Disease Incidence Over Time"), 
 
           fluidRow(
             box(selectInput("disease_chlor", label = h3("Disease"), 
@@ -137,35 +137,41 @@ dashboardPage(skin="yellow",
 
 
    tabItem(tabName="home",
-        box(status = "warning", solidHeader = TRUE,
-           title=h1("Welcome to SPEW VIEW."),
-           p("SPEW VIEW is a tool for visualizing historical diseases in the United States including"),
-           p("1. Diphtheria"),
-           p("2. Hepatitis A"),
-           p("3. Measles"),
-           p("4. Mumps"),
-           p("5. Pertusis"),
-           p("6. Polio"),
-           p("7. Rubella"),
-           p("8. Smallpox."),
-           p("All data is from", a("Project Tycho", href="https://www.tycho.pitt.edu/", target="_blank"), 
-             ".")
+        fluidRow(
+            box(status = "warning", solidHeader = TRUE, width=12,
+           title=h2("Welcome to SPEW VIEW."),
+           p(strong("SPEW VIEW"), "is a tool for visualizing historical diseases in the United States.  All data is from", a("Project Tycho", href="https://www.tycho.pitt.edu/", target="_blank"), "."),
+           p("Navigate the tabs to the left to find downloadable data, animated maps, choropleth maps, clustering analysis, time series analysis, and interactive data visualizations."),
+           h3("Meet the Team"),
+           h3(a("Department of Statistics", href="http://www.stat.cmu.edu"), "Carnegie Mellon University"),
+               img(src="Shannon_Gallagher.JPG", align="left", width=200),
+               img(src="Lee_Richardson.JPG", align="left", width=200),
+               img(src="sam.jpg", align="left", width=200),
+               img(src="Bill_Eddy_Headshot.jpg", align="left", width=200)
+           )
            ),
-        box(status="warning", solidHeader=TRUE, title=h1("Features"),
-            h3("Time Series - Look at diseases over time"),
-            h3("Summary Data - Basic features of the data"),
-            h3("Interactive Map - Explore the US"),
-            h3("Animations - Smoothed data over time"),
-            h3("Table Viewer - Snapshot of the data")
-            )
-        ),
+           
+        fluidRow(
+#        box(width=12, status="warning",
+            box(width=12,
+           h4(a("Shannon Gallagher", href="http://www.stat.cmu.edu/~sgallagh"), "is second year PhD Student in Statistics at CMU"),
+           h4(a("Lee Richardson", href="http://www.stat.cmu.edu/~lrichard"), "is second year PhD Student in Statistics at CMU"),
+           h4(a("Sam Ventura", href="http://www.stat.cmu.edu/~sventura"), "is a Visting Assistant Professor of Statistics at CMU"),
+           h4(a("Bill Eddy", href="http://www.stat.cmu.edu/~bill"), "is the John C. Warner Professr of Statistics at CMU")
+           )
+           )
+        
+      #     )
+  ),
+           
+        
   
   tabItem(tabName = "snapshot", title= h3("Snapshot"),
           fluidPage(
 
                                         # Create a new Row in the UI for selectInputs
               fluidRow( box(width=12, title="Snapshot", solidHeader=TRUE, status="warning",
-                            p("Look at the data in row format.  Pick the disease, location, and date range."),
+                            p("Look at the data in row format.  Pick the disease, location(s), and date range."),
                   column(3,
                          selectInput("disease_snap",
                                      "Disease", choices = disease_names, selected="POLIO")

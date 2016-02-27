@@ -284,11 +284,11 @@ server <- function(input, output) {
     location_names <- colnames(current_disease)[3:(ncol(current_disease) - 1)]
     snap_locs <- as.list(location_names)
     if( input$disease_snap != "DIPHTHERIA"){
-        d_sel <- c("WASHINGTON", "CALIFORNIA", "COLORADO")
+        d_sel <- c("CALIFORNIA", "COLORADO", "MARYLAND", "NEW YORK", "PENNSYLVANIA", "TENNESSEE", "TEXAS", "VIRGINIA")
     } else {
         d_sel <- c("PITTSBURGH.PA", "PHILADELPHIA.PA", "SCRANTON.PA")
     }
-    selectInput("snap_locs", "Location", snap_locs, multiple = TRUE, selected = d_sel)
+    selectInput("snap_locs", "Location(s)", snap_locs, multiple = TRUE, selected = d_sel)
   })  
 
 
@@ -401,8 +401,8 @@ server <- function(input, output) {
         print(head(df))
         print(dim(df))
         mat <- data.matrix(df[,-c(1:2)])
-        title <- paste("State Disease Profile in", input$decade)
-        if (input$clust_method == "Dendrogram"){
+        title <- paste("Clustering State Disease Profiles in", input$decade)
+        if (input$clust_method == "Hierarchical"){
             hc <- hclust(dist(df[,-c(1:2)]))
             plot(hc, main=title , xlab="", y="State Dissimilarity", sub="")
             
@@ -417,7 +417,7 @@ server <- function(input, output) {
                  theme_minimal() + theme(legend.position="none") + 
                 ggtitle(title) 
             g
-        } else if ( input$clust_method == "Model-Based Clustering"){
+        } else if ( input$clust_method == "Model-Based"){
             mcl <- Mclust(mat)
             ids <- apply(mcl$z, 1, which.max)
             kmns_df <- data.frame(clust_df[,c("name", "Longitude", "Latitude", "AB")], id=ids)
