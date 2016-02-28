@@ -24,6 +24,8 @@ dashboardPage(skin="yellow",
       
     # Set up the style  sheet 
     tags$head(
+        tags$style(type="text/css", ".shiny-output-error { visibility: hidden; }", 
+                             ".shiny-output-error:before { visibility: hidden; }" ),
         tags$link(rel = "stylesheet", type="text/css", href = "custom.css")
         ),
     
