@@ -104,7 +104,7 @@ dashboardPage(skin="yellow",
   #clustering
   tabItem(tabName = "clust",
           box(title="State Profiles", width=3, status="warning", solidHeader=TRUE,
-              selectInput("clust_method", label= h4("Clustering Method"), choices = c("Dendrogram", "k-means", "Model-Based Clustering"), selected="k-means"),
+              selectInput("clust_method", label= h4("Clustering Method"), choices = c("Hierarchical", "k-means", "Model-Based"), selected="k-means"),
               selectInput("decade", label = h4("Decade"), choices = seq(1920, 2010, by=10)),
               sliderInput("nclust", label = h4("Number of Clusters (k-means, MB)"), min=2, max=10, value=4, step=1)
               ),
@@ -154,10 +154,10 @@ dashboardPage(skin="yellow",
         fluidRow(
 #        box(width=12, status="warning",
             box(width=12,
-           h4(a("Shannon Gallagher", href="http://www.stat.cmu.edu/~sgallagh"), "is second year PhD Student in Statistics at CMU"),
-           h4(a("Lee Richardson", href="http://www.stat.cmu.edu/~lrichard"), "is second year PhD Student in Statistics at CMU"),
+           h4(a("Shannon Gallagher", href="http://www.stat.cmu.edu/~sgallagh"), "is a second year PhD Student in Statistics at CMU"),
+           h4(a("Lee Richardson", href="http://www.stat.cmu.edu/~lrichard"), "is a second year PhD Student in Statistics at CMU"),
            h4(a("Sam Ventura", href="http://www.stat.cmu.edu/~sventura"), "is a Visting Assistant Professor of Statistics at CMU"),
-           h4(a("Bill Eddy", href="http://www.stat.cmu.edu/~bill"), "is the John C. Warner Professr of Statistics at CMU")
+           h4(a("Bill Eddy", href="http://www.stat.cmu.edu/~bill"), "is the John C. Warner Professor of Statistics at CMU")
            )
            )
         
