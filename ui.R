@@ -10,12 +10,12 @@ dashboardPage(skin="yellow",
   dashboardSidebar(
     sidebarMenu(
       menuItem("Home", tabName = "home", icon = icon("dashboard")),
-      menuItem("Data Snapshot", tabName="snapshot", icon=icon("bar-chart")),
+      menuItem("Animated Maps", tabName="map", icon=icon("map")),
       menuItem("Time Series", tabName = "timeseries", icon = icon("calendar")),
       menuItem("Correlations", tabName = "ds", icon = icon("line-chart")),
-      menuItem("Animated Maps", tabName="map", icon=icon("map")),
       menuItem("Clustering", tabName="clust", icon=icon("object-group")),
-      menuItem("Choropleth Maps", tabName = "chloropleth", icon = icon("caret-square-o-right"))
+      menuItem("Choropleth Maps", tabName = "chloropleth", icon = icon("caret-square-o-right")),
+       menuItem("Data Snapshot", tabName="snapshot", icon=icon("bar-chart"))
     )
   ),
   
@@ -85,23 +85,24 @@ dashboardPage(skin="yellow",
     ),
     
   # Time series Tab -----------------    
-  tabItem(tabName = "timeseries",
-    h1("Time Series Tab"), 
-    fluidRow(
-      box(
-        selectInput("disease", label = h3("Disease"), 
-                    choices = disease_names, selected="SMALLPOX"),
-        uiOutput("avail_locs"), 
-        uiOutput("avail_years"),  
-        width = 3
-      ), 
-      box(
-        textOutput("text1"), 
-        plotOutput("disease_ts", height = 450), 
-        width = 8 
-        )
-      )
-    ),
+                                              tabItem(tabName = "timeseries",
+                                                      h1("Time Series Tab"), 
+                                                      fluidRow(
+                                                        box(
+                                                          selectInput("disease", label = h3("Disease"), 
+                                                                      choices = disease_names, selected="SMALLPOX"),
+                                                          uiOutput("avail_locs"), 
+                                                          uiOutput("avail_years"),  
+                                                          width = 3, 
+                                                          h4("Time Series Explanation: "), 
+                                                          p("This view allows users to compare the time series of the eight diseases across time and location. Specifically, choose one of the eight diseases, then select any number of locations to view their time series. Finally, you can specify a time period in which to compare the incidence counts as well. We hope that this provides an easy way to view and compare disease trends over time")
+                                                        ), 
+                                                        box(
+                                                          plotOutput("disease_ts", height = 650), 
+                                                          width = 8 
+                                                        )
+                                                      )
+                                              ), 
 
   #clustering
   tabItem(tabName = "clust",
@@ -120,22 +121,24 @@ dashboardPage(skin="yellow",
           ),
   
   tabItem(tabName = "chloropleth", 
-          h1("Choropleth Maps of State Disease Incidence Over Time"), 
-
-          fluidRow(
-            box(selectInput("disease_chlor", label = h3("Disease"), 
-                  choices = disease_names_nodip), 
-                uiOutput("avail_years_chlor"), 
-                h3("Download Animation Below"),
-                downloadButton("testgif"), 
-                width = 3
-              ), 
-            box(
-              plotOutput("chloropleth", height = 400), 
-              width = 8 
-              )
-            )
-          ),
+                                                      h1("Movie Tab"), 
+                                                      
+                                                      fluidRow(
+                                                        box(selectInput("disease_chlor", label = h3("Disease"), 
+                                                                        choices = disease_names_nodip), 
+                                                            uiOutput("avail_years_chlor"), 
+                                                            h3("Download animation: "),
+                                                            downloadButton("testgif"), 
+                                                            width = 3, 
+                                                            h4("Choropleth explanation: "), 
+                                                            p("This tab allows you to create custom choropleth maps for any disease during any time period. You can also download the .gif animation file, which will display an evolution of a disease, by time over all of the years with data")
+                                                        ), 
+                                                        box(
+                                                          plotOutput("chloropleth", height = 650), 
+                                                          width = 8 
+                                                        )
+                                                      )
+                                              ),
 
 
    tabItem(tabName="home",

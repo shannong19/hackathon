@@ -86,8 +86,14 @@ server <- function(input, output) {
     disease_index <- which(names(x = diseases) == input$disease)
     current_disease <- diseases[[disease_index]]    
     location_names <- colnames(current_disease)[3:(ncol(current_disease) - 1)]
-    avail_locs <- as.list(location_names)
-    selectInput("avail_locs", h3("Location"), avail_locs)
+    
+    cor_locs<- location_names
+    if (input$diseaseds != "DIPHTHERIA") {
+      d_sel <- c("PENNSYLVANIA", "MARYLAND", "NEW.YORK")
+    } else {
+      d_sel <- c("PITTSBURGH.PA", "CLEVELAND.OH")
+    }
+    selectInput("avail_locs", "Location", cor_locs, multiple = TRUE, selected = d_sel)
   })  
     
   output$avail_years <- renderUI({
@@ -106,23 +112,44 @@ server <- function(input, output) {
     paste0("You have selected Location: ", input$avail_locs, " Disease: ", input$disease)
   })
   
-  output$disease_ts <- renderPlot({
+ output$disease_ts <- renderPlot({
     # Subset the disease and obtain the location and 
-    # time indices 
+    # time indices     
     disease_index <- which(names(x = diseases) == input$disease)
     current_disease <- diseases[[disease_index]]
-    location_index <- which(colnames(current_disease) == input$avail_locs)
+    location_index <- which(colnames(current_disease) %in% input$avail_locs)
+    
+    avail <- current_disease[, location_index]
+    avail <- unlist(lapply(avail, as.numeric) )
+    max_avail <- max(avail, na.rm = TRUE)
+    min_avail <- min(avail, na.rm = TRUE)
     
     start_time <- input$avail_years[1] - 5
     end_time <- input$avail_years[2] + 5
     title <- paste0(input$disease, " In ", input$avail_locs)
     
-    plot(current_disease$date, as.numeric(current_disease[, location_index]), 
+    print(location_index)
+    print(location_index[1])
+    
+    cols <- sample(x = rainbow(500), size = 55, replace = FALSE)
+    
+    plot(current_disease$date, as.numeric(current_disease[, location_index[1]]), 
          xlab = "Time", ylab = "Count per 100,000", 
-         xlim = c(start_time, end_time), col="gold")
+         xlim = c(start_time, end_time), ylim = c(min_avail, max_avail), col = cols[1], 
+         pch = 16, type = "l")
+    
+    # If more than one location selected, loop through and 
+    # plot the points 
+    if (length(location_index) > 1) {
+      for (loc in 2:length(location_index)) {
+        lines(current_disease$date, as.numeric(current_disease[, location_index[loc]]), 
+               col = cols[loc])
+      }
+    }
+    legend("topright", input$avail_locs, col = cols[1:length(input$avail_locs)], pch = 16)
   })
   
-  # Chloropleth ----------------------------------------------
+ # Chloropleth ----------------------------------------------
   output$avail_years_chlor <- renderUI({
     disease_index <- which(names(x = diseases) == input$disease_chlor)  
     current_disease <- diseases[[disease_index]]
